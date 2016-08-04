@@ -10,7 +10,7 @@ using Extensions;
 
 namespace WalmartAPI
 {
-    class Class1
+    class getOrders
     {
         void requestOrders()
         {

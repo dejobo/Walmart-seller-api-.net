@@ -4,14 +4,31 @@ using System.Linq;
 using System.Net;
 using Extensions;
 
+
 namespace WalmartAPI
 {
     class wmRequest
     {
         private string _consumerId { get; set; }
         private string correlationId { get; set; }
+        public WebRequest request { get; private set; }
 
-        public WebHeaderCollection getHeaders()
+
+        public wmRequest()
+        {
+
+        }
+        public wmRequest(string url)
+        {
+            Log.Logger = new LoggerConfiguration();
+
+            Log.Verbose("Starting wmRequest with {url}", url);
+            request = new WebRequest(url);
+            request.Headers = getHeaders();
+            
+        }
+
+        private WebHeaderCollection getHeaders()
         {
             var auth = new Authentication();
 

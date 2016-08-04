@@ -18,6 +18,7 @@ namespace WalmartAPI
         public string timeStemp { get; set; }
         public string signature { get; set; }
         public string channelType { get; set; }
+        public string correlationId { get; set; }
 
 
         public void signData()
