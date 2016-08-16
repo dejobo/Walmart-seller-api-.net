@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using Extensions;
 
-namespace WalmartAPI
+namespace WalmartAPI.Classes
 {
     class getOrders
     {

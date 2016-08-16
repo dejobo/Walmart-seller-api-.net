@@ -1,7 +1,7 @@
-﻿namespace WalmartAPI
+﻿namespace WalmartAPI.Classes
 {
     public interface IWMRequest
     {
-        wmRequest wmRequest { get; set; }
+        WalmartAPI.Classes.wmRequest wmRequest { get; set; }
     }
 }

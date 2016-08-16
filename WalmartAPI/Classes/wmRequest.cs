@@ -8,22 +8,23 @@ using System.IO;
 using System.Xml;
 using System.Diagnostics;
 using System.Xml.Serialization;
+using Serilog.Core;
 
-namespace WalmartAPI
+namespace WalmartAPI.Classes
 {
     public class wmRequest
     {
         private string _consumerId { get; set; }
-        private string correlationId { get; set; }
+        private string _correlationId { get; set; }
         public HttpWebRequest request { get; private set; }
-        private Authentication _authentication { get; set; }
+        private WalmartAPI.Classes.Authentication _authentication { get; set; }
 
         /// <summary>
         /// Creates a walmart api request with the required headers.
         /// </summary>
         /// <param name="url"></param>
         /// <param name="authentication"></param>
-        public wmRequest(string url,Authentication authentication) //: this(url)
+        public wmRequest(string url,WalmartAPI.Classes.Authentication authentication) //: this(url)
         {
             _authentication = authentication;
 
@@ -52,41 +53,55 @@ namespace WalmartAPI
 
         public T getWMresponse<T>()
         {
-            //var requestStream = request.GetRequestStream();
-            using (var response = request.GetResponse().GetResponseStream())
+            try
             {
+                Log.Debug("Getting WM response for type {type}", typeof(T).MemberType.ToString());
+                using (var response = request.GetResponse().GetResponseStream())
+                {
 
-                var xmlDesrializer = new XmlSerializer(typeof(T));
-                var resObj = xmlDesrializer.Deserialize(response);
+                    var xmlDesrializer = new XmlSerializer(typeof(T));
+                    var resObj = xmlDesrializer.Deserialize(response);
 
-                return (T)resObj;
+                    return (T)resObj;
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.LogWithSerilog();
+                throw;
             }
         }
         private void getHeaders()
         {
-            if (_authentication == null)
-                _authentication = new Authentication();
-            _authentication.baseUrl = request.RequestUri.AbsoluteUri;
-            correlationId = Guid.NewGuid().ToString().Substring(0, 5);
-            //sign data...........
-            _authentication.signData();
-            Debug.WriteLine("WM_SEC.AUTH_SIGNATURE:{0}", _authentication.signature);
-            Debug.WriteLine("WM_SEC.TIMESTAMP:{0}", _authentication.timeStemp);
+            try
+            {
+                if (_authentication == null)
+                    _authentication = new WalmartAPI.Classes.Authentication();
+                _authentication.baseUrl = request.RequestUri.AbsoluteUri;
+                _correlationId = Guid.NewGuid().ToString().Substring(0, 5);
+                //sign data...........
+                _authentication.signData();
+                Debug.WriteLine("WM_SEC.AUTH_SIGNATURE:{0}", _authentication.signature);
+                Debug.WriteLine("WM_SEC.TIMESTAMP:{0}", _authentication.timeStamp);
 
 
-            request.Accept = "application/xml";
-            //request.Host = "https://marketplace.walmartapis.com";
-            request.Headers.Add("WM_SVC.NAME:Walmart Marketplace");
-            request.Headers.Add("WM_SEC.AUTH_SIGNATURE:{0}".FormatWith(_authentication.signature));
-            request.Headers.Add("WM_CONSUMER.ID:{0}".FormatWith(_authentication.consumerId));
-            request.Headers.Add("WM_SEC.TIMESTAMP:{0}".FormatWith(_authentication.timeStemp));
-            request.Headers.Add("WM_QOS.CORRELATION_ID:{0}".FormatWith(correlationId));
-            //request.Headers.Add(HttpRequestHeader.Host, "https://marketplace.walmartapis.com");
+                request.Accept = "application/xml";
+                //request.Host = "https://marketplace.walmartapis.com";
+                request.Headers.Add("WM_SVC.NAME:Walmart Marketplace");
+                request.Headers.Add("WM_SEC.AUTH_SIGNATURE:{0}".FormatWith(_authentication.signature));
+                request.Headers.Add("WM_CONSUMER.ID:{0}".FormatWith(_authentication.consumerId));
+                request.Headers.Add("WM_SEC.TIMESTAMP:{0}".FormatWith(_authentication.timeStamp));
+                request.Headers.Add("WM_QOS.CORRELATION_ID:{0}".FormatWith(_correlationId));
 
 
-            if (!_authentication.channelType.IsNullOrEmpty())
-                request.Headers.Add("WM_CONSUMER.CHANNEL.TYPE:{0}".FormatWith(_authentication.channelType));
-
+                if (!_authentication.channelType.IsNullOrEmpty())
+                    request.Headers.Add("WM_CONSUMER.CHANNEL.TYPE:{0}".FormatWith(_authentication.channelType));
+            }
+            catch(Exception ex)
+            {
+                ex.LogWithSerilog();
+                throw;
+            }
         }
     }
 }

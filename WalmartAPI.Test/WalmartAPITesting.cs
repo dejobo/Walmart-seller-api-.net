@@ -7,6 +7,7 @@ using Xunit;
 using WalmartAPI;
 using System.IO;
 using System.Xml.Serialization;
+using WalmartAPI.Classes;
 
 namespace WalmartAPI.Test
 {
@@ -29,13 +30,13 @@ namespace WalmartAPI.Test
                 key = stream.ReadToEnd();
             }
 
-            var auth = new Authentication()
+            var auth = new WalmartAPI.Classes.Authentication()
             {
                 consumerId = "bfcfcaac-433d-42b1-adee-3e8e81486cd0",
                 privateKey =key,
                 httpRequestMethod="GET"
             };
-            var x = new wmRequest(@"https://marketplace.walmartapis.com/v2/feeds", auth);
+            var x = new WalmartAPI.Classes.wmRequest(@"https://marketplace.walmartapis.com/v2/feeds", auth);
             var sut = x.getWMresponse<feedRecordResponse>();
 
             Assert.IsType(typeof(feedRecordResponse), sut);

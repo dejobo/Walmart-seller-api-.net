@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace WalmartAPI
+namespace WalmartAPI.Classes
 {
-    public class FeedsRequest : IWMRequest
+    public class FeedsRequest : WalmartAPI.Classes.IWMRequest
     {
-        public wmRequest wmRequest { get; set; }
+        public WalmartAPI.Classes.wmRequest wmRequest { get; set; }
 
         public void getFeeds()
         {
