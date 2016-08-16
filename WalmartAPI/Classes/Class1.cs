@@ -20,12 +20,12 @@ namespace WalmartAPI
             var reqStream = request.GetRequestStream();
 
             var res = request.GetResponse();
-            ordersListType ordersResponse;
+            //ordersListType ordersResponse;
             using (var resStream = new StreamReader(res.GetResponseStream()))
             {
                 using (var xmlStream = new XmlTextReader(resStream))
                 {
-                    ordersResponse = xmlStream.ReadContentAs(typeof(ordersListType), null) as ordersListType;
+                    //ordersResponse = xmlStream.ReadContentAs(typeof(ordersListType), null) as ordersListType;
                 }
             }
         }

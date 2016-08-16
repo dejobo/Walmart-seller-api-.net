@@ -90,7 +90,7 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="price" type="Money" minOccurs="1">
+      <xsd:element name="price" type="Money" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
             item price
@@ -111,7 +111,7 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="shippingWeight" type="WeightMeasure" minOccurs="1">
+      <xsd:element name="shippingWeight" type="WeightMeasure" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
             shipping weight
