@@ -77,17 +77,19 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="FeedResponse.txt">
+    <Content Include="mock\FeedRecordResponse.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
-    <Content Include="FeedRecordResponse.txt">
+    <Content Include="mock\OrdersResponse.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="PrivateKey.cer">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <Content Include="XMLFile.txt">
+    <Content Include="mock\XMLFile.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

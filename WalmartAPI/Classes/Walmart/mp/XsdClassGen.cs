@@ -8,220 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WalmartAPI.Classes {
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://walmart.com/")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace="http://walmart.com/", IsNullable=true)]
-    public partial class recycledMaterialContentValue {
-        
-        private string recycledMaterialField;
-        
-        private decimal percentageOfRecycledMaterialField;
-        
-        private bool percentageOfRecycledMaterialFieldSpecified;
-        
-        /// <remarks/>
-        public string recycledMaterial {
-            get {
-                return this.recycledMaterialField;
-            }
-            set {
-                this.recycledMaterialField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal percentageOfRecycledMaterial {
-            get {
-                return this.percentageOfRecycledMaterialField;
-            }
-            set {
-                this.percentageOfRecycledMaterialField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool percentageOfRecycledMaterialSpecified {
-            get {
-                return this.percentageOfRecycledMaterialFieldSpecified;
-            }
-            set {
-                this.percentageOfRecycledMaterialFieldSpecified = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://walmart.com/")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace="http://walmart.com/", IsNullable=true)]
-    public partial class activeIngredient {
-        
-        private string activeIngredientNameField;
-        
-        private decimal activeIngredientPercentageField;
-        
-        private bool activeIngredientPercentageFieldSpecified;
-        
-        /// <remarks/>
-        public string activeIngredientName {
-            get {
-                return this.activeIngredientNameField;
-            }
-            set {
-                this.activeIngredientNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal activeIngredientPercentage {
-            get {
-                return this.activeIngredientPercentageField;
-            }
-            set {
-                this.activeIngredientPercentageField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool activeIngredientPercentageSpecified {
-            get {
-                return this.activeIngredientPercentageFieldSpecified;
-            }
-            set {
-                this.activeIngredientPercentageFieldSpecified = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://walmart.com/")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace="http://walmart.com/", IsNullable=true)]
-    public partial class fabricContentValue {
-        
-        private string materialNameField;
-        
-        private decimal materialPercentageField;
-        
-        private bool materialPercentageFieldSpecified;
-        
-        /// <remarks/>
-        public string materialName {
-            get {
-                return this.materialNameField;
-            }
-            set {
-                this.materialNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal materialPercentage {
-            get {
-                return this.materialPercentageField;
-            }
-            set {
-                this.materialPercentageField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool materialPercentageSpecified {
-            get {
-                return this.materialPercentageFieldSpecified;
-            }
-            set {
-                this.materialPercentageFieldSpecified = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://walmart.com/")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace="http://walmart.com/", IsNullable=true)]
-    public partial class nutrient {
-        
-        private string nutrientNameField;
-        
-        private decimal nutrientAmountField;
-        
-        private bool nutrientAmountFieldSpecified;
-        
-        private decimal nutrientPercentageDailyValueField;
-        
-        private bool nutrientPercentageDailyValueFieldSpecified;
-        
-        /// <remarks/>
-        public string nutrientName {
-            get {
-                return this.nutrientNameField;
-            }
-            set {
-                this.nutrientNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal nutrientAmount {
-            get {
-                return this.nutrientAmountField;
-            }
-            set {
-                this.nutrientAmountField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool nutrientAmountSpecified {
-            get {
-                return this.nutrientAmountFieldSpecified;
-            }
-            set {
-                this.nutrientAmountFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal nutrientPercentageDailyValue {
-            get {
-                return this.nutrientPercentageDailyValueField;
-            }
-            set {
-                this.nutrientPercentageDailyValueField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool nutrientPercentageDailyValueSpecified {
-            get {
-                return this.nutrientPercentageDailyValueFieldSpecified;
-            }
-            set {
-                this.nutrientPercentageDailyValueFieldSpecified = value;
-            }
-        }
-    }
+namespace WalmartAPI.Classes.Walmart.mp
+{
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
@@ -1076,224 +864,6 @@ namespace WalmartAPI.Classes {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
     [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://walmart.com/")]
-    [System.Xml.Serialization.XmlRootAttribute("Header", Namespace="http://walmart.com/", IsNullable=false)]
-    public partial class FeedHeader {
-        
-        private FeedHeaderVersion versionField;
-        
-        private string partnerIdField;
-        
-        private string sellerIdField;
-        
-        private FeedHeaderTenant tenantField;
-        
-        private string localeField;
-        
-        private System.DateTime feedDateField;
-        
-        private bool feedDateFieldSpecified;
-        
-        private FeedHeaderFeedType feedTypeField;
-        
-        private string batchIdField;
-        
-        private string transactionIdField;
-        
-        private string fileNameField;
-        
-        private string dataSourceField;
-        
-        private string requestSourceField;
-        
-        private string responseCallbackUrlField;
-        
-        public FeedHeader() {
-            this.versionField = FeedHeaderVersion.Item21;
-            this.localeField = "en_US";
-        }
-        
-        /// <remarks/>
-        public FeedHeaderVersion version {
-            get {
-                return this.versionField;
-            }
-            set {
-                this.versionField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string partnerId {
-            get {
-                return this.partnerIdField;
-            }
-            set {
-                this.partnerIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="integer")]
-        public string sellerId {
-            get {
-                return this.sellerIdField;
-            }
-            set {
-                this.sellerIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public FeedHeaderTenant tenant {
-            get {
-                return this.tenantField;
-            }
-            set {
-                this.tenantField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.ComponentModel.DefaultValueAttribute("en_US")]
-        public string locale {
-            get {
-                return this.localeField;
-            }
-            set {
-                this.localeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public System.DateTime feedDate {
-            get {
-                return this.feedDateField;
-            }
-            set {
-                this.feedDateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool feedDateSpecified {
-            get {
-                return this.feedDateFieldSpecified;
-            }
-            set {
-                this.feedDateFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public FeedHeaderFeedType feedType {
-            get {
-                return this.feedTypeField;
-            }
-            set {
-                this.feedTypeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string batchId {
-            get {
-                return this.batchIdField;
-            }
-            set {
-                this.batchIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string transactionId {
-            get {
-                return this.transactionIdField;
-            }
-            set {
-                this.transactionIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string fileName {
-            get {
-                return this.fileNameField;
-            }
-            set {
-                this.fileNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string dataSource {
-            get {
-                return this.dataSourceField;
-            }
-            set {
-                this.dataSourceField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string requestSource {
-            get {
-                return this.requestSourceField;
-            }
-            set {
-                this.requestSourceField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="anyURI")]
-        public string responseCallbackUrl {
-            get {
-                return this.responseCallbackUrlField;
-            }
-            set {
-                this.responseCallbackUrlField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://walmart.com/")]
-    public enum FeedHeaderVersion {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("2.1")]
-        Item21,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("1.4.1")]
-        Item141,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("1.4")]
-        Item14,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("1.3.2")]
-        Item132,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("1.3.1")]
-        Item131,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("1.3")]
-        Item13,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-    [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://walmart.com/")]
     public enum FeedHeaderTenant {
         
@@ -1601,7 +1171,7 @@ namespace WalmartAPI.Classes {
         
         private string feedIdField;
         
-        private FeedHeader feedHeaderField;
+        private WalmartAPI.Classes.Walmart.mp.FeedHeader feedHeaderField;
         
         private FeedStatus feedStatusField;
         
@@ -1644,7 +1214,7 @@ namespace WalmartAPI.Classes {
         }
         
         /// <remarks/>
-        public FeedHeader FeedHeader {
+        public WalmartAPI.Classes.Walmart.mp.FeedHeader FeedHeader {
             get {
                 return this.feedHeaderField;
             }
@@ -41947,4109 +41517,1860 @@ namespace WalmartAPI
                 this.amountField = value;
             }
         }
+    }
 
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
+    public partial class ItemIngestionStatus
+    {
+
+        private string productIdField1;
+
+        private string abstractProductIdField1;
+
+        private int martIdField1;
+
+        private bool martIdField1Specified;
+
+        private string skuField1;
+
+        private string legacyItemIdField1;
+
+        private int indexField1;
+
+        private bool indexField1Specified;
+
+        private string offerIdField1;
+
+        private ItemStatus ingestionStatusField1;
+
+        private IngestionError[] ingestionErrorsField1;
 
         /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
-        public partial class ItemIngestionStatus
+        public string productId
         {
-
-            private string productIdField1;
-
-            private string abstractProductIdField1;
-
-            private int martIdField1;
-
-            private bool martIdField1Specified;
-
-            private string skuField1;
-
-            private string legacyItemIdField1;
-
-            private int indexField1;
-
-            private bool indexField1Specified;
-
-            private string offerIdField1;
-
-            private ItemStatus ingestionStatusField1;
-
-            private IngestionError[] ingestionErrorsField1;
-
-            /// <remarks/>
-            public string productId
+            get
             {
-                get
-                {
-                    return this.productIdField1;
-                }
-                set
-                {
-                    this.productIdField1 = value;
-                }
+                return this.productIdField1;
             }
-
-            /// <remarks/>
-            public string abstractProductId
+            set
             {
-                get
-                {
-                    return this.abstractProductIdField1;
-                }
-                set
-                {
-                    this.abstractProductIdField1 = value;
-                }
-            }
-
-            /// <remarks/>
-            public int martId
-            {
-                get
-                {
-                    return this.martIdField1;
-                }
-                set
-                {
-                    this.martIdField1 = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlIgnoreAttribute()]
-            public bool martIdSpecified
-            {
-                get
-                {
-                    return this.martIdField1Specified;
-                }
-                set
-                {
-                    this.martIdField1Specified = value;
-                }
-            }
-
-            /// <remarks/>
-            public string sku
-            {
-                get
-                {
-                    return this.skuField1;
-                }
-                set
-                {
-                    this.skuField1 = value;
-                }
-            }
-
-            /// <remarks/>
-            public string legacyItemId
-            {
-                get
-                {
-                    return this.legacyItemIdField1;
-                }
-                set
-                {
-                    this.legacyItemIdField1 = value;
-                }
-            }
-
-            /// <remarks/>
-            public int index
-            {
-                get
-                {
-                    return this.indexField1;
-                }
-                set
-                {
-                    this.indexField1 = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlIgnoreAttribute()]
-            public bool indexSpecified
-            {
-                get
-                {
-                    return this.indexField1Specified;
-                }
-                set
-                {
-                    this.indexField1Specified = value;
-                }
-            }
-
-            /// <remarks/>
-            public string offerId
-            {
-                get
-                {
-                    return this.offerIdField1;
-                }
-                set
-                {
-                    this.offerIdField1 = value;
-                }
-            }
-
-            /// <remarks/>
-            public ItemStatus ingestionStatus
-            {
-                get
-                {
-                    return this.ingestionStatusField1;
-                }
-                set
-                {
-                    this.ingestionStatusField1 = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlArrayItemAttribute("ingestionError", IsNullable = false)]
-            public IngestionError[] ingestionErrors
-            {
-                get
-                {
-                    return this.ingestionErrorsField1;
-                }
-                set
-                {
-                    this.ingestionErrorsField1 = value;
-                }
+                this.productIdField1 = value;
             }
         }
 
         /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
-        public enum ItemStatus
+        public string abstractProductId
         {
-
-            /// <remarks/>
-            INPROGRESS,
-
-            /// <remarks/>
-            SUCCESS,
-
-            /// <remarks/>
-            DATA_ERROR,
-
-            /// <remarks/>
-            SYSTEM_ERROR,
-
-            /// <remarks/>
-            TIMEOUT_ERROR,
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
-        public partial class IngestionError
-        {
-
-            private ErrorType typeField1;
-
-            private string codeField1;
-
-            private string descriptionField1;
-
-            /// <remarks/>
-            public ErrorType type
+            get
             {
-                get
-                {
-                    return this.typeField1;
-                }
-                set
-                {
-                    this.typeField1 = value;
-                }
+                return this.abstractProductIdField1;
             }
-
-            /// <remarks/>
-            public string code
+            set
             {
-                get
-                {
-                    return this.codeField1;
-                }
-                set
-                {
-                    this.codeField1 = value;
-                }
-            }
-
-            /// <remarks/>
-            public string description
-            {
-                get
-                {
-                    return this.descriptionField1;
-                }
-                set
-                {
-                    this.descriptionField1 = value;
-                }
+                this.abstractProductIdField1 = value;
             }
         }
 
         /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
-        public enum ErrorType
+        public int martId
         {
-
-            /// <remarks/>
-            DATA_ERROR,
-
-            /// <remarks/>
-            SYSTEM_ERROR,
-
-            /// <remarks/>
-            TIMEOUT_ERROR,
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
-        public partial class additionalAssetAttribute
-        {
-
-            private string attributeNameField1;
-
-            private string attributeValueField1;
-
-            /// <remarks/>
-            public string attributeName
+            get
             {
-                get
-                {
-                    return this.attributeNameField1;
-                }
-                set
-                {
-                    this.attributeNameField1 = value;
-                }
+                return this.martIdField1;
             }
-
-            /// <remarks/>
-            public string attributeValue
+            set
             {
-                get
-                {
-                    return this.attributeValueField1;
-                }
-                set
-                {
-                    this.attributeValueField1 = value;
-                }
+                this.martIdField1 = value;
             }
         }
 
         /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
-        public partial class additionalAsset
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool martIdSpecified
         {
-
-            private string altTextField1;
-
-            private string assetUrlField1;
-
-            private string assetTypeField1;
-
-            private additionalAssetAttribute[] additionalAssetAttributesField1;
-
-            /// <remarks/>
-            public string altText
+            get
             {
-                get
-                {
-                    return this.altTextField1;
-                }
-                set
-                {
-                    this.altTextField1 = value;
-                }
+                return this.martIdField1Specified;
             }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute(DataType = "anyURI")]
-            public string assetUrl
+            set
             {
-                get
-                {
-                    return this.assetUrlField1;
-                }
-                set
-                {
-                    this.assetUrlField1 = value;
-                }
-            }
-
-            /// <remarks/>
-            public string assetType
-            {
-                get
-                {
-                    return this.assetTypeField1;
-                }
-                set
-                {
-                    this.assetTypeField1 = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable = false)]
-            public additionalAssetAttribute[] additionalAssetAttributes
-            {
-                get
-                {
-                    return this.additionalAssetAttributesField1;
-                }
-                set
-                {
-                    this.additionalAssetAttributesField1 = value;
-                }
+                this.martIdField1Specified = value;
             }
         }
 
         /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
-        public partial class productIdentifier
+        public string sku
         {
-
-            private productIdentifierProductIdType productIdTypeField1;
-
-            private string productIdField1;
-
-            /// <remarks/>
-            public productIdentifierProductIdType productIdType
+            get
             {
-                get
-                {
-                    return this.productIdTypeField1;
-                }
-                set
-                {
-                    this.productIdTypeField1 = value;
-                }
+                return this.skuField1;
             }
-
-            /// <remarks/>
-            public string productId
+            set
             {
-                get
-                {
-                    return this.productIdField1;
-                }
-                set
-                {
-                    this.productIdField1 = value;
-                }
+                this.skuField1 = value;
             }
         }
 
         /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://walmart.com/")]
-        public enum productIdentifierProductIdType
+        public string legacyItemId
         {
-
-            /// <remarks/>
-            UPC,
-
-            /// <remarks/>
-            GTIN,
-
-            /// <remarks/>
-            EAN,
-
-            /// <remarks/>
-            ISSN,
-
-            /// <remarks/>
-            ISBN,
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
-        public partial class certificationsAndClaim
-        {
-
-            private string certificationAndClaimTypeField1;
-
-            private string certifyingAgentField1;
-
-            /// <remarks/>
-            public string certificationAndClaimType
+            get
             {
-                get
-                {
-                    return this.certificationAndClaimTypeField1;
-                }
-                set
-                {
-                    this.certificationAndClaimTypeField1 = value;
-                }
+                return this.legacyItemIdField1;
             }
-
-            /// <remarks/>
-            public string certifyingAgent
+            set
             {
-                get
-                {
-                    return this.certifyingAgentField1;
-                }
-                set
-                {
-                    this.certifyingAgentField1 = value;
-                }
+                this.legacyItemIdField1 = value;
             }
         }
 
         /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
-        public partial class batteryTypeAndQuantityValue
+        public int index
         {
-
-            private batteryTypeAndQuantityValueBatteryTechnologyType batteryTechnologyTypeField1;
-
-            private bool batteryTechnologyTypeField1Specified;
-
-            private string numberOfBatteriesField1;
-
-            /// <remarks/>
-            public batteryTypeAndQuantityValueBatteryTechnologyType batteryTechnologyType
+            get
             {
-                get
-                {
-                    return this.batteryTechnologyTypeField1;
-                }
-                set
-                {
-                    this.batteryTechnologyTypeField1 = value;
-                }
+                return this.indexField1;
             }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlIgnoreAttribute()]
-            public bool batteryTechnologyTypeSpecified
+            set
             {
-                get
-                {
-                    return this.batteryTechnologyTypeField1Specified;
-                }
-                set
-                {
-                    this.batteryTechnologyTypeField1Specified = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute(DataType = "integer")]
-            public string numberOfBatteries
-            {
-                get
-                {
-                    return this.numberOfBatteriesField1;
-                }
-                set
-                {
-                    this.numberOfBatteriesField1 = value;
-                }
+                this.indexField1 = value;
             }
         }
 
         /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://walmart.com/")]
-        public enum batteryTypeAndQuantityValueBatteryTechnologyType
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool indexSpecified
         {
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlEnumAttribute("Lithium Ion")]
-            LithiumIon,
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlEnumAttribute("Nickel Metal Hydride")]
-            NickelMetalHydride,
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlEnumAttribute("Does Not Contain a Battery")]
-            DoesNotContainaBattery,
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlEnumAttribute("Lead Acid (Non-Spillable)")]
-            LeadAcidNonSpillable,
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlEnumAttribute("Lithium Primary")]
-            LithiumPrimary,
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlEnumAttribute("Multiple Types")]
-            MultipleTypes,
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlEnumAttribute("Carbon Zinc")]
-            CarbonZinc,
-
-            /// <remarks/>
-            Magnesium,
-
-            /// <remarks/>
-            Mercury,
-
-            /// <remarks/>
-            Thermal,
-
-            /// <remarks/>
-            Other,
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlEnumAttribute("Nickel Cadmium")]
-            NickelCadmium,
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlEnumAttribute("Lead Acid")]
-            LeadAcid,
-
-            /// <remarks/>
-            Silver,
-
-            /// <remarks/>
-            Alkaline,
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
-        public partial class additionalProductAttribute
-        {
-
-            private string productAttributeNameField1;
-
-            private string productAttributeValueField1;
-
-            /// <remarks/>
-            public string productAttributeName
+            get
             {
-                get
-                {
-                    return this.productAttributeNameField1;
-                }
-                set
-                {
-                    this.productAttributeNameField1 = value;
-                }
+                return this.indexField1Specified;
             }
-
-            /// <remarks/>
-            public string productAttributeValue
+            set
             {
-                get
-                {
-                    return this.productAttributeValueField1;
-                }
-                set
-                {
-                    this.productAttributeValueField1 = value;
-                }
+                this.indexField1Specified = value;
             }
         }
 
         /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
-        public partial class swatchImage
+        public string offerId
         {
-
-            private string swatchImageUrlField1;
-
-            private string swatchVariantAttributeField1;
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute(DataType = "anyURI")]
-            public string swatchImageUrl
+            get
             {
-                get
-                {
-                    return this.swatchImageUrlField1;
-                }
-                set
-                {
-                    this.swatchImageUrlField1 = value;
-                }
+                return this.offerIdField1;
             }
-
-            /// <remarks/>
-            public string swatchVariantAttribute
+            set
             {
-                get
-                {
-                    return this.swatchVariantAttributeField1;
-                }
-                set
-                {
-                    this.swatchVariantAttributeField1 = value;
-                }
+                this.offerIdField1 = value;
             }
         }
 
         /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
-        public partial class recycledMaterialContentValue
+        public ItemStatus ingestionStatus
         {
-
-            private string recycledMaterialField1;
-
-            private decimal percentageOfRecycledMaterialField1;
-
-            private bool percentageOfRecycledMaterialField1Specified;
-
-            /// <remarks/>
-            public string recycledMaterial
+            get
             {
-                get
-                {
-                    return this.recycledMaterialField1;
-                }
-                set
-                {
-                    this.recycledMaterialField1 = value;
-                }
+                return this.ingestionStatusField1;
             }
-
-            /// <remarks/>
-            public decimal percentageOfRecycledMaterial
+            set
             {
-                get
-                {
-                    return this.percentageOfRecycledMaterialField1;
-                }
-                set
-                {
-                    this.percentageOfRecycledMaterialField1 = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlIgnoreAttribute()]
-            public bool percentageOfRecycledMaterialSpecified
-            {
-                get
-                {
-                    return this.percentageOfRecycledMaterialField1Specified;
-                }
-                set
-                {
-                    this.percentageOfRecycledMaterialField1Specified = value;
-                }
+                this.ingestionStatusField1 = value;
             }
         }
 
         /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
-        public partial class activeIngredient
+        [System.Xml.Serialization.XmlArrayItemAttribute("ingestionError", IsNullable = false)]
+        public IngestionError[] ingestionErrors
         {
-
-            private string activeIngredientNameField1;
-
-            private decimal activeIngredientPercentageField1;
-
-            private bool activeIngredientPercentageField1Specified;
-
-            /// <remarks/>
-            public string activeIngredientName
+            get
             {
-                get
-                {
-                    return this.activeIngredientNameField1;
-                }
-                set
-                {
-                    this.activeIngredientNameField1 = value;
-                }
+                return this.ingestionErrorsField1;
             }
-
-            /// <remarks/>
-            public decimal activeIngredientPercentage
+            set
             {
-                get
-                {
-                    return this.activeIngredientPercentageField1;
-                }
-                set
-                {
-                    this.activeIngredientPercentageField1 = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlIgnoreAttribute()]
-            public bool activeIngredientPercentageSpecified
-            {
-                get
-                {
-                    return this.activeIngredientPercentageField1Specified;
-                }
-                set
-                {
-                    this.activeIngredientPercentageField1Specified = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
-        public partial class fabricContentValue
-        {
-
-            private string materialNameField1;
-
-            private decimal materialPercentageField1;
-
-            private bool materialPercentageField1Specified;
-
-            /// <remarks/>
-            public string materialName
-            {
-                get
-                {
-                    return this.materialNameField1;
-                }
-                set
-                {
-                    this.materialNameField1 = value;
-                }
-            }
-
-            /// <remarks/>
-            public decimal materialPercentage
-            {
-                get
-                {
-                    return this.materialPercentageField1;
-                }
-                set
-                {
-                    this.materialPercentageField1 = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlIgnoreAttribute()]
-            public bool materialPercentageSpecified
-            {
-                get
-                {
-                    return this.materialPercentageField1Specified;
-                }
-                set
-                {
-                    this.materialPercentageField1Specified = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
-        public partial class nutrient
-        {
-
-            private string nutrientNameField1;
-
-            private decimal nutrientAmountField1;
-
-            private bool nutrientAmountField1Specified;
-
-            private decimal nutrientPercentageDailyValueField1;
-
-            private bool nutrientPercentageDailyValueField1Specified;
-
-            /// <remarks/>
-            public string nutrientName
-            {
-                get
-                {
-                    return this.nutrientNameField1;
-                }
-                set
-                {
-                    this.nutrientNameField1 = value;
-                }
-            }
-
-            /// <remarks/>
-            public decimal nutrientAmount
-            {
-                get
-                {
-                    return this.nutrientAmountField1;
-                }
-                set
-                {
-                    this.nutrientAmountField1 = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlIgnoreAttribute()]
-            public bool nutrientAmountSpecified
-            {
-                get
-                {
-                    return this.nutrientAmountField1Specified;
-                }
-                set
-                {
-                    this.nutrientAmountField1Specified = value;
-                }
-            }
-
-            /// <remarks/>
-            public decimal nutrientPercentageDailyValue
-            {
-                get
-                {
-                    return this.nutrientPercentageDailyValueField1;
-                }
-                set
-                {
-                    this.nutrientPercentageDailyValueField1 = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlIgnoreAttribute()]
-            public bool nutrientPercentageDailyValueSpecified
-            {
-                get
-                {
-                    return this.nutrientPercentageDailyValueField1Specified;
-                }
-                set
-                {
-                    this.nutrientPercentageDailyValueField1Specified = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
-        public partial class inputsAndOutput
-        {
-
-            private string inputOutputTypeField1;
-
-            private string inputOutputQuantityField1;
-
-            /// <remarks/>
-            public string inputOutputType
-            {
-                get
-                {
-                    return this.inputOutputTypeField1;
-                }
-                set
-                {
-                    this.inputOutputTypeField1 = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute(DataType = "integer")]
-            public string inputOutputQuantity
-            {
-                get
-                {
-                    return this.inputOutputQuantityField1;
-                }
-                set
-                {
-                    this.inputOutputQuantityField1 = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
-        public partial class trackListing
-        {
-
-            private string trackNumberField1;
-
-            private string trackNameField1;
-
-            private decimal trackDurationField1;
-
-            private bool trackDurationField1Specified;
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute(DataType = "integer")]
-            public string trackNumber
-            {
-                get
-                {
-                    return this.trackNumberField1;
-                }
-                set
-                {
-                    this.trackNumberField1 = value;
-                }
-            }
-
-            /// <remarks/>
-            public string trackName
-            {
-                get
-                {
-                    return this.trackNameField1;
-                }
-                set
-                {
-                    this.trackNameField1 = value;
-                }
-            }
-
-            /// <remarks/>
-            public decimal trackDuration
-            {
-                get
-                {
-                    return this.trackDurationField1;
-                }
-                set
-                {
-                    this.trackDurationField1 = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlIgnoreAttribute()]
-            public bool trackDurationSpecified
-            {
-                get
-                {
-                    return this.trackDurationField1Specified;
-                }
-                set
-                {
-                    this.trackDurationField1Specified = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
-        public partial class MPItemView
-        {
-
-            private Mart martField1;
-
-            private bool martField1Specified;
-
-            private string skuField1;
-
-            private string wpidField1;
-
-            private string upcField1;
-
-            private string gtinField1;
-
-            private string productNameField1;
-
-            private string shelfField1;
-
-            private string productTypeField1;
-
-            private Money priceField1;
-
-            private ItemPublishStatus publishedStatusField1;
-
-            private bool publishedStatusField1Specified;
-
-            /// <remarks/>
-            public Mart mart
-            {
-                get
-                {
-                    return this.martField1;
-                }
-                set
-                {
-                    this.martField1 = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlIgnoreAttribute()]
-            public bool martSpecified
-            {
-                get
-                {
-                    return this.martField1Specified;
-                }
-                set
-                {
-                    this.martField1Specified = value;
-                }
-            }
-
-            /// <remarks/>
-            public string sku
-            {
-                get
-                {
-                    return this.skuField1;
-                }
-                set
-                {
-                    this.skuField1 = value;
-                }
-            }
-
-            /// <remarks/>
-            public string wpid
-            {
-                get
-                {
-                    return this.wpidField1;
-                }
-                set
-                {
-                    this.wpidField1 = value;
-                }
-            }
-
-            /// <remarks/>
-            public string upc
-            {
-                get
-                {
-                    return this.upcField1;
-                }
-                set
-                {
-                    this.upcField1 = value;
-                }
-            }
-
-            /// <remarks/>
-            public string gtin
-            {
-                get
-                {
-                    return this.gtinField1;
-                }
-                set
-                {
-                    this.gtinField1 = value;
-                }
-            }
-
-            /// <remarks/>
-            public string productName
-            {
-                get
-                {
-                    return this.productNameField1;
-                }
-                set
-                {
-                    this.productNameField1 = value;
-                }
-            }
-
-            /// <remarks/>
-            public string shelf
-            {
-                get
-                {
-                    return this.shelfField1;
-                }
-                set
-                {
-                    this.shelfField1 = value;
-                }
-            }
-
-            /// <remarks/>
-            public string productType
-            {
-                get
-                {
-                    return this.productTypeField1;
-                }
-                set
-                {
-                    this.productTypeField1 = value;
-                }
-            }
-
-            /// <remarks/>
-            public Money price
-            {
-                get
-                {
-                    return this.priceField1;
-                }
-                set
-                {
-                    this.priceField1 = value;
-                }
-            }
-
-            /// <remarks/>
-            public ItemPublishStatus publishedStatus
-            {
-                get
-                {
-                    return this.publishedStatusField1;
-                }
-                set
-                {
-                    this.publishedStatusField1 = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlIgnoreAttribute()]
-            public bool publishedStatusSpecified
-            {
-                get
-                {
-                    return this.publishedStatusField1Specified;
-                }
-                set
-                {
-                    this.publishedStatusField1Specified = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
-        public enum Mart
-        {
-
-            /// <remarks/>
-            WALMART_US,
-
-            /// <remarks/>
-            ASDA_GM,
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
-        public partial class Money
-        {
-
-            private CurrencyCode currencyField1;
-
-            private decimal amountField1;
-
-            /// <remarks/>
-            public CurrencyCode currency
-            {
-                get
-                {
-                    return this.currencyField1;
-                }
-                set
-                {
-                    this.currencyField1 = value;
-                }
-            }
-
-            /// <remarks/>
-            public decimal amount
-            {
-                get
-                {
-                    return this.amountField1;
-                }
-                set
-                {
-                    this.amountField1 = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
-        public enum CurrencyCode
-        {
-
-            /// <remarks/>
-            AED,
-
-            /// <remarks/>
-            AFN,
-
-            /// <remarks/>
-            ALL,
-
-            /// <remarks/>
-            AMD,
-
-            /// <remarks/>
-            ANG,
-
-            /// <remarks/>
-            AOA,
-
-            /// <remarks/>
-            ARS,
-
-            /// <remarks/>
-            AUD,
-
-            /// <remarks/>
-            AWG,
-
-            /// <remarks/>
-            AZN,
-
-            /// <remarks/>
-            BAM,
-
-            /// <remarks/>
-            BBD,
-
-            /// <remarks/>
-            BDT,
-
-            /// <remarks/>
-            BGN,
-
-            /// <remarks/>
-            BHD,
-
-            /// <remarks/>
-            BIF,
-
-            /// <remarks/>
-            BMD,
-
-            /// <remarks/>
-            BND,
-
-            /// <remarks/>
-            BOB,
-
-            /// <remarks/>
-            BRL,
-
-            /// <remarks/>
-            BSD,
-
-            /// <remarks/>
-            BTN,
-
-            /// <remarks/>
-            BWP,
-
-            /// <remarks/>
-            BYR,
-
-            /// <remarks/>
-            BZD,
-
-            /// <remarks/>
-            CAD,
-
-            /// <remarks/>
-            CDF,
-
-            /// <remarks/>
-            CHF,
-
-            /// <remarks/>
-            CLP,
-
-            /// <remarks/>
-            CNY,
-
-            /// <remarks/>
-            COP,
-
-            /// <remarks/>
-            CRC,
-
-            /// <remarks/>
-            CUP,
-
-            /// <remarks/>
-            CVE,
-
-            /// <remarks/>
-            CZK,
-
-            /// <remarks/>
-            DJF,
-
-            /// <remarks/>
-            DKK,
-
-            /// <remarks/>
-            DOP,
-
-            /// <remarks/>
-            DZD,
-
-            /// <remarks/>
-            EGP,
-
-            /// <remarks/>
-            ERN,
-
-            /// <remarks/>
-            ETB,
-
-            /// <remarks/>
-            EUR,
-
-            /// <remarks/>
-            FJD,
-
-            /// <remarks/>
-            FKP,
-
-            /// <remarks/>
-            GBP,
-
-            /// <remarks/>
-            GEL,
-
-            /// <remarks/>
-            GHS,
-
-            /// <remarks/>
-            GIP,
-
-            /// <remarks/>
-            GMD,
-
-            /// <remarks/>
-            GNF,
-
-            /// <remarks/>
-            GTQ,
-
-            /// <remarks/>
-            GYD,
-
-            /// <remarks/>
-            HKD,
-
-            /// <remarks/>
-            HNL,
-
-            /// <remarks/>
-            HRK,
-
-            /// <remarks/>
-            HTG,
-
-            /// <remarks/>
-            HUF,
-
-            /// <remarks/>
-            IDR,
-
-            /// <remarks/>
-            ILS,
-
-            /// <remarks/>
-            INR,
-
-            /// <remarks/>
-            IQD,
-
-            /// <remarks/>
-            IRR,
-
-            /// <remarks/>
-            ISK,
-
-            /// <remarks/>
-            JMD,
-
-            /// <remarks/>
-            JOD,
-
-            /// <remarks/>
-            JPY,
-
-            /// <remarks/>
-            KES,
-
-            /// <remarks/>
-            KGS,
-
-            /// <remarks/>
-            KHR,
-
-            /// <remarks/>
-            KMF,
-
-            /// <remarks/>
-            KPW,
-
-            /// <remarks/>
-            KRW,
-
-            /// <remarks/>
-            KWD,
-
-            /// <remarks/>
-            KYD,
-
-            /// <remarks/>
-            KZT,
-
-            /// <remarks/>
-            LAK,
-
-            /// <remarks/>
-            LBP,
-
-            /// <remarks/>
-            LKR,
-
-            /// <remarks/>
-            LRD,
-
-            /// <remarks/>
-            LSL,
-
-            /// <remarks/>
-            LTL,
-
-            /// <remarks/>
-            LVL,
-
-            /// <remarks/>
-            LYD,
-
-            /// <remarks/>
-            MAD,
-
-            /// <remarks/>
-            MDL,
-
-            /// <remarks/>
-            MGA,
-
-            /// <remarks/>
-            MKD,
-
-            /// <remarks/>
-            MMK,
-
-            /// <remarks/>
-            MNT,
-
-            /// <remarks/>
-            MOP,
-
-            /// <remarks/>
-            MRO,
-
-            /// <remarks/>
-            MUR,
-
-            /// <remarks/>
-            MVR,
-
-            /// <remarks/>
-            MWK,
-
-            /// <remarks/>
-            MXN,
-
-            /// <remarks/>
-            MYR,
-
-            /// <remarks/>
-            MZN,
-
-            /// <remarks/>
-            NAD,
-
-            /// <remarks/>
-            NGN,
-
-            /// <remarks/>
-            NIO,
-
-            /// <remarks/>
-            NOK,
-
-            /// <remarks/>
-            NPR,
-
-            /// <remarks/>
-            NZD,
-
-            /// <remarks/>
-            OMR,
-
-            /// <remarks/>
-            PAB,
-
-            /// <remarks/>
-            PEN,
-
-            /// <remarks/>
-            PGK,
-
-            /// <remarks/>
-            PHP,
-
-            /// <remarks/>
-            PKR,
-
-            /// <remarks/>
-            PLN,
-
-            /// <remarks/>
-            PYG,
-
-            /// <remarks/>
-            QAR,
-
-            /// <remarks/>
-            RON,
-
-            /// <remarks/>
-            RSD,
-
-            /// <remarks/>
-            RUB,
-
-            /// <remarks/>
-            RUR,
-
-            /// <remarks/>
-            RWF,
-
-            /// <remarks/>
-            SAR,
-
-            /// <remarks/>
-            SBD,
-
-            /// <remarks/>
-            SCR,
-
-            /// <remarks/>
-            SDG,
-
-            /// <remarks/>
-            SEK,
-
-            /// <remarks/>
-            SGD,
-
-            /// <remarks/>
-            SHP,
-
-            /// <remarks/>
-            SLL,
-
-            /// <remarks/>
-            SOS,
-
-            /// <remarks/>
-            SRD,
-
-            /// <remarks/>
-            STD,
-
-            /// <remarks/>
-            SYP,
-
-            /// <remarks/>
-            SZL,
-
-            /// <remarks/>
-            THB,
-
-            /// <remarks/>
-            TJS,
-
-            /// <remarks/>
-            TMT,
-
-            /// <remarks/>
-            TND,
-
-            /// <remarks/>
-            TOP,
-
-            /// <remarks/>
-            TRY,
-
-            /// <remarks/>
-            TTD,
-
-            /// <remarks/>
-            TWD,
-
-            /// <remarks/>
-            TZS,
-
-            /// <remarks/>
-            UAH,
-
-            /// <remarks/>
-            UGX,
-
-            /// <remarks/>
-            USD,
-
-            /// <remarks/>
-            UYU,
-
-            /// <remarks/>
-            UZS,
-
-            /// <remarks/>
-            VEF,
-
-            /// <remarks/>
-            VND,
-
-            /// <remarks/>
-            VUV,
-
-            /// <remarks/>
-            WST,
-
-            /// <remarks/>
-            XAF,
-
-            /// <remarks/>
-            XAG,
-
-            /// <remarks/>
-            XAU,
-
-            /// <remarks/>
-            XBA,
-
-            /// <remarks/>
-            XBB,
-
-            /// <remarks/>
-            XBC,
-
-            /// <remarks/>
-            XBD,
-
-            /// <remarks/>
-            XCD,
-
-            /// <remarks/>
-            XDR,
-
-            /// <remarks/>
-            XFU,
-
-            /// <remarks/>
-            XOF,
-
-            /// <remarks/>
-            XPD,
-
-            /// <remarks/>
-            XPF,
-
-            /// <remarks/>
-            XPT,
-
-            /// <remarks/>
-            XTS,
-
-            /// <remarks/>
-            XXX,
-
-            /// <remarks/>
-            YER,
-
-            /// <remarks/>
-            ZAR,
-
-            /// <remarks/>
-            ZMK,
-
-            /// <remarks/>
-            ZWL,
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
-        public enum ItemPublishStatus
-        {
-
-            /// <remarks/>
-            IN_PROGRESS,
-
-            /// <remarks/>
-            READY_TO_PUBLISH,
-
-            /// <remarks/>
-            PUBLISHED,
-
-            /// <remarks/>
-            UNPUBLISHED,
-
-            /// <remarks/>
-            STAGE,
-
-            /// <remarks/>
-            SYSTEM_PROBLEM,
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
-        public partial class stateRestriction
-        {
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/mp/v3/orders")]
-        [System.Xml.Serialization.XmlRootAttribute("order", Namespace = "http://walmart.com/mp/v3/orders", IsNullable = false)]
-        public partial class Order
-        {
-
-            private string purchaseOrderIdField;
-
-            private string customerOrderIdField;
-
-            private string customerEmailIdField;
-
-            private System.DateTime orderDateField;
-
-            private shippingInfoType shippingInfoField;
-
-            private orderLineType[] orderLinesField;
-
-            /// <remarks/>
-            public string purchaseOrderId
-            {
-                get
-                {
-                    return this.purchaseOrderIdField;
-                }
-                set
-                {
-                    this.purchaseOrderIdField = value;
-                }
-            }
-
-            /// <remarks/>
-            public string customerOrderId
-            {
-                get
-                {
-                    return this.customerOrderIdField;
-                }
-                set
-                {
-                    this.customerOrderIdField = value;
-                }
-            }
-
-            /// <remarks/>
-            public string customerEmailId
-            {
-                get
-                {
-                    return this.customerEmailIdField;
-                }
-                set
-                {
-                    this.customerEmailIdField = value;
-                }
-            }
-
-            /// <remarks/>
-            public System.DateTime orderDate
-            {
-                get
-                {
-                    return this.orderDateField;
-                }
-                set
-                {
-                    this.orderDateField = value;
-                }
-            }
-
-            /// <remarks/>
-            public shippingInfoType shippingInfo
-            {
-                get
-                {
-                    return this.shippingInfoField;
-                }
-                set
-                {
-                    this.shippingInfoField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlArrayItemAttribute("orderLine", IsNullable = false)]
-            public orderLineType[] orderLines
-            {
-                get
-                {
-                    return this.orderLinesField;
-                }
-                set
-                {
-                    this.orderLinesField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/mp/v3/orders")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://walmart.com/mp/v3/orders", IsNullable = true)]
-        public partial class shippingInfoType
-        {
-
-            private string phoneField;
-
-            private System.DateTime estimatedDeliveryDateField;
-
-            private System.DateTime estimatedShipDateField;
-
-            private shippingMethodCodeType methodCodeField;
-
-            private postalAddressType postalAddressField;
-
-            /// <remarks/>
-            public string phone
-            {
-                get
-                {
-                    return this.phoneField;
-                }
-                set
-                {
-                    this.phoneField = value;
-                }
-            }
-
-            /// <remarks/>
-            public System.DateTime estimatedDeliveryDate
-            {
-                get
-                {
-                    return this.estimatedDeliveryDateField;
-                }
-                set
-                {
-                    this.estimatedDeliveryDateField = value;
-                }
-            }
-
-            /// <remarks/>
-            public System.DateTime estimatedShipDate
-            {
-                get
-                {
-                    return this.estimatedShipDateField;
-                }
-                set
-                {
-                    this.estimatedShipDateField = value;
-                }
-            }
-
-            /// <remarks/>
-            public shippingMethodCodeType methodCode
-            {
-                get
-                {
-                    return this.methodCodeField;
-                }
-                set
-                {
-                    this.methodCodeField = value;
-                }
-            }
-
-            /// <remarks/>
-            public postalAddressType postalAddress
-            {
-                get
-                {
-                    return this.postalAddressField;
-                }
-                set
-                {
-                    this.postalAddressField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/mp/v3/orders")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://walmart.com/mp/v3/orders", IsNullable = false)]
-        public enum shippingMethodCodeType
-        {
-
-            /// <remarks/>
-            Standard,
-
-            /// <remarks/>
-            Express,
-
-            /// <remarks/>
-            OneDay,
-
-            /// <remarks/>
-            Freight,
-
-            /// <remarks/>
-            WhiteGlove,
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/mp/v3/orders")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://walmart.com/mp/v3/orders", IsNullable = true)]
-        public partial class postalAddressType
-        {
-
-            private string nameField;
-
-            private string address1Field;
-
-            private string address2Field;
-
-            private string cityField;
-
-            private string stateField;
-
-            private string postalCodeField;
-
-            private string countryField;
-
-            private string addressTypeField;
-
-            /// <remarks/>
-            public string name
-            {
-                get
-                {
-                    return this.nameField;
-                }
-                set
-                {
-                    this.nameField = value;
-                }
-            }
-
-            /// <remarks/>
-            public string address1
-            {
-                get
-                {
-                    return this.address1Field;
-                }
-                set
-                {
-                    this.address1Field = value;
-                }
-            }
-
-            /// <remarks/>
-            public string address2
-            {
-                get
-                {
-                    return this.address2Field;
-                }
-                set
-                {
-                    this.address2Field = value;
-                }
-            }
-
-            /// <remarks/>
-            public string city
-            {
-                get
-                {
-                    return this.cityField;
-                }
-                set
-                {
-                    this.cityField = value;
-                }
-            }
-
-            /// <remarks/>
-            public string state
-            {
-                get
-                {
-                    return this.stateField;
-                }
-                set
-                {
-                    this.stateField = value;
-                }
-            }
-
-            /// <remarks/>
-            public string postalCode
-            {
-                get
-                {
-                    return this.postalCodeField;
-                }
-                set
-                {
-                    this.postalCodeField = value;
-                }
-            }
-
-            /// <remarks/>
-            public string country
-            {
-                get
-                {
-                    return this.countryField;
-                }
-                set
-                {
-                    this.countryField = value;
-                }
-            }
-
-            /// <remarks/>
-            public string addressType
-            {
-                get
-                {
-                    return this.addressTypeField;
-                }
-                set
-                {
-                    this.addressTypeField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/mp/v3/orders")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://walmart.com/mp/v3/orders", IsNullable = true)]
-        public partial class orderLineType
-        {
-
-            private string lineNumberField;
-
-            private itemType itemField;
-
-            private chargeType[] chargesField;
-
-            private quantityType orderLineQuantityField;
-
-            private System.DateTime statusDateField;
-
-            private orderLineStatusType[] orderLineStatusesField;
-
-            private refundType refundField;
-
-            /// <remarks/>
-            public string lineNumber
-            {
-                get
-                {
-                    return this.lineNumberField;
-                }
-                set
-                {
-                    this.lineNumberField = value;
-                }
-            }
-
-            /// <remarks/>
-            public itemType item
-            {
-                get
-                {
-                    return this.itemField;
-                }
-                set
-                {
-                    this.itemField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlArrayItemAttribute("charge", IsNullable = false)]
-            public chargeType[] charges
-            {
-                get
-                {
-                    return this.chargesField;
-                }
-                set
-                {
-                    this.chargesField = value;
-                }
-            }
-
-            /// <remarks/>
-            public quantityType orderLineQuantity
-            {
-                get
-                {
-                    return this.orderLineQuantityField;
-                }
-                set
-                {
-                    this.orderLineQuantityField = value;
-                }
-            }
-
-            /// <remarks/>
-            public System.DateTime statusDate
-            {
-                get
-                {
-                    return this.statusDateField;
-                }
-                set
-                {
-                    this.statusDateField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlArrayItemAttribute("orderLineStatus", IsNullable = false)]
-            public orderLineStatusType[] orderLineStatuses
-            {
-                get
-                {
-                    return this.orderLineStatusesField;
-                }
-                set
-                {
-                    this.orderLineStatusesField = value;
-                }
-            }
-
-            /// <remarks/>
-            public refundType refund
-            {
-                get
-                {
-                    return this.refundField;
-                }
-                set
-                {
-                    this.refundField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/mp/v3/orders")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://walmart.com/mp/v3/orders", IsNullable = true)]
-        public partial class itemType
-        {
-
-            private string productNameField;
-
-            private string skuField;
-
-            /// <remarks/>
-            public string productName
-            {
-                get
-                {
-                    return this.productNameField;
-                }
-                set
-                {
-                    this.productNameField = value;
-                }
-            }
-
-            /// <remarks/>
-            public string sku
-            {
-                get
-                {
-                    return this.skuField;
-                }
-                set
-                {
-                    this.skuField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/mp/v3/orders")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://walmart.com/mp/v3/orders", IsNullable = true)]
-        public partial class chargeType
-        {
-
-            private string chargeType1Field;
-
-            private string chargeNameField;
-
-            private moneyType chargeAmountField;
-
-            private taxType taxField;
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute("chargeType")]
-            public string chargeType1
-            {
-                get
-                {
-                    return this.chargeType1Field;
-                }
-                set
-                {
-                    this.chargeType1Field = value;
-                }
-            }
-
-            /// <remarks/>
-            public string chargeName
-            {
-                get
-                {
-                    return this.chargeNameField;
-                }
-                set
-                {
-                    this.chargeNameField = value;
-                }
-            }
-
-            /// <remarks/>
-            public moneyType chargeAmount
-            {
-                get
-                {
-                    return this.chargeAmountField;
-                }
-                set
-                {
-                    this.chargeAmountField = value;
-                }
-            }
-
-            /// <remarks/>
-            public taxType tax
-            {
-                get
-                {
-                    return this.taxField;
-                }
-                set
-                {
-                    this.taxField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/mp/v3/orders")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://walmart.com/mp/v3/orders", IsNullable = true)]
-        public partial class moneyType
-        {
-
-            private currencyType currencyField;
-
-            private decimal amountField;
-
-            /// <remarks/>
-            public currencyType currency
-            {
-                get
-                {
-                    return this.currencyField;
-                }
-                set
-                {
-                    this.currencyField = value;
-                }
-            }
-
-            /// <remarks/>
-            public decimal amount
-            {
-                get
-                {
-                    return this.amountField;
-                }
-                set
-                {
-                    this.amountField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/mp/v3/orders")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://walmart.com/mp/v3/orders", IsNullable = false)]
-        public enum currencyType
-        {
-
-            /// <remarks/>
-            AED,
-
-            /// <remarks/>
-            AFN,
-
-            /// <remarks/>
-            ALL,
-
-            /// <remarks/>
-            AMD,
-
-            /// <remarks/>
-            ANG,
-
-            /// <remarks/>
-            AOA,
-
-            /// <remarks/>
-            ARS,
-
-            /// <remarks/>
-            AUD,
-
-            /// <remarks/>
-            AWG,
-
-            /// <remarks/>
-            AZN,
-
-            /// <remarks/>
-            BAM,
-
-            /// <remarks/>
-            BBD,
-
-            /// <remarks/>
-            BDT,
-
-            /// <remarks/>
-            BGN,
-
-            /// <remarks/>
-            BHD,
-
-            /// <remarks/>
-            BIF,
-
-            /// <remarks/>
-            BMD,
-
-            /// <remarks/>
-            BND,
-
-            /// <remarks/>
-            BOB,
-
-            /// <remarks/>
-            BRL,
-
-            /// <remarks/>
-            BSD,
-
-            /// <remarks/>
-            BTN,
-
-            /// <remarks/>
-            BWP,
-
-            /// <remarks/>
-            BYR,
-
-            /// <remarks/>
-            BZD,
-
-            /// <remarks/>
-            CAD,
-
-            /// <remarks/>
-            CDF,
-
-            /// <remarks/>
-            CHF,
-
-            /// <remarks/>
-            CLP,
-
-            /// <remarks/>
-            CNY,
-
-            /// <remarks/>
-            COP,
-
-            /// <remarks/>
-            CRC,
-
-            /// <remarks/>
-            CUP,
-
-            /// <remarks/>
-            CVE,
-
-            /// <remarks/>
-            CZK,
-
-            /// <remarks/>
-            DJF,
-
-            /// <remarks/>
-            DKK,
-
-            /// <remarks/>
-            DOP,
-
-            /// <remarks/>
-            DZD,
-
-            /// <remarks/>
-            EGP,
-
-            /// <remarks/>
-            ERN,
-
-            /// <remarks/>
-            ETB,
-
-            /// <remarks/>
-            EUR,
-
-            /// <remarks/>
-            FJD,
-
-            /// <remarks/>
-            FKP,
-
-            /// <remarks/>
-            GBP,
-
-            /// <remarks/>
-            GEL,
-
-            /// <remarks/>
-            GHS,
-
-            /// <remarks/>
-            GIP,
-
-            /// <remarks/>
-            GMD,
-
-            /// <remarks/>
-            GNF,
-
-            /// <remarks/>
-            GTQ,
-
-            /// <remarks/>
-            GYD,
-
-            /// <remarks/>
-            HKD,
-
-            /// <remarks/>
-            HNL,
-
-            /// <remarks/>
-            HRK,
-
-            /// <remarks/>
-            HTG,
-
-            /// <remarks/>
-            HUF,
-
-            /// <remarks/>
-            IDR,
-
-            /// <remarks/>
-            ILS,
-
-            /// <remarks/>
-            INR,
-
-            /// <remarks/>
-            IQD,
-
-            /// <remarks/>
-            IRR,
-
-            /// <remarks/>
-            ISK,
-
-            /// <remarks/>
-            JMD,
-
-            /// <remarks/>
-            JOD,
-
-            /// <remarks/>
-            JPY,
-
-            /// <remarks/>
-            KES,
-
-            /// <remarks/>
-            KGS,
-
-            /// <remarks/>
-            KHR,
-
-            /// <remarks/>
-            KMF,
-
-            /// <remarks/>
-            KPW,
-
-            /// <remarks/>
-            KRW,
-
-            /// <remarks/>
-            KWD,
-
-            /// <remarks/>
-            KYD,
-
-            /// <remarks/>
-            KZT,
-
-            /// <remarks/>
-            LAK,
-
-            /// <remarks/>
-            LBP,
-
-            /// <remarks/>
-            LKR,
-
-            /// <remarks/>
-            LRD,
-
-            /// <remarks/>
-            LSL,
-
-            /// <remarks/>
-            LTL,
-
-            /// <remarks/>
-            LVL,
-
-            /// <remarks/>
-            LYD,
-
-            /// <remarks/>
-            MAD,
-
-            /// <remarks/>
-            MDL,
-
-            /// <remarks/>
-            MGA,
-
-            /// <remarks/>
-            MKD,
-
-            /// <remarks/>
-            MMK,
-
-            /// <remarks/>
-            MNT,
-
-            /// <remarks/>
-            MOP,
-
-            /// <remarks/>
-            MRO,
-
-            /// <remarks/>
-            MUR,
-
-            /// <remarks/>
-            MVR,
-
-            /// <remarks/>
-            MWK,
-
-            /// <remarks/>
-            MXN,
-
-            /// <remarks/>
-            MYR,
-
-            /// <remarks/>
-            MZN,
-
-            /// <remarks/>
-            NAD,
-
-            /// <remarks/>
-            NGN,
-
-            /// <remarks/>
-            NIO,
-
-            /// <remarks/>
-            NOK,
-
-            /// <remarks/>
-            NPR,
-
-            /// <remarks/>
-            NZD,
-
-            /// <remarks/>
-            OMR,
-
-            /// <remarks/>
-            PAB,
-
-            /// <remarks/>
-            PEN,
-
-            /// <remarks/>
-            PGK,
-
-            /// <remarks/>
-            PHP,
-
-            /// <remarks/>
-            PKR,
-
-            /// <remarks/>
-            PLN,
-
-            /// <remarks/>
-            PYG,
-
-            /// <remarks/>
-            QAR,
-
-            /// <remarks/>
-            RON,
-
-            /// <remarks/>
-            RSD,
-
-            /// <remarks/>
-            RUB,
-
-            /// <remarks/>
-            RUR,
-
-            /// <remarks/>
-            RWF,
-
-            /// <remarks/>
-            SAR,
-
-            /// <remarks/>
-            SBD,
-
-            /// <remarks/>
-            SCR,
-
-            /// <remarks/>
-            SDG,
-
-            /// <remarks/>
-            SEK,
-
-            /// <remarks/>
-            SGD,
-
-            /// <remarks/>
-            SHP,
-
-            /// <remarks/>
-            SLL,
-
-            /// <remarks/>
-            SOS,
-
-            /// <remarks/>
-            SRD,
-
-            /// <remarks/>
-            STD,
-
-            /// <remarks/>
-            SYP,
-
-            /// <remarks/>
-            SZL,
-
-            /// <remarks/>
-            THB,
-
-            /// <remarks/>
-            TJS,
-
-            /// <remarks/>
-            TMT,
-
-            /// <remarks/>
-            TND,
-
-            /// <remarks/>
-            TOP,
-
-            /// <remarks/>
-            TRY,
-
-            /// <remarks/>
-            TTD,
-
-            /// <remarks/>
-            TWD,
-
-            /// <remarks/>
-            TZS,
-
-            /// <remarks/>
-            UAH,
-
-            /// <remarks/>
-            UGX,
-
-            /// <remarks/>
-            USD,
-
-            /// <remarks/>
-            UYU,
-
-            /// <remarks/>
-            UZS,
-
-            /// <remarks/>
-            VEF,
-
-            /// <remarks/>
-            VND,
-
-            /// <remarks/>
-            VUV,
-
-            /// <remarks/>
-            WST,
-
-            /// <remarks/>
-            XAF,
-
-            /// <remarks/>
-            XAG,
-
-            /// <remarks/>
-            XAU,
-
-            /// <remarks/>
-            XBA,
-
-            /// <remarks/>
-            XBB,
-
-            /// <remarks/>
-            XBC,
-
-            /// <remarks/>
-            XBD,
-
-            /// <remarks/>
-            XCD,
-
-            /// <remarks/>
-            XDR,
-
-            /// <remarks/>
-            XFU,
-
-            /// <remarks/>
-            XOF,
-
-            /// <remarks/>
-            XPD,
-
-            /// <remarks/>
-            XPF,
-
-            /// <remarks/>
-            XPT,
-
-            /// <remarks/>
-            XTS,
-
-            /// <remarks/>
-            XXX,
-
-            /// <remarks/>
-            YER,
-
-            /// <remarks/>
-            ZAR,
-
-            /// <remarks/>
-            ZMK,
-
-            /// <remarks/>
-            ZWL,
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/mp/v3/orders")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://walmart.com/mp/v3/orders", IsNullable = true)]
-        public partial class taxType
-        {
-
-            private string taxNameField;
-
-            private moneyType taxAmountField;
-
-            /// <remarks/>
-            public string taxName
-            {
-                get
-                {
-                    return this.taxNameField;
-                }
-                set
-                {
-                    this.taxNameField = value;
-                }
-            }
-
-            /// <remarks/>
-            public moneyType taxAmount
-            {
-                get
-                {
-                    return this.taxAmountField;
-                }
-                set
-                {
-                    this.taxAmountField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/mp/v3/orders")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://walmart.com/mp/v3/orders", IsNullable = true)]
-        public partial class orderLineStatusType
-        {
-
-            private orderLineStatusValueType statusField;
-
-            private quantityType statusQuantityField;
-
-            private string cancellationReasonField;
-
-            private trackingInfoType trackingInfoField;
-
-            /// <remarks/>
-            public orderLineStatusValueType status
-            {
-                get
-                {
-                    return this.statusField;
-                }
-                set
-                {
-                    this.statusField = value;
-                }
-            }
-
-            /// <remarks/>
-            public quantityType statusQuantity
-            {
-                get
-                {
-                    return this.statusQuantityField;
-                }
-                set
-                {
-                    this.statusQuantityField = value;
-                }
-            }
-
-            /// <remarks/>
-            public string cancellationReason
-            {
-                get
-                {
-                    return this.cancellationReasonField;
-                }
-                set
-                {
-                    this.cancellationReasonField = value;
-                }
-            }
-
-            /// <remarks/>
-            public trackingInfoType trackingInfo
-            {
-                get
-                {
-                    return this.trackingInfoField;
-                }
-                set
-                {
-                    this.trackingInfoField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/mp/v3/orders")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://walmart.com/mp/v3/orders", IsNullable = true)]
-        public partial class trackingInfoType
-        {
-
-            private System.DateTime shipDateTimeField;
-
-            private carrierNameType carrierNameField;
-
-            private shippingMethodCodeType methodCodeField;
-
-            private string trackingNumberField;
-
-            private string trackingURLField;
-
-            /// <remarks/>
-            public System.DateTime shipDateTime
-            {
-                get
-                {
-                    return this.shipDateTimeField;
-                }
-                set
-                {
-                    this.shipDateTimeField = value;
-                }
-            }
-
-            /// <remarks/>
-            public carrierNameType carrierName
-            {
-                get
-                {
-                    return this.carrierNameField;
-                }
-                set
-                {
-                    this.carrierNameField = value;
-                }
-            }
-
-            /// <remarks/>
-            public shippingMethodCodeType methodCode
-            {
-                get
-                {
-                    return this.methodCodeField;
-                }
-                set
-                {
-                    this.methodCodeField = value;
-                }
-            }
-
-            /// <remarks/>
-            public string trackingNumber
-            {
-                get
-                {
-                    return this.trackingNumberField;
-                }
-                set
-                {
-                    this.trackingNumberField = value;
-                }
-            }
-
-            /// <remarks/>
-            public string trackingURL
-            {
-                get
-                {
-                    return this.trackingURLField;
-                }
-                set
-                {
-                    this.trackingURLField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/mp/v3/orders")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://walmart.com/mp/v3/orders", IsNullable = true)]
-        public partial class carrierNameType
-        {
-
-            private object itemField;
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute("carrier", typeof(carrierType))]
-            [System.Xml.Serialization.XmlElementAttribute("otherCarrier", typeof(string))]
-            public object Item
-            {
-                get
-                {
-                    return this.itemField;
-                }
-                set
-                {
-                    this.itemField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/mp/v3/orders")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://walmart.com/mp/v3/orders", IsNullable = false)]
-        public enum carrierType
-        {
-
-            /// <remarks/>
-            UPS,
-
-            /// <remarks/>
-            USPS,
-
-            /// <remarks/>
-            FedEx,
-
-            /// <remarks/>
-            Airborne,
-
-            /// <remarks/>
-            OnTrac,
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/mp/v3/orders")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://walmart.com/mp/v3/orders", IsNullable = true)]
-        public partial class refundType
-        {
-
-            private string refundIdField;
-
-            private string refundCommentsField;
-
-            private refundChargeType[] refundChargesField;
-
-            /// <remarks/>
-            public string refundId
-            {
-                get
-                {
-                    return this.refundIdField;
-                }
-                set
-                {
-                    this.refundIdField = value;
-                }
-            }
-
-            /// <remarks/>
-            public string refundComments
-            {
-                get
-                {
-                    return this.refundCommentsField;
-                }
-                set
-                {
-                    this.refundCommentsField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlArrayItemAttribute("refundCharge", IsNullable = false)]
-            public refundChargeType[] refundCharges
-            {
-                get
-                {
-                    return this.refundChargesField;
-                }
-                set
-                {
-                    this.refundChargesField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/mp/v3/orders")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://walmart.com/mp/v3/orders", IsNullable = true)]
-        public partial class refundChargeType
-        {
-
-            private reasonCodesType refundReasonField;
-
-            private chargeType chargeField;
-
-            /// <remarks/>
-            public reasonCodesType refundReason
-            {
-                get
-                {
-                    return this.refundReasonField;
-                }
-                set
-                {
-                    this.refundReasonField = value;
-                }
-            }
-
-            /// <remarks/>
-            public chargeType charge
-            {
-                get
-                {
-                    return this.chargeField;
-                }
-                set
-                {
-                    this.chargeField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/mp/v3/orders")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://walmart.com/mp/v3/orders", IsNullable = false)]
-        public enum reasonCodesType
-        {
-
-            /// <remarks/>
-            BillingError,
-
-            /// <remarks/>
-            TaxExemptCustomer,
-
-            /// <remarks/>
-            ItemNotAsAdvertised,
-
-            /// <remarks/>
-            IncorrectItemReceived,
-
-            /// <remarks/>
-            CancelledYetShipped,
-
-            /// <remarks/>
-            ItemNotReceivedByCustomer,
-
-            /// <remarks/>
-            IncorrectShippingPrice,
-
-            /// <remarks/>
-            DamagedItem,
-
-            /// <remarks/>
-            DefectiveItem,
-
-            /// <remarks/>
-            CustomerChangedMind,
-
-            /// <remarks/>
-            CustomerReceivedItemLate,
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlEnumAttribute("Missing Parts / Instructions")]
-            MissingPartsInstructions,
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlEnumAttribute("Finance -> Goodwill")]
-            FinanceGoodwill,
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlEnumAttribute("Finance -> Rollback")]
-            FinanceRollback,
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/mp/v3/orders")]
-        [System.Xml.Serialization.XmlRootAttribute("list", Namespace = "http://walmart.com/mp/v3/orders", IsNullable = false)]
-        public partial class ordersListType
-        {
-
-            private metaType metaField;
-
-            private Order[] elementsField;
-
-            /// <remarks/>
-            public metaType meta
-            {
-                get
-                {
-                    return this.metaField;
-                }
-                set
-                {
-                    this.metaField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlArrayItemAttribute("order")]
-            public Order[] elements
-            {
-                get
-                {
-                    return this.elementsField;
-                }
-                set
-                {
-                    this.elementsField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/mp/v3/orders")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://walmart.com/mp/v3/orders", IsNullable = true)]
-        public partial class metaType
-        {
-
-            private int totalCountField;
-
-            private bool totalCountFieldSpecified;
-
-            private int limitField;
-
-            private string nextCursorField;
-
-            /// <remarks/>
-            public int totalCount
-            {
-                get
-                {
-                    return this.totalCountField;
-                }
-                set
-                {
-                    this.totalCountField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlIgnoreAttribute()]
-            public bool totalCountSpecified
-            {
-                get
-                {
-                    return this.totalCountFieldSpecified;
-                }
-                set
-                {
-                    this.totalCountFieldSpecified = value;
-                }
-            }
-
-            /// <remarks/>
-            public int limit
-            {
-                get
-                {
-                    return this.limitField;
-                }
-                set
-                {
-                    this.limitField = value;
-                }
-            }
-
-            /// <remarks/>
-            public string nextCursor
-            {
-                get
-                {
-                    return this.nextCursorField;
-                }
-                set
-                {
-                    this.nextCursorField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://walmart.com/mp/v3/orders")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://walmart.com/mp/v3/orders", IsNullable = false)]
-        public partial class orderRefund
-        {
-
-            private string purchaseOrderIdField;
-
-            private refundLineType[] orderLinesField;
-
-            /// <remarks/>
-            public string purchaseOrderId
-            {
-                get
-                {
-                    return this.purchaseOrderIdField;
-                }
-                set
-                {
-                    this.purchaseOrderIdField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlArrayItemAttribute("orderLine", IsNullable = false)]
-            public refundLineType[] orderLines
-            {
-                get
-                {
-                    return this.orderLinesField;
-                }
-                set
-                {
-                    this.orderLinesField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/mp/v3/orders")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://walmart.com/mp/v3/orders", IsNullable = true)]
-        public partial class refundLineType
-        {
-
-            private string lineNumberField;
-
-            private refundType[] refundsField;
-
-            /// <remarks/>
-            public string lineNumber
-            {
-                get
-                {
-                    return this.lineNumberField;
-                }
-                set
-                {
-                    this.lineNumberField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlArrayItemAttribute("refund", IsNullable = false)]
-            public refundType[] refunds
-            {
-                get
-                {
-                    return this.refundsField;
-                }
-                set
-                {
-                    this.refundsField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://walmart.com/mp/v3/orders")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://walmart.com/mp/v3/orders", IsNullable = false)]
-        public partial class orderShipment
-        {
-
-            private shippingLineType[] orderLinesField;
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlArrayItemAttribute("orderLine", IsNullable = false)]
-            public shippingLineType[] orderLines
-            {
-                get
-                {
-                    return this.orderLinesField;
-                }
-                set
-                {
-                    this.orderLinesField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/mp/v3/orders")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://walmart.com/mp/v3/orders", IsNullable = true)]
-        public partial class shippingLineType
-        {
-
-            private string lineNumberField;
-
-            private shipLineStatusType[] orderLineStatusesField;
-
-            /// <remarks/>
-            public string lineNumber
-            {
-                get
-                {
-                    return this.lineNumberField;
-                }
-                set
-                {
-                    this.lineNumberField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlArrayItemAttribute("orderLineStatus", IsNullable = false)]
-            public shipLineStatusType[] orderLineStatuses
-            {
-                get
-                {
-                    return this.orderLineStatusesField;
-                }
-                set
-                {
-                    this.orderLineStatusesField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/mp/v3/orders")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://walmart.com/mp/v3/orders", IsNullable = true)]
-        public partial class shipLineStatusType
-        {
-
-            private orderLineStatusValueType statusField;
-
-            private quantityType statusQuantityField;
-
-            private trackingInfoType trackingInfoField;
-
-            /// <remarks/>
-            public orderLineStatusValueType status
-            {
-                get
-                {
-                    return this.statusField;
-                }
-                set
-                {
-                    this.statusField = value;
-                }
-            }
-
-            /// <remarks/>
-            public quantityType statusQuantity
-            {
-                get
-                {
-                    return this.statusQuantityField;
-                }
-                set
-                {
-                    this.statusQuantityField = value;
-                }
-            }
-
-            /// <remarks/>
-            public trackingInfoType trackingInfo
-            {
-                get
-                {
-                    return this.trackingInfoField;
-                }
-                set
-                {
-                    this.trackingInfoField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/mp/v3/orders")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://walmart.com/mp/v3/orders", IsNullable = true)]
-        public partial class cancelLinesType
-        {
-
-            private cancelLineType[] orderLineField;
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute("orderLine")]
-            public cancelLineType[] orderLine
-            {
-                get
-                {
-                    return this.orderLineField;
-                }
-                set
-                {
-                    this.orderLineField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/mp/v3/orders")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://walmart.com/mp/v3/orders", IsNullable = true)]
-        public partial class cancelLineStatusesType
-        {
-
-            private cancelLineStatusType[] orderLineStatusField;
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute("orderLineStatus")]
-            public cancelLineStatusType[] orderLineStatus
-            {
-                get
-                {
-                    return this.orderLineStatusField;
-                }
-                set
-                {
-                    this.orderLineStatusField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/mp/v3/orders")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://walmart.com/mp/v3/orders", IsNullable = true)]
-        public partial class chargesType
-        {
-
-            private chargeType[] chargeField;
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute("charge")]
-            public chargeType[] charge
-            {
-                get
-                {
-                    return this.chargeField;
-                }
-                set
-                {
-                    this.chargeField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/mp/v3/orders")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://walmart.com/mp/v3/orders", IsNullable = true)]
-        public partial class refundChargesType
-        {
-
-            private refundChargeType[] refundChargeField;
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute("refundCharge")]
-            public refundChargeType[] refundCharge
-            {
-                get
-                {
-                    return this.refundChargeField;
-                }
-                set
-                {
-                    this.refundChargeField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/mp/v3/orders")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://walmart.com/mp/v3/orders", IsNullable = true)]
-        public partial class priceType
-        {
-
-            private float totalField;
-
-            private priceAndTaxType retailField;
-
-            private priceAndTaxType shippingField;
-
-            /// <remarks/>
-            public float total
-            {
-                get
-                {
-                    return this.totalField;
-                }
-                set
-                {
-                    this.totalField = value;
-                }
-            }
-
-            /// <remarks/>
-            public priceAndTaxType retail
-            {
-                get
-                {
-                    return this.retailField;
-                }
-                set
-                {
-                    this.retailField = value;
-                }
-            }
-
-            /// <remarks/>
-            public priceAndTaxType shipping
-            {
-                get
-                {
-                    return this.shippingField;
-                }
-                set
-                {
-                    this.shippingField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/mp/v3/orders")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://walmart.com/mp/v3/orders", IsNullable = true)]
-        public partial class priceAndTaxType
-        {
-
-            private moneyType priceField;
-
-            private moneyType taxField;
-
-            /// <remarks/>
-            public moneyType price
-            {
-                get
-                {
-                    return this.priceField;
-                }
-                set
-                {
-                    this.priceField = value;
-                }
-            }
-
-            /// <remarks/>
-            public moneyType tax
-            {
-                get
-                {
-                    return this.taxField;
-                }
-                set
-                {
-                    this.taxField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/mp/v3/orders")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://walmart.com/mp/v3/orders", IsNullable = true)]
-        public partial class orderLinesType
-        {
-
-            private orderLineType[] orderLineField;
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute("orderLine")]
-            public orderLineType[] orderLine
-            {
-                get
-                {
-                    return this.orderLineField;
-                }
-                set
-                {
-                    this.orderLineField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/mp/v3/orders")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://walmart.com/mp/v3/orders", IsNullable = true)]
-        public partial class orderLineStatusesType
-        {
-
-            private orderLineStatusType[] orderLineStatusField;
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute("orderLineStatus")]
-            public orderLineStatusType[] orderLineStatus
-            {
-                get
-                {
-                    return this.orderLineStatusField;
-                }
-                set
-                {
-                    this.orderLineStatusField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/mp/v3/orders")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://walmart.com/mp/v3/orders", IsNullable = true)]
-        public partial class elementsType
-        {
-
-            private Order[] orderField;
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute("order", IsNullable = true)]
-            public Order[] order
-            {
-                get
-                {
-                    return this.orderField;
-                }
-                set
-                {
-                    this.orderField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/mp/v3/orders")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://walmart.com/mp/v3/orders", IsNullable = true)]
-        public partial class refundLinesType
-        {
-
-            private refundLineType[] orderLineField;
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute("orderLine")]
-            public refundLineType[] orderLine
-            {
-                get
-                {
-                    return this.orderLineField;
-                }
-                set
-                {
-                    this.orderLineField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/mp/v3/orders")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://walmart.com/mp/v3/orders", IsNullable = true)]
-        public partial class refundsType
-        {
-
-            private refundType[] refundField;
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute("refund")]
-            public refundType[] refund
-            {
-                get
-                {
-                    return this.refundField;
-                }
-                set
-                {
-                    this.refundField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/mp/v3/orders")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://walmart.com/mp/v3/orders", IsNullable = true)]
-        public partial class shippingLinesType
-        {
-
-            private shippingLineType[] orderLineField;
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute("orderLine")]
-            public shippingLineType[] orderLine
-            {
-                get
-                {
-                    return this.orderLineField;
-                }
-                set
-                {
-                    this.orderLineField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
-        [System.SerializableAttribute()]
-        [System.Diagnostics.DebuggerStepThroughAttribute()]
-        [System.ComponentModel.DesignerCategoryAttribute("code")]
-        [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/mp/v3/orders")]
-        [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://walmart.com/mp/v3/orders", IsNullable = true)]
-        public partial class shipLineStatusesType
-        {
-
-            private shipLineStatusType[] orderLineStatusField;
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlElementAttribute("orderLineStatus")]
-            public shipLineStatusType[] orderLineStatus
-            {
-                get
-                {
-                    return this.orderLineStatusField;
-                }
-                set
-                {
-                    this.orderLineStatusField = value;
-                }
+                this.ingestionErrorsField1 = value;
             }
         }
     }
-}
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
+    public enum ItemStatus
+    {
+
+        /// <remarks/>
+        INPROGRESS,
+
+        /// <remarks/>
+        SUCCESS,
+
+        /// <remarks/>
+        DATA_ERROR,
+
+        /// <remarks/>
+        SYSTEM_ERROR,
+
+        /// <remarks/>
+        TIMEOUT_ERROR,
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
+    public partial class IngestionError
+    {
+
+        private ErrorType typeField1;
+
+        private string codeField1;
+
+        private string descriptionField1;
+
+        /// <remarks/>
+        public ErrorType type
+        {
+            get
+            {
+                return this.typeField1;
+            }
+            set
+            {
+                this.typeField1 = value;
+            }
+        }
+
+        /// <remarks/>
+        public string code
+        {
+            get
+            {
+                return this.codeField1;
+            }
+            set
+            {
+                this.codeField1 = value;
+            }
+        }
+
+        /// <remarks/>
+        public string description
+        {
+            get
+            {
+                return this.descriptionField1;
+            }
+            set
+            {
+                this.descriptionField1 = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
+    public enum ErrorType
+    {
+
+        /// <remarks/>
+        DATA_ERROR,
+
+        /// <remarks/>
+        SYSTEM_ERROR,
+
+        /// <remarks/>
+        TIMEOUT_ERROR,
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
+    public partial class additionalAssetAttribute
+    {
+
+        private string attributeNameField1;
+
+        private string attributeValueField1;
+
+        /// <remarks/>
+        public string attributeName
+        {
+            get
+            {
+                return this.attributeNameField1;
+            }
+            set
+            {
+                this.attributeNameField1 = value;
+            }
+        }
+
+        /// <remarks/>
+        public string attributeValue
+        {
+            get
+            {
+                return this.attributeValueField1;
+            }
+            set
+            {
+                this.attributeValueField1 = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
+    public partial class additionalAsset
+    {
+
+        private string altTextField1;
+
+        private string assetUrlField1;
+
+        private string assetTypeField1;
+
+        private additionalAssetAttribute[] additionalAssetAttributesField1;
+
+        /// <remarks/>
+        public string altText
+        {
+            get
+            {
+                return this.altTextField1;
+            }
+            set
+            {
+                this.altTextField1 = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType = "anyURI")]
+        public string assetUrl
+        {
+            get
+            {
+                return this.assetUrlField1;
+            }
+            set
+            {
+                this.assetUrlField1 = value;
+            }
+        }
+
+        /// <remarks/>
+        public string assetType
+        {
+            get
+            {
+                return this.assetTypeField1;
+            }
+            set
+            {
+                this.assetTypeField1 = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable = false)]
+        public additionalAssetAttribute[] additionalAssetAttributes
+        {
+            get
+            {
+                return this.additionalAssetAttributesField1;
+            }
+            set
+            {
+                this.additionalAssetAttributesField1 = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
+    public partial class productIdentifier
+    {
+
+        private productIdentifierProductIdType productIdTypeField1;
+
+        private string productIdField1;
+
+        /// <remarks/>
+        public productIdentifierProductIdType productIdType
+        {
+            get
+            {
+                return this.productIdTypeField1;
+            }
+            set
+            {
+                this.productIdTypeField1 = value;
+            }
+        }
+
+        /// <remarks/>
+        public string productId
+        {
+            get
+            {
+                return this.productIdField1;
+            }
+            set
+            {
+                this.productIdField1 = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://walmart.com/")]
+    public enum productIdentifierProductIdType
+    {
+
+        /// <remarks/>
+        UPC,
+
+        /// <remarks/>
+        GTIN,
+
+        /// <remarks/>
+        EAN,
+
+        /// <remarks/>
+        ISSN,
+
+        /// <remarks/>
+        ISBN,
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
+    public partial class certificationsAndClaim
+    {
+
+        private string certificationAndClaimTypeField1;
+
+        private string certifyingAgentField1;
+
+        /// <remarks/>
+        public string certificationAndClaimType
+        {
+            get
+            {
+                return this.certificationAndClaimTypeField1;
+            }
+            set
+            {
+                this.certificationAndClaimTypeField1 = value;
+            }
+        }
+
+        /// <remarks/>
+        public string certifyingAgent
+        {
+            get
+            {
+                return this.certifyingAgentField1;
+            }
+            set
+            {
+                this.certifyingAgentField1 = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
+    public partial class batteryTypeAndQuantityValue
+    {
+
+        private batteryTypeAndQuantityValueBatteryTechnologyType batteryTechnologyTypeField1;
+
+        private bool batteryTechnologyTypeField1Specified;
+
+        private string numberOfBatteriesField1;
+
+        /// <remarks/>
+        public batteryTypeAndQuantityValueBatteryTechnologyType batteryTechnologyType
+        {
+            get
+            {
+                return this.batteryTechnologyTypeField1;
+            }
+            set
+            {
+                this.batteryTechnologyTypeField1 = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool batteryTechnologyTypeSpecified
+        {
+            get
+            {
+                return this.batteryTechnologyTypeField1Specified;
+            }
+            set
+            {
+                this.batteryTechnologyTypeField1Specified = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType = "integer")]
+        public string numberOfBatteries
+        {
+            get
+            {
+                return this.numberOfBatteriesField1;
+            }
+            set
+            {
+                this.numberOfBatteriesField1 = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://walmart.com/")]
+    public enum batteryTypeAndQuantityValueBatteryTechnologyType
+    {
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlEnumAttribute("Lithium Ion")]
+        LithiumIon,
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlEnumAttribute("Nickel Metal Hydride")]
+        NickelMetalHydride,
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlEnumAttribute("Does Not Contain a Battery")]
+        DoesNotContainaBattery,
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlEnumAttribute("Lead Acid (Non-Spillable)")]
+        LeadAcidNonSpillable,
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlEnumAttribute("Lithium Primary")]
+        LithiumPrimary,
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlEnumAttribute("Multiple Types")]
+        MultipleTypes,
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlEnumAttribute("Carbon Zinc")]
+        CarbonZinc,
+
+        /// <remarks/>
+        Magnesium,
+
+        /// <remarks/>
+        Mercury,
+
+        /// <remarks/>
+        Thermal,
+
+        /// <remarks/>
+        Other,
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlEnumAttribute("Nickel Cadmium")]
+        NickelCadmium,
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlEnumAttribute("Lead Acid")]
+        LeadAcid,
+
+        /// <remarks/>
+        Silver,
+
+        /// <remarks/>
+        Alkaline,
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
+    public partial class additionalProductAttribute
+    {
+
+        private string productAttributeNameField1;
+
+        private string productAttributeValueField1;
+
+        /// <remarks/>
+        public string productAttributeName
+        {
+            get
+            {
+                return this.productAttributeNameField1;
+            }
+            set
+            {
+                this.productAttributeNameField1 = value;
+            }
+        }
+
+        /// <remarks/>
+        public string productAttributeValue
+        {
+            get
+            {
+                return this.productAttributeValueField1;
+            }
+            set
+            {
+                this.productAttributeValueField1 = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
+    public partial class swatchImage
+    {
+
+        private string swatchImageUrlField1;
+
+        private string swatchVariantAttributeField1;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType = "anyURI")]
+        public string swatchImageUrl
+        {
+            get
+            {
+                return this.swatchImageUrlField1;
+            }
+            set
+            {
+                this.swatchImageUrlField1 = value;
+            }
+        }
+
+        /// <remarks/>
+        public string swatchVariantAttribute
+        {
+            get
+            {
+                return this.swatchVariantAttributeField1;
+            }
+            set
+            {
+                this.swatchVariantAttributeField1 = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
+    public partial class recycledMaterialContentValue
+    {
+
+        private string recycledMaterialField1;
+
+        private decimal percentageOfRecycledMaterialField1;
+
+        private bool percentageOfRecycledMaterialField1Specified;
+
+        /// <remarks/>
+        public string recycledMaterial
+        {
+            get
+            {
+                return this.recycledMaterialField1;
+            }
+            set
+            {
+                this.recycledMaterialField1 = value;
+            }
+        }
+
+        /// <remarks/>
+        public decimal percentageOfRecycledMaterial
+        {
+            get
+            {
+                return this.percentageOfRecycledMaterialField1;
+            }
+            set
+            {
+                this.percentageOfRecycledMaterialField1 = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool percentageOfRecycledMaterialSpecified
+        {
+            get
+            {
+                return this.percentageOfRecycledMaterialField1Specified;
+            }
+            set
+            {
+                this.percentageOfRecycledMaterialField1Specified = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
+    public partial class activeIngredient
+    {
+
+        private string activeIngredientNameField1;
+
+        private decimal activeIngredientPercentageField1;
+
+        private bool activeIngredientPercentageField1Specified;
+
+        /// <remarks/>
+        public string activeIngredientName
+        {
+            get
+            {
+                return this.activeIngredientNameField1;
+            }
+            set
+            {
+                this.activeIngredientNameField1 = value;
+            }
+        }
+
+        /// <remarks/>
+        public decimal activeIngredientPercentage
+        {
+            get
+            {
+                return this.activeIngredientPercentageField1;
+            }
+            set
+            {
+                this.activeIngredientPercentageField1 = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool activeIngredientPercentageSpecified
+        {
+            get
+            {
+                return this.activeIngredientPercentageField1Specified;
+            }
+            set
+            {
+                this.activeIngredientPercentageField1Specified = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
+    public partial class fabricContentValue
+    {
+
+        private string materialNameField1;
+
+        private decimal materialPercentageField1;
+
+        private bool materialPercentageField1Specified;
+
+        /// <remarks/>
+        public string materialName
+        {
+            get
+            {
+                return this.materialNameField1;
+            }
+            set
+            {
+                this.materialNameField1 = value;
+            }
+        }
+
+        /// <remarks/>
+        public decimal materialPercentage
+        {
+            get
+            {
+                return this.materialPercentageField1;
+            }
+            set
+            {
+                this.materialPercentageField1 = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool materialPercentageSpecified
+        {
+            get
+            {
+                return this.materialPercentageField1Specified;
+            }
+            set
+            {
+                this.materialPercentageField1Specified = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
+    public partial class nutrient
+    {
+
+        private string nutrientNameField1;
+
+        private decimal nutrientAmountField1;
+
+        private bool nutrientAmountField1Specified;
+
+        private decimal nutrientPercentageDailyValueField1;
+
+        private bool nutrientPercentageDailyValueField1Specified;
+
+        /// <remarks/>
+        public string nutrientName
+        {
+            get
+            {
+                return this.nutrientNameField1;
+            }
+            set
+            {
+                this.nutrientNameField1 = value;
+            }
+        }
+
+        /// <remarks/>
+        public decimal nutrientAmount
+        {
+            get
+            {
+                return this.nutrientAmountField1;
+            }
+            set
+            {
+                this.nutrientAmountField1 = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool nutrientAmountSpecified
+        {
+            get
+            {
+                return this.nutrientAmountField1Specified;
+            }
+            set
+            {
+                this.nutrientAmountField1Specified = value;
+            }
+        }
+
+        /// <remarks/>
+        public decimal nutrientPercentageDailyValue
+        {
+            get
+            {
+                return this.nutrientPercentageDailyValueField1;
+            }
+            set
+            {
+                this.nutrientPercentageDailyValueField1 = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool nutrientPercentageDailyValueSpecified
+        {
+            get
+            {
+                return this.nutrientPercentageDailyValueField1Specified;
+            }
+            set
+            {
+                this.nutrientPercentageDailyValueField1Specified = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
+    public partial class inputsAndOutput
+    {
+
+        private string inputOutputTypeField1;
+
+        private string inputOutputQuantityField1;
+
+        /// <remarks/>
+        public string inputOutputType
+        {
+            get
+            {
+                return this.inputOutputTypeField1;
+            }
+            set
+            {
+                this.inputOutputTypeField1 = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType = "integer")]
+        public string inputOutputQuantity
+        {
+            get
+            {
+                return this.inputOutputQuantityField1;
+            }
+            set
+            {
+                this.inputOutputQuantityField1 = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
+    public partial class trackListing
+    {
+
+        private string trackNumberField1;
+
+        private string trackNameField1;
+
+        private decimal trackDurationField1;
+
+        private bool trackDurationField1Specified;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType = "integer")]
+        public string trackNumber
+        {
+            get
+            {
+                return this.trackNumberField1;
+            }
+            set
+            {
+                this.trackNumberField1 = value;
+            }
+        }
+
+        /// <remarks/>
+        public string trackName
+        {
+            get
+            {
+                return this.trackNameField1;
+            }
+            set
+            {
+                this.trackNameField1 = value;
+            }
+        }
+
+        /// <remarks/>
+        public decimal trackDuration
+        {
+            get
+            {
+                return this.trackDurationField1;
+            }
+            set
+            {
+                this.trackDurationField1 = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool trackDurationSpecified
+        {
+            get
+            {
+                return this.trackDurationField1Specified;
+            }
+            set
+            {
+                this.trackDurationField1Specified = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
+    public partial class MPItemView
+    {
+
+        private Mart martField1;
+
+        private bool martField1Specified;
+
+        private string skuField1;
+
+        private string wpidField1;
+
+        private string upcField1;
+
+        private string gtinField1;
+
+        private string productNameField1;
+
+        private string shelfField1;
+
+        private string productTypeField1;
+
+        private Money priceField1;
+
+        private ItemPublishStatus publishedStatusField1;
+
+        private bool publishedStatusField1Specified;
+
+        /// <remarks/>
+        public Mart mart
+        {
+            get
+            {
+                return this.martField1;
+            }
+            set
+            {
+                this.martField1 = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool martSpecified
+        {
+            get
+            {
+                return this.martField1Specified;
+            }
+            set
+            {
+                this.martField1Specified = value;
+            }
+        }
+
+        /// <remarks/>
+        public string sku
+        {
+            get
+            {
+                return this.skuField1;
+            }
+            set
+            {
+                this.skuField1 = value;
+            }
+        }
+
+        /// <remarks/>
+        public string wpid
+        {
+            get
+            {
+                return this.wpidField1;
+            }
+            set
+            {
+                this.wpidField1 = value;
+            }
+        }
+
+        /// <remarks/>
+        public string upc
+        {
+            get
+            {
+                return this.upcField1;
+            }
+            set
+            {
+                this.upcField1 = value;
+            }
+        }
+
+        /// <remarks/>
+        public string gtin
+        {
+            get
+            {
+                return this.gtinField1;
+            }
+            set
+            {
+                this.gtinField1 = value;
+            }
+        }
+
+        /// <remarks/>
+        public string productName
+        {
+            get
+            {
+                return this.productNameField1;
+            }
+            set
+            {
+                this.productNameField1 = value;
+            }
+        }
+
+        /// <remarks/>
+        public string shelf
+        {
+            get
+            {
+                return this.shelfField1;
+            }
+            set
+            {
+                this.shelfField1 = value;
+            }
+        }
+
+        /// <remarks/>
+        public string productType
+        {
+            get
+            {
+                return this.productTypeField1;
+            }
+            set
+            {
+                this.productTypeField1 = value;
+            }
+        }
+
+        /// <remarks/>
+        public Money price
+        {
+            get
+            {
+                return this.priceField1;
+            }
+            set
+            {
+                this.priceField1 = value;
+            }
+        }
+
+        /// <remarks/>
+        public ItemPublishStatus publishedStatus
+        {
+            get
+            {
+                return this.publishedStatusField1;
+            }
+            set
+            {
+                this.publishedStatusField1 = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool publishedStatusSpecified
+        {
+            get
+            {
+                return this.publishedStatusField1Specified;
+            }
+            set
+            {
+                this.publishedStatusField1Specified = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
+    public enum Mart
+    {
+
+        /// <remarks/>
+        WALMART_US,
+
+        /// <remarks/>
+        ASDA_GM,
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
+    public partial class Money
+    {
+
+        private CurrencyCode currencyField1;
+
+        private decimal amountField1;
+
+        /// <remarks/>
+        public CurrencyCode currency
+        {
+            get
+            {
+                return this.currencyField1;
+            }
+            set
+            {
+                this.currencyField1 = value;
+            }
+        }
+
+        /// <remarks/>
+        public decimal amount
+        {
+            get
+            {
+                return this.amountField1;
+            }
+            set
+            {
+                this.amountField1 = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
+    public enum CurrencyCode
+    {
+
+        /// <remarks/>
+        AED,
+
+        /// <remarks/>
+        AFN,
+
+        /// <remarks/>
+        ALL,
+
+        /// <remarks/>
+        AMD,
+
+        /// <remarks/>
+        ANG,
+
+        /// <remarks/>
+        AOA,
+
+        /// <remarks/>
+        ARS,
+
+        /// <remarks/>
+        AUD,
+
+        /// <remarks/>
+        AWG,
+
+        /// <remarks/>
+        AZN,
+
+        /// <remarks/>
+        BAM,
+
+        /// <remarks/>
+        BBD,
+
+        /// <remarks/>
+        BDT,
+
+        /// <remarks/>
+        BGN,
+
+        /// <remarks/>
+        BHD,
+
+        /// <remarks/>
+        BIF,
+
+        /// <remarks/>
+        BMD,
+
+        /// <remarks/>
+        BND,
+
+        /// <remarks/>
+        BOB,
+
+        /// <remarks/>
+        BRL,
+
+        /// <remarks/>
+        BSD,
+
+        /// <remarks/>
+        BTN,
+
+        /// <remarks/>
+        BWP,
+
+        /// <remarks/>
+        BYR,
+
+        /// <remarks/>
+        BZD,
+
+        /// <remarks/>
+        CAD,
+
+        /// <remarks/>
+        CDF,
+
+        /// <remarks/>
+        CHF,
+
+        /// <remarks/>
+        CLP,
+
+        /// <remarks/>
+        CNY,
+
+        /// <remarks/>
+        COP,
+
+        /// <remarks/>
+        CRC,
+
+        /// <remarks/>
+        CUP,
+
+        /// <remarks/>
+        CVE,
+
+        /// <remarks/>
+        CZK,
+
+        /// <remarks/>
+        DJF,
+
+        /// <remarks/>
+        DKK,
+
+        /// <remarks/>
+        DOP,
+
+        /// <remarks/>
+        DZD,
+
+        /// <remarks/>
+        EGP,
+
+        /// <remarks/>
+        ERN,
+
+        /// <remarks/>
+        ETB,
+
+        /// <remarks/>
+        EUR,
+
+        /// <remarks/>
+        FJD,
+
+        /// <remarks/>
+        FKP,
+
+        /// <remarks/>
+        GBP,
+
+        /// <remarks/>
+        GEL,
+
+        /// <remarks/>
+        GHS,
+
+        /// <remarks/>
+        GIP,
+
+        /// <remarks/>
+        GMD,
+
+        /// <remarks/>
+        GNF,
+
+        /// <remarks/>
+        GTQ,
+
+        /// <remarks/>
+        GYD,
+
+        /// <remarks/>
+        HKD,
+
+        /// <remarks/>
+        HNL,
+
+        /// <remarks/>
+        HRK,
+
+        /// <remarks/>
+        HTG,
+
+        /// <remarks/>
+        HUF,
+
+        /// <remarks/>
+        IDR,
+
+        /// <remarks/>
+        ILS,
+
+        /// <remarks/>
+        INR,
+
+        /// <remarks/>
+        IQD,
+
+        /// <remarks/>
+        IRR,
+
+        /// <remarks/>
+        ISK,
+
+        /// <remarks/>
+        JMD,
+
+        /// <remarks/>
+        JOD,
+
+        /// <remarks/>
+        JPY,
+
+        /// <remarks/>
+        KES,
+
+        /// <remarks/>
+        KGS,
+
+        /// <remarks/>
+        KHR,
+
+        /// <remarks/>
+        KMF,
+
+        /// <remarks/>
+        KPW,
+
+        /// <remarks/>
+        KRW,
+
+        /// <remarks/>
+        KWD,
+
+        /// <remarks/>
+        KYD,
+
+        /// <remarks/>
+        KZT,
+
+        /// <remarks/>
+        LAK,
+
+        /// <remarks/>
+        LBP,
+
+        /// <remarks/>
+        LKR,
+
+        /// <remarks/>
+        LRD,
+
+        /// <remarks/>
+        LSL,
+
+        /// <remarks/>
+        LTL,
+
+        /// <remarks/>
+        LVL,
+
+        /// <remarks/>
+        LYD,
+
+        /// <remarks/>
+        MAD,
+
+        /// <remarks/>
+        MDL,
+
+        /// <remarks/>
+        MGA,
+
+        /// <remarks/>
+        MKD,
+
+        /// <remarks/>
+        MMK,
+
+        /// <remarks/>
+        MNT,
+
+        /// <remarks/>
+        MOP,
+
+        /// <remarks/>
+        MRO,
+
+        /// <remarks/>
+        MUR,
+
+        /// <remarks/>
+        MVR,
+
+        /// <remarks/>
+        MWK,
+
+        /// <remarks/>
+        MXN,
+
+        /// <remarks/>
+        MYR,
+
+        /// <remarks/>
+        MZN,
+
+        /// <remarks/>
+        NAD,
+
+        /// <remarks/>
+        NGN,
+
+        /// <remarks/>
+        NIO,
+
+        /// <remarks/>
+        NOK,
+
+        /// <remarks/>
+        NPR,
+
+        /// <remarks/>
+        NZD,
+
+        /// <remarks/>
+        OMR,
+
+        /// <remarks/>
+        PAB,
+
+        /// <remarks/>
+        PEN,
+
+        /// <remarks/>
+        PGK,
+
+        /// <remarks/>
+        PHP,
+
+        /// <remarks/>
+        PKR,
+
+        /// <remarks/>
+        PLN,
+
+        /// <remarks/>
+        PYG,
+
+        /// <remarks/>
+        QAR,
+
+        /// <remarks/>
+        RON,
+
+        /// <remarks/>
+        RSD,
+
+        /// <remarks/>
+        RUB,
+
+        /// <remarks/>
+        RUR,
+
+        /// <remarks/>
+        RWF,
+
+        /// <remarks/>
+        SAR,
+
+        /// <remarks/>
+        SBD,
+
+        /// <remarks/>
+        SCR,
+
+        /// <remarks/>
+        SDG,
+
+        /// <remarks/>
+        SEK,
+
+        /// <remarks/>
+        SGD,
+
+        /// <remarks/>
+        SHP,
+
+        /// <remarks/>
+        SLL,
+
+        /// <remarks/>
+        SOS,
+
+        /// <remarks/>
+        SRD,
+
+        /// <remarks/>
+        STD,
+
+        /// <remarks/>
+        SYP,
+
+        /// <remarks/>
+        SZL,
+
+        /// <remarks/>
+        THB,
+
+        /// <remarks/>
+        TJS,
+
+        /// <remarks/>
+        TMT,
+
+        /// <remarks/>
+        TND,
+
+        /// <remarks/>
+        TOP,
+
+        /// <remarks/>
+        TRY,
+
+        /// <remarks/>
+        TTD,
+
+        /// <remarks/>
+        TWD,
+
+        /// <remarks/>
+        TZS,
+
+        /// <remarks/>
+        UAH,
+
+        /// <remarks/>
+        UGX,
+
+        /// <remarks/>
+        USD,
+
+        /// <remarks/>
+        UYU,
+
+        /// <remarks/>
+        UZS,
+
+        /// <remarks/>
+        VEF,
+
+        /// <remarks/>
+        VND,
+
+        /// <remarks/>
+        VUV,
+
+        /// <remarks/>
+        WST,
+
+        /// <remarks/>
+        XAF,
+
+        /// <remarks/>
+        XAG,
+
+        /// <remarks/>
+        XAU,
+
+        /// <remarks/>
+        XBA,
+
+        /// <remarks/>
+        XBB,
+
+        /// <remarks/>
+        XBC,
+
+        /// <remarks/>
+        XBD,
+
+        /// <remarks/>
+        XCD,
+
+        /// <remarks/>
+        XDR,
+
+        /// <remarks/>
+        XFU,
+
+        /// <remarks/>
+        XOF,
+
+        /// <remarks/>
+        XPD,
+
+        /// <remarks/>
+        XPF,
+
+        /// <remarks/>
+        XPT,
+
+        /// <remarks/>
+        XTS,
+
+        /// <remarks/>
+        XXX,
+
+        /// <remarks/>
+        YER,
+
+        /// <remarks/>
+        ZAR,
+
+        /// <remarks/>
+        ZMK,
+
+        /// <remarks/>
+        ZWL,
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
+    public enum ItemPublishStatus
+    {
+
+        /// <remarks/>
+        IN_PROGRESS,
+
+        /// <remarks/>
+        READY_TO_PUBLISH,
+
+        /// <remarks/>
+        PUBLISHED,
+
+        /// <remarks/>
+        UNPUBLISHED,
+
+        /// <remarks/>
+        STAGE,
+
+        /// <remarks/>
+        SYSTEM_PROBLEM,
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://walmart.com/")]
+    public partial class stateRestriction
+    {
+    }
+
+    }
+

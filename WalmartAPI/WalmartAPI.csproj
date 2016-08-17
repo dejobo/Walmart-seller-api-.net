@@ -80,182 +80,225 @@
     <Compile Include="Classes\FeedsRequest.cs" />
     <Compile Include="Classes\IWMRequest.cs" />
     <Compile Include="Classes\WalmartApiService.cs" />
-    <Compile Include="Classes\Walmart\additionalAsset.cs" />
-    <Compile Include="Classes\Walmart\additionalAssetAttribute.cs" />
-    <Compile Include="Classes\Walmart\additionalProductAttribute.cs" />
-    <Compile Include="Classes\Walmart\batteryTypeAndQuantityValue.cs" />
-    <Compile Include="Classes\Walmart\batteryTypeAndQuantityValueBatteryTechnologyType.cs" />
-    <Compile Include="Classes\Walmart\certificationsAndClaim.cs" />
-    <Compile Include="Classes\Walmart\ErrorType.cs" />
-    <Compile Include="Classes\Walmart\FeedAcknowledgement.cs" />
-    <Compile Include="Classes\Walmart\IngestionError.cs" />
-    <Compile Include="Classes\Walmart\ItemIngestionStatus.cs" />
-    <Compile Include="Classes\Walmart\ItemStatus.cs" />
-    <Compile Include="Classes\Walmart\productIdentifier.cs" />
-    <Compile Include="Classes\Walmart\productIdentifierProductIdType.cs" />
-    <Compile Include="Classes\Walmart\swatchImage.cs" />
-    <Compile Include="Classes\Walmart\XsdClassGen.cs" />
+    <Compile Include="Classes\Walmart\mp\activeIngredient.cs" />
+    <Compile Include="Classes\Walmart\mp\additionalAsset.cs" />
+    <Compile Include="Classes\Walmart\mp\additionalAssetAttribute.cs" />
+    <Compile Include="Classes\Walmart\mp\additionalProductAttribute.cs" />
+    <Compile Include="Classes\Walmart\mp\batteryTypeAndQuantityValue.cs" />
+    <Compile Include="Classes\Walmart\mp\batteryTypeAndQuantityValueBatteryTechnologyType.cs" />
+    <Compile Include="Classes\Walmart\mp\certificationsAndClaim.cs" />
+    <Compile Include="Classes\Walmart\Orders\cancelLineStatusesType.cs" />
+    <Compile Include="Classes\Walmart\Orders\cancelLinesType.cs" />
+    <Compile Include="Classes\Walmart\Orders\carrierNameType.cs" />
+    <Compile Include="Classes\Walmart\Orders\carrierType.cs" />
+    <Compile Include="Classes\Walmart\Orders\chargesType.cs" />
+    <Compile Include="Classes\Walmart\Orders\chargeType.cs" />
+    <Compile Include="Classes\Walmart\Orders\currencyType.cs" />
+    <Compile Include="Classes\Walmart\Orders\elementsType.cs" />
+    <Compile Include="Classes\Walmart\Orders\itemType.cs" />
+    <Compile Include="Classes\Walmart\Orders\metaType.cs" />
+    <Compile Include="Classes\Walmart\Orders\moneyType.cs" />
+    <Compile Include="Classes\Walmart\Orders\Order.cs" />
+    <Compile Include="Classes\Walmart\mp\ErrorType.cs" />
+    <Compile Include="Classes\Walmart\mp\fabricContentValue.cs" />
+    <Compile Include="Classes\Walmart\mp\FeedAcknowledgement.cs" />
+    <Compile Include="Classes\Walmart\mp\FeedHeader.cs" />
+    <Compile Include="Classes\Walmart\mp\FeedHeaderVersion.cs" />
+    <Compile Include="Classes\Walmart\mp\IngestionError.cs" />
+    <Compile Include="Classes\Walmart\mp\ItemIngestionStatus.cs" />
+    <Compile Include="Classes\Walmart\mp\ItemStatus.cs" />
+    <Compile Include="Classes\Walmart\mp\nutrient.cs" />
+    <Compile Include="Classes\Walmart\Orders\orderLineStatusesType.cs" />
+    <Compile Include="Classes\Walmart\Orders\orderLineStatusType.cs" />
+    <Compile Include="Classes\Walmart\Orders\orderLinesType.cs" />
+    <Compile Include="Classes\Walmart\Orders\orderLineType.cs" />
+    <Compile Include="Classes\Walmart\Orders\orderRefund.cs" />
+    <Compile Include="Classes\Walmart\Orders\orderShipment.cs" />
+    <Compile Include="Classes\Walmart\Orders\ordersListType.cs" />
+    <Compile Include="Classes\Walmart\Orders\postalAddressType.cs" />
+    <Compile Include="Classes\Walmart\Orders\priceAndTaxType.cs" />
+    <Compile Include="Classes\Walmart\Orders\priceType.cs" />
+    <Compile Include="Classes\Walmart\Orders\reasonCodesType.cs" />
+    <Compile Include="Classes\Walmart\Orders\refundChargesType.cs" />
+    <Compile Include="Classes\Walmart\Orders\refundChargeType.cs" />
+    <Compile Include="Classes\Walmart\Orders\refundLinesType.cs" />
+    <Compile Include="Classes\Walmart\Orders\refundLineType.cs" />
+    <Compile Include="Classes\Walmart\Orders\refundsType.cs" />
+    <Compile Include="Classes\Walmart\Orders\refundType.cs" />
+    <Compile Include="Classes\Walmart\Orders\shipLineStatusesType.cs" />
+    <Compile Include="Classes\Walmart\Orders\shipLineStatusType.cs" />
+    <Compile Include="Classes\Walmart\Orders\shippingInfoType.cs" />
+    <Compile Include="Classes\Walmart\Orders\shippingLinesType.cs" />
+    <Compile Include="Classes\Walmart\Orders\shippingLineType.cs" />
+    <Compile Include="Classes\Walmart\Orders\shippingMethodCodeType.cs" />
+    <Compile Include="Classes\Walmart\Orders\taxType.cs" />
+    <Compile Include="Classes\Walmart\Orders\trackingInfoType.cs" />
+    <Compile Include="Classes\Walmart\mp\productIdentifier.cs" />
+    <Compile Include="Classes\Walmart\mp\productIdentifierProductIdType.cs" />
+    <Compile Include="Classes\Walmart\mp\recycledMaterialContentValue.cs" />
+    <Compile Include="Classes\Walmart\mp\swatchImage.cs" />
+    <Compile Include="Classes\Walmart\mp\XsdClassGen.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Classes\wmRequest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\Animal.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\Animal.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\ArtAndCraft.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\ArtAndCraft.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\Baby.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\Baby.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\CarriersAndAccessories.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\CarriersAndAccessories.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\Clothing.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\Clothing.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\Electronics.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\Electronics.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\FeedAcknowledgement.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\FeedAcknowledgement.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\FeedCommons.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\FeedCommons.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\FeedHeader.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\FeedHeader.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\FeedRecordResponse.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\FeedRecordResponse.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\FeedResponse.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\FeedResponse.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\FoodAndBeverage.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\FoodAndBeverage.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\Footwear.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\Footwear.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\Furniture.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\Furniture.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\GardenAndPatio.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\GardenAndPatio.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\HealthAndBeauty.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\HealthAndBeauty.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\Home.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\Home.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\InventoryFeedResponse.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\InventoryFeedResponse.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\ItemFeedResponse.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\ItemFeedResponse.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\Jewelry.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\Jewelry.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\Media.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\Media.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\MPItem.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\MPItem.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\MPItemCommons.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\MPItemCommons.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\MPItemFeed.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\MPItemFeed.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\MPItemFeedHeader.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\MPItemFeedHeader.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\MPItemFeedResponse.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\MPItemFeedResponse.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\MPItemPrice.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\MPItemPrice.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\MPItemRetire.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\MPItemRetire.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\MPItemShippingOverrides.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\MPItemShippingOverrides.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\MPItemUpdate.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\MPItemUpdate.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\MPItemView.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\MPItemView.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\MPItemViews.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\MPItemViews.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\MPProduct.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\MPProduct.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\MPProductCommons.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\MPProductCommons.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\MPProductUpdate.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\MPProductUpdate.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\MusicalInstrument.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\MusicalInstrument.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\OccasionAndSeasonal.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\OccasionAndSeasonal.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\OfferEnvelope.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\OfferEnvelope.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\Office.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\Office.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\Other.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\Other.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\PartnerFeedResponse.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\PartnerFeedResponse.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\Photography.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\Photography.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\ProductEnvelope.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\ProductEnvelope.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\SportAndRecreation.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\SportAndRecreation.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\ToolsAndHardware.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\ToolsAndHardware.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\Toy.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\Toy.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\Vehicle.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\Vehicle.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\mp\Watches.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\Watches.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\orders\CancelRequestV3.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\orders\CancelRequestV3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\orders\CommonComponentsV3.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\orders\CommonComponentsV3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\orders\PurchaseOrderV3.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\orders\PurchaseOrderV3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\orders\RefundRequestV3.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\orders\RefundRequestV3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Downloaded\WalmartMarketplaceXSDs-2.1.4\orders\ShipConfirmRequestV3.xsd">
+    <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\orders\ShipConfirmRequestV3.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />

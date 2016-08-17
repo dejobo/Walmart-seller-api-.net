@@ -8,6 +8,7 @@ using WalmartAPI;
 using System.IO;
 using System.Xml.Serialization;
 using WalmartAPI.Classes;
+using WalmartAPI.Classes.Walmart.mp;
 
 namespace WalmartAPI.Test
 {
@@ -43,17 +44,18 @@ namespace WalmartAPI.Test
         }
 
         [Theory]
-        [InlineData("FeedRecordResponse.txt")]
-        [InlineData("XMLFile.txt")]
-        public void testDeserialization(string file)
+        [InlineData(@"mock\FeedRecordResponse.xml",typeof(feedRecordResponse))]
+        [InlineData(@"mock\XMLFile.xml",typeof(feedRecordResponse))]
+        [InlineData(@"mock\OrdersResponse.xml", typeof(WalmartAPI.Classes.Walmart.Orders.ordersListType))]
+        public void testDeserialization(string file,Type type)
         {
             using (var str = File.OpenRead(file))
             {
-                var xs = new XmlSerializer(typeof(feedRecordResponse));//,"ns2");
+                var xs = new XmlSerializer(type);
+
                 var sut = xs.Deserialize(str);
 
-
-                Assert.IsType(typeof(feedRecordResponse), sut);
+                Assert.IsType(type, sut);
             }
         }
 
