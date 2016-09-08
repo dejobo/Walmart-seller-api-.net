@@ -1,7 +1,12 @@
-﻿namespace WalmartAPI.Classes
+﻿using System;
+using System.Net.Http;
+
+namespace WalmartAPI.Classes
 {
     public interface IWMRequest
     {
-        WalmartAPI.Classes.wmRequest wmRequest { get; set; }
+        HttpMethod httpMethod { get; }
+        Uri requestUri { get; }
+        WMRequest wmRequest { get; set; }
     }
 }

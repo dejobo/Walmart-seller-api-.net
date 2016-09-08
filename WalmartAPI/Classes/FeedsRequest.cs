@@ -1,12 +1,29 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 
 namespace WalmartAPI.Classes
 {
-    public class FeedsRequest : WalmartAPI.Classes.IWMRequest
+    public class FeedsRequest : IWMRequest
     {
-        public WalmartAPI.Classes.wmRequest wmRequest { get; set; }
+        public HttpMethod httpMethod
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public Uri requestUri
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public WalmartAPI.Classes.WMRequest wmRequest { get; set; }
 
         public void getFeeds()
         {

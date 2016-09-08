@@ -76,9 +76,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Authentication.cs" />
+    <Compile Include="Classes\ExtensionMethods.cs" />
     <Compile Include="Classes\getOrders.cs" />
     <Compile Include="Classes\FeedsRequest.cs" />
+    <Compile Include="Classes\IWMRequestResponse.cs" />
     <Compile Include="Classes\IWMRequest.cs" />
+    <Compile Include="Classes\IWMResponse.cs" />
+    <Compile Include="Classes\OrdersRequestResponse.cs" />
     <Compile Include="Classes\WalmartApiService.cs" />
     <Compile Include="Classes\Walmart\mp\activeIngredient.cs" />
     <Compile Include="Classes\Walmart\mp\additionalAsset.cs" />
@@ -139,7 +143,7 @@
     <Compile Include="Classes\Walmart\mp\swatchImage.cs" />
     <Compile Include="Classes\Walmart\mp\XsdClassGen.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Classes\wmRequest.cs" />
+    <Compile Include="Classes\WMRequest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="XSD\WalmartMarketplaceXSDs-2.1.4\mp\Animal.xsd">

@@ -12,19 +12,19 @@ using Serilog.Core;
 
 namespace WalmartAPI.Classes
 {
-    public class wmRequest
+    public class WMRequest
     {
         private string _consumerId { get; set; }
         private string _correlationId { get; set; }
         public HttpWebRequest request { get; private set; }
-        private WalmartAPI.Classes.Authentication _authentication { get; set; }
+        private Authentication _authentication { get; set; }
 
         /// <summary>
         /// Creates a walmart api request with the required headers.
         /// </summary>
         /// <param name="url"></param>
         /// <param name="authentication"></param>
-        public wmRequest(string url,WalmartAPI.Classes.Authentication authentication) //: this(url)
+        public WMRequest(string url, Authentication authentication) //: this(url)
         {
             _authentication = authentication;
 
@@ -33,7 +33,7 @@ namespace WalmartAPI.Classes
             getHeaders();
         }
 
-        public wmRequest()
+        private WMRequest()
         {
 
         }
@@ -41,7 +41,7 @@ namespace WalmartAPI.Classes
         /// Creates a walmart api request with the required headers.
         /// </summary>
         /// <param name="url"></param>
-        public wmRequest(string url)
+        private WMRequest(string url)
         {
             //Log.Logger = new LoggerConfiguration();
 
@@ -71,12 +71,14 @@ namespace WalmartAPI.Classes
                 throw;
             }
         }
+
+
         private void getHeaders()
         {
             try
             {
                 if (_authentication == null)
-                    _authentication = new WalmartAPI.Classes.Authentication();
+                    _authentication = new Authentication();
                 _authentication.baseUrl = request.RequestUri.AbsoluteUri;
                 _correlationId = Guid.NewGuid().ToString().Substring(0, 5);
                 //sign data...........
@@ -97,7 +99,7 @@ namespace WalmartAPI.Classes
                 if (!_authentication.channelType.IsNullOrEmpty())
                     request.Headers.Add("WM_CONSUMER.CHANNEL.TYPE:{0}".FormatWith(_authentication.channelType));
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 ex.LogWithSerilog();
                 throw;
