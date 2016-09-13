@@ -30,16 +30,25 @@ namespace WalmartAPI.Classes
         /// <param name="privateKey">Provided by walmart</param>
         /// <param name="httpRequestMethod">the request method</param>
         /// <param name="channelType">Channel type provided by walmart</param>
-        public Authentication(string consumerId,Uri baseUrl,string privateKey, HttpMethod httpRequestMethod,string channelType) : this()
+        public Authentication(string consumerId,Uri baseUrl,string privateKey, HttpMethod httpRequestMethod,string channelType) : this(consumerId,privateKey)
         {
-            this.consumerId = consumerId;
+            //this.consumerId = consumerId;
             this.baseUrl = baseUrl.AbsoluteUri;
-            this.privateKey = privateKey;
+            //this.privateKey = privateKey;
             this.httpRequestMethod = httpRequestMethod.Method;
             this.channelType = channelType;
             signData();
         }
 
+        public Authentication(string consumerId,string privateKey) : this()
+        {
+            this.consumerId = consumerId;
+            this.privateKey = privateKey;
+        }
+        public Authentication(string consumerId,string privateKey,string channelType) : this(consumerId, privateKey)
+        {
+            this.channelType = channelType;
+        }
         #endregion
 
         #region Properties

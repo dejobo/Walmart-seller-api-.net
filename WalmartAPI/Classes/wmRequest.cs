@@ -9,14 +9,15 @@ using System.Xml;
 using System.Diagnostics;
 using System.Xml.Serialization;
 using Serilog.Core;
+using System.Collections.Specialized;
+using WalmartAPI.Classes.Walmart.Responses;
+using WalmartAPI.Classes.Walmart.Orders;
 
 namespace WalmartAPI.Classes
 {
     public class WMRequest
     {
-        private string _consumerId { get; set; }
-        private string _correlationId { get; set; }
-        public HttpWebRequest request { get; private set; }
+        private HttpWebRequest request { get; set; }
         private Authentication _authentication { get; set; }
 
         /// <summary>
@@ -28,27 +29,28 @@ namespace WalmartAPI.Classes
         {
             _authentication = authentication;
 
+            SetRequest(url);
+        }
+
+
+        public void SetRequest(string url)
+        {
             Log.Verbose("Starting wmRequest with {url}", url);
             request = WebRequest.Create(url) as HttpWebRequest;
             getHeaders();
-        }
-
-        private WMRequest()
-        {
 
         }
-        /// <summary>
-        /// Creates a walmart api request with the required headers.
-        /// </summary>
-        /// <param name="url"></param>
-        private WMRequest(string url)
+        public void appendQueryStrings(NameValueCollection queryCollection)
         {
-            //Log.Logger = new LoggerConfiguration();
-
-            Log.Verbose("Starting wmRequest with {url}", url);
-            request = WebRequest.Create(url) as HttpWebRequest;
-            getHeaders();
-            
+            var uriBuild = new UriBuilder(request.Address);
+            var qs = (from k in queryCollection.AllKeys
+                      from v in queryCollection.GetValues(k)
+                      select "{0}={1}".FormatWith(k, v))
+                     .ToArray()
+                     .Join("&");
+            Log.Debug("Compiled {queryString}", qs);
+            uriBuild.Query = qs;
+            SetRequest(uriBuild.Uri.AbsoluteUri);
         }
 
         public T getWMresponse<T>()
@@ -62,7 +64,33 @@ namespace WalmartAPI.Classes
                     var xmlDesrializer = new XmlSerializer(typeof(T));
                     var resObj = xmlDesrializer.Deserialize(response);
 
-                    return (T)resObj;
+                    
+
+                    var res= (T)resObj;
+
+                    var metaProperties = res.GetType().GetProperties()
+                        .Where(p => p.PropertyType == typeof(metaType));
+                    if(metaProperties.Count() > 0)
+                    {
+                        //if(metaProperties.Count()>1)
+                        Log.Debug("meta properties found, let's get it!");
+                        var pp = metaProperties.Single();
+                        var ppp = pp.GetValue(res) as metaType;
+                        Log.Debug("got {nextCursor} from the meta", ppp.nextCursor);
+                    }
+
+                    return res;
+                }
+            }
+            catch (WebException wex)
+            {
+                using (var response = wex.Response.GetResponseStream())
+                {
+                    var xmlDesrializer = new XmlSerializer(typeof(errors));
+                    //var rsStr = new StreamReader(response).ReadToEnd();
+                    var resObj = xmlDesrializer.Deserialize(response) as errors;
+                    Log.Error(wex, resObj.error.First().description);
+                    throw;
                 }
             }
             catch (Exception ex)
@@ -80,7 +108,7 @@ namespace WalmartAPI.Classes
                 if (_authentication == null)
                     _authentication = new Authentication();
                 _authentication.baseUrl = request.RequestUri.AbsoluteUri;
-                _correlationId = Guid.NewGuid().ToString().Substring(0, 5);
+                //_correlationId = Guid.NewGuid().ToString().Substring(0, 5);
                 //sign data...........
                 _authentication.signData();
                 Debug.WriteLine("WM_SEC.AUTH_SIGNATURE:{0}", _authentication.signature);
@@ -93,11 +121,17 @@ namespace WalmartAPI.Classes
                 request.Headers.Add("WM_SEC.AUTH_SIGNATURE:{0}".FormatWith(_authentication.signature));
                 request.Headers.Add("WM_CONSUMER.ID:{0}".FormatWith(_authentication.consumerId));
                 request.Headers.Add("WM_SEC.TIMESTAMP:{0}".FormatWith(_authentication.timeStamp));
-                request.Headers.Add("WM_QOS.CORRELATION_ID:{0}".FormatWith(_correlationId));
+                request.Headers.Add("WM_QOS.CORRELATION_ID:{0}".FormatWith(_authentication.correlationId));
 
 
-                if (!_authentication.channelType.IsNullOrEmpty())
+                if (_authentication.channelType.IsNullOrEmpty())
+                {
+                    Log.Warning("WM_CONSUMER.CHANNEL.TYPE is not defined according to walmart documentation this is requred for orders api communication");
+                }
+                else
+                {
                     request.Headers.Add("WM_CONSUMER.CHANNEL.TYPE:{0}".FormatWith(_authentication.channelType));
+                }
             }
             catch (Exception ex)
             {

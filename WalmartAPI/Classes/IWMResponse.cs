@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WalmartAPI.Classes
 {
-    interface IWMResponse
+    public interface IWMResponse
     {
     }
 }
