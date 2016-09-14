@@ -17,7 +17,7 @@ namespace WalmartAPI.Classes
     {
         #region Constructors
         private OrdersRequestResponse() { }
-        public OrdersRequestResponse(Authentication authentication):this()
+        public OrdersRequestResponse(Authentication authentication) : this()
         {
             _authentication = authentication;
             this.request = new GetOrdersRequest(_authentication, new Uri("https://marketplace.walmartapis.com/v3/orders"));
@@ -70,7 +70,7 @@ namespace WalmartAPI.Classes
 
             public WMRequest wmRequest { get; set; }
 
-            public GetOrdersRequest(Authentication authentication,Uri requestUri)
+            public GetOrdersRequest(Authentication authentication, Uri requestUri)
             {
                 this.requestUri = requestUri;
                 //new Uri("https://marketplace.walmartapis.com/v3/orders");
@@ -82,7 +82,7 @@ namespace WalmartAPI.Classes
                 Log.Debug("Initiating wmRequest prop");
                 wmRequest = new WMRequest(requestUri.AbsoluteUri, auth);
             }
-            
+
         }
         public class GetOrdersResponse : ordersListType, IWMResponse
         {
@@ -92,57 +92,63 @@ namespace WalmartAPI.Classes
 
         public void getResponse()
         {
- 
-            //get response from walmart
-            var resp = request.wmRequest.getWMresponse<ordersListType>();
-            response = new OrdersRequestResponse.GetOrdersResponse();
-            //map response to GetOrdersResponse type
-            response.InitFromWmType<ordersListType>(resp);
-
-            var ordersList = new List<WMSystemOrder>();
-            foreach (var item in response.elements)
+            try
             {
-                var order = createSystemOrder(item);
-                ordersList.AddRange(order);
-            }
+                //get response from walmart
+                var resp = request.wmRequest.getWMresponse<ordersListType>();
+                response = new OrdersRequestResponse.GetOrdersResponse();
+                //map response to GetOrdersResponse type
+                response.InitFromWmType<ordersListType>(resp);
 
-            using (var db = new DataContext())
-            {
-
-                if (db.systemOrderSet.Count() == 0)
+                var ordersList = new List<WMSystemOrder>();
+                foreach (var item in response.elements)
                 {
-                    db.systemOrderSet.AddRange(ordersList);
+                    var order = createSystemOrder(item);
+                    ordersList.AddRange(order);
+                }
+
+                using (var db = new DataContext())
+                {
+
+                    if (db.systemOrderSet.Count() == 0)
+                    {
+                        db.systemOrderSet.AddRange(ordersList);
+                    }
+                    else
+                    {
+                        //filter lines already in the database
+                        var filteredlist = ordersList
+                        .ExceptBy(db.systemOrderSet,
+                        s => new { s.orderNumber, s.lineNumber });
+                        //add items to table
+                        db.systemOrderSet.AddRange(filteredlist);
+                    }
+                    var cnt = db.SaveChanges();
+                    Log.Debug("Saved {count} records to the WMSystemOrders table", cnt);
+                }
+
+                //check if next cursor was provided.
+                if (!response.meta.nextCursor.IsNullOrEmpty())
+                {
+                    var uriNext = new UriBuilder(request.requestUri)
+                    {
+                        Query = response.meta.nextCursor
+                    };
+
+                    //create new OrdersRequestResponse
+                    var newReq = new OrdersRequestResponse(_authentication);
+                    newReq.request.wmRequest.SetRequest(uriNext.Uri.AbsoluteUri);
+                    //set the next cursor
+                    nextCursor = newReq;
                 }
                 else
                 {
-                    //filter lines already in the database
-                    var filteredlist = ordersList
-                    .ExceptBy(db.systemOrderSet,
-                    s => new { s.orderNumber, s.lineNumber });
-                    //add items to table
-                    db.systemOrderSet.AddRange(filteredlist);
+                    nextCursor = null;
                 }
-                var cnt = db.SaveChanges();
-                Log.Debug("Saved {count} records to the WMSystemOrders table", cnt);
             }
-
-            //check if next cursor was provided.
-            if (!response.meta.nextCursor.IsNullOrEmpty())
+            catch(Exception ex)
             {
-                var uriNext = new UriBuilder(request.requestUri)
-                {
-                    Query = response.meta.nextCursor
-                };
-
-                //create new OrdersRequestResponse
-                var newReq = new OrdersRequestResponse(_authentication);
-                newReq.request.wmRequest.SetRequest(uriNext.Uri.AbsoluteUri);
-                //set the next cursor
-                nextCursor = newReq;
-            }
-            else
-            {
-                nextCursor = null;
+                ex.LogWithSerilog();
             }
         }
 
@@ -152,24 +158,28 @@ namespace WalmartAPI.Classes
             var orders = new List<WMSystemOrder>();
             foreach (var orderItems in item.orderLines)
             {
-                var order = new WMSystemOrder();
-                order.orderNumber = item.purchaseOrderId;
-                order.orderDate = item.orderDate;
-                order.estimatedShipDate = item.shippingInfo.estimatedShipDate;
-                order.estimatedDeliveryDate = item.shippingInfo.estimatedDeliveryDate;
-                order.shippingMethod = item.shippingInfo.methodCode.ToString();
-                order.customerName = item.shippingInfo.postalAddress.name;
-                order.customerAddress1 = item.shippingInfo.postalAddress.address1;
-                order.customerAddress2 = item.shippingInfo.postalAddress.address2;
-                order.customerCity = item.shippingInfo.postalAddress.city;
-                order.customerState = item.shippingInfo.postalAddress.state;
-                order.customerPostalCode = item.shippingInfo.postalAddress.postalCode;
-                order.customerCountry = item.shippingInfo.postalAddress.country;
-                order.customerAddressType = item.shippingInfo.postalAddress.addressType;
-                order.customerPhoneNumber = item.shippingInfo.phone;
-                order.customerEmail = item.customerEmailId;
-                order.lineNumber = orderItems.lineNumber;
-                order.sku = orderItems.item.sku;
+                var order = new WMSystemOrder()
+                {
+                    orderNumber = item.purchaseOrderId,
+                    customerPurchaseOrder = item.customerOrderId,
+                    orderDate = item.orderDate,
+                    estimatedShipDate = item.shippingInfo.estimatedShipDate,
+                    estimatedDeliveryDate = item.shippingInfo.estimatedDeliveryDate,
+                    shippingMethod = item.shippingInfo.methodCode.ToString(),
+                    customerName = item.shippingInfo.postalAddress.name,
+                    customerAddress1 = item.shippingInfo.postalAddress.address1,
+                    customerAddress2 = item.shippingInfo.postalAddress.address2,
+                    customerCity = item.shippingInfo.postalAddress.city,
+                    customerState = item.shippingInfo.postalAddress.state,
+                    customerPostalCode = item.shippingInfo.postalAddress.postalCode,
+                    customerCountry = item.shippingInfo.postalAddress.country,
+                    customerAddressType = item.shippingInfo.postalAddress.addressType,
+                    customerPhoneNumber = item.shippingInfo.phone,
+                    customerEmail = item.customerEmailId,
+                    lineNumber = orderItems.lineNumber,
+                    sku = orderItems.item.sku,
+                    dateAdded = DateTime.Now
+                };
 
                 var itemCharges = orderItems.charges.Single(c => c.chargeName == "ItemPrice");
                 order.itemPrice = itemCharges.chargeAmount.amount;
@@ -192,9 +202,9 @@ namespace WalmartAPI.Classes
 
             }
             //calculate total
-            var sum = orders.Sum(p => p.itemPrice);
+            var sum = orders.Sum(p => p.itemPrice * p.quantity);
             //add it to the details
-            orders.Pipe(o => o.orderTotal = sum);
+            orders = orders.Pipe(o => o.orderTotal = sum).ToList();
 
             Log.Debug("systemOrder object created for {orderNumber} with {lines} lines", item.purchaseOrderId, item.orderLines.Count());
             return orders;

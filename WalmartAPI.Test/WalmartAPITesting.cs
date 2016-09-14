@@ -12,6 +12,7 @@ using Serilog;
 using Serilog.Events;
 using System.Reflection;
 using WalmartAPI.Classes.Walmart.Orders;
+using ChannelOrderDownloads;
 
 namespace WalmartAPI.Test
 {
@@ -202,5 +203,15 @@ namespace WalmartAPI.Test
             //output.WriteLine(Log.Logger.GetType().FullName);
             Log.Verbose("Testing Logger base");
         }
+
+        [Fact(Skip = "Untestable")]
+        public void shouldGetAuthKeys()
+        {
+            var sut = new OrderCollector();
+            Assert.Equal(consumerId, sut.consumerId);
+            Assert.Equal(channelType, sut.channelId);
+            Assert.Equal(privateKey, sut.privateKey);
+        }
+    
     }
 }

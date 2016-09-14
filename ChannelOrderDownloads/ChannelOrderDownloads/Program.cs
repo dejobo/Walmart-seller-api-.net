@@ -5,6 +5,7 @@ using System.Linq;
 using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
+using Extensions;
 
 namespace ChannelOrderDownloads
 {
@@ -13,16 +14,29 @@ namespace ChannelOrderDownloads
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeRush", "Can combine initialization with declaration")]
         static void Main()
         {
-            ServiceBase[] ServicesToRun;
-            ServicesToRun = new ServiceBase[]
+            ConfigureLogger();
+            try
             {
+                ServiceBase[] ServicesToRun;
+                ServicesToRun = new ServiceBase[]
+                {
                 new OrderCollector()
-            };
-            ServiceBase.Run(ServicesToRun);
+                };
+                ServiceBase.Run(ServicesToRun);
+            }
+            catch (Exception ex)
+            {
+                Log.Fatal(ex, ex.GetBottomException().Message);
+            }
+            finally
+            {
+                Log.CloseAndFlush();
+            }
         }
-        public static void ConfigureLogger()
+        static void ConfigureLogger()
         {
             //var applicationAssembly = Assembly.GetEntryAssembly().GetName();
             Log.Logger = new LoggerConfiguration()
@@ -32,8 +46,9 @@ namespace ChannelOrderDownloads
                             .Enrich.WithMachineName()
                             .Enrich.WithProcessId()
                             .Enrich.WithThreadId()
-                            .Enrich.WithProperty("ApplicationName", "WalmartAPITesting")
+                            .Enrich.WithProperty("ApplicationName", "Order collector service")
                             .CreateLogger();
+            Log.Debug("Logger configured");
         }
     }
 }

@@ -11,12 +11,12 @@ namespace WalmartAPI.Classes
     public class DataContext :DbContext
     {
         public DbSet<WMSystemOrder> systemOrderSet { get; set; }
-        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<SystemOrder>()
-        //        .Property(t => t.orderNumber)
-        //        .HasColumnAnnotation("Index", new IndexAnnotation(new System.ComponentModel.DataAnnotations.Schema.IndexAttribute()))
-        //    base.OnModelCreating(modelBuilder);
-        //}
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            //modelBuilder.Entity<SystemOrder>()
+            //    .Property(t => t.orderNumber)
+            //    .HasColumnAnnotation("Index", new IndexAnnotation(new System.ComponentModel.DataAnnotations.Schema.IndexAttribute()))
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
