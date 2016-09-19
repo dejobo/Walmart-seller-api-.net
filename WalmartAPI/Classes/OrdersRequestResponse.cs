@@ -10,6 +10,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using WalmartAPI.Classes.Walmart.Orders;
+using WalmartAPI;
 
 namespace WalmartAPI.Classes
 {
@@ -90,6 +91,19 @@ namespace WalmartAPI.Classes
         }
         #endregion
 
+        public orderLineStatusValueType GetStat(string order)
+        {
+            Log.Debug("Checking status on {order}", order);
+            var orderReq = new OrdersRequestResponse(_authentication);
+            var queryStrings = new NameValueCollection();
+            queryStrings.Add("purchaseOrderId", order);
+            orderReq.request.wmRequest.appendQueryStrings(queryStrings);
+            orderReq.getResponse();
+            var stat = orderReq.response.elements.Single().orderLines.First().orderLineStatuses.First().status;
+
+            Log.Debug("{order} status is {status}", order, stat);
+            return stat;
+        }
         public void getResponse()
         {
             try
@@ -107,7 +121,7 @@ namespace WalmartAPI.Classes
                     ordersList.AddRange(order);
                 }
 
-                using (var db = new DataContext())
+                using (var db = General.GetContext())
                 {
 
                     if (db.systemOrderSet.Count() == 0)
@@ -132,7 +146,7 @@ namespace WalmartAPI.Classes
                 {
                     var uriNext = new UriBuilder(request.requestUri)
                     {
-                        Query = response.meta.nextCursor
+                        Query = response.meta.nextCursor.TrimStart('?')
                     };
 
                     //create new OrdersRequestResponse

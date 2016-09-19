@@ -45,6 +45,8 @@ namespace ChannelOrderDownloads
             getOrders("Created");
             Log.Verbose("Calling getOrders(\"Acknowledged\")");
             getOrders("Acknowledged");
+            Log.Verbose("Calling acknowladgOrders()");
+            acknowladgeOrders();
         }
 
         protected override void OnStart(string[] args)
@@ -115,5 +117,11 @@ namespace ChannelOrderDownloads
                 Log.Debug("Received {count} orders in {orderStatus} status", orders.response.elements.Count(), orderStatus);
             }
         }
+        private void acknowladgeOrders()
+        {
+            var ack = new PostOrderAcknowladgements(new Authentication(consumerId, privateKey, channelId));
+            ack.AcknowladgeImportedOrders();
+        }
+
     }
 }

@@ -108,7 +108,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\General.cs" />
     <Compile Include="Classes\DataContext.cs" />
+    <Compile Include="Classes\PostOrderAcknowladgements.cs" />
     <Compile Include="Classes\WMSystemOrder.cs" />
     <Compile Include="Classes\Walmart\Responses\cause.cs" />
     <Compile Include="Classes\Authentication.cs" />

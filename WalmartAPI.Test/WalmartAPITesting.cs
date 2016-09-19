@@ -12,7 +12,6 @@ using Serilog;
 using Serilog.Events;
 using System.Reflection;
 using WalmartAPI.Classes.Walmart.Orders;
-using ChannelOrderDownloads;
 
 namespace WalmartAPI.Test
 {
@@ -207,10 +206,18 @@ namespace WalmartAPI.Test
         [Fact(Skip = "Untestable")]
         public void shouldGetAuthKeys()
         {
-            var sut = new OrderCollector();
-            Assert.Equal(consumerId, sut.consumerId);
-            Assert.Equal(channelType, sut.channelId);
-            Assert.Equal(privateKey, sut.privateKey);
+            //var sut = new OrderCollector();
+            //Assert.Equal(consumerId, sut.consumerId);
+            //Assert.Equal(channelType, sut.channelId);
+            //Assert.Equal(privateKey, sut.privateKey);
+        }
+
+        [Fact]
+        public void shouldAcknowlageOrders()
+        {
+            var sut = new PostOrderAcknowladgements(new Authentication(consumerId, privateKey, channelType));
+            sut.AcknowladgeImportedOrders();
+
         }
     
     }

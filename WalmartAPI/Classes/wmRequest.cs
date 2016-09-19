@@ -12,6 +12,7 @@ using Serilog.Core;
 using System.Collections.Specialized;
 using WalmartAPI.Classes.Walmart.Responses;
 using WalmartAPI.Classes.Walmart.Orders;
+using System.Net.Http;
 
 namespace WalmartAPI.Classes
 {
@@ -55,22 +56,29 @@ namespace WalmartAPI.Classes
 
         public T getWMresponse<T>()
         {
+            return getWMresponse<T>(HttpMethod.Get);
+        }
+
+        public T getWMresponse<T>(HttpMethod method)
+        {
             try
             {
                 Log.Debug("Getting WM response for type {type}", typeof(T).MemberType.ToString());
+                request.Method = method.Method;
+                request.ContentLength = 0; //testin
+                //request.ContentType = "application/xml";
                 using (var response = request.GetResponse().GetResponseStream())
                 {
 
                     var xmlDesrializer = new XmlSerializer(typeof(T));
                     var resObj = xmlDesrializer.Deserialize(response);
 
-                    
-
                     var res= (T)resObj;
 
                     var metaProperties = res.GetType().GetProperties()
                         .Where(p => p.PropertyType == typeof(metaType));
-                    if(metaProperties.Count() > 0)
+                    //check meta properties
+                    if (metaProperties.Count() > 0)
                     {
                         //if(metaProperties.Count()>1)
                         Log.Debug("meta properties found, let's get it!");
@@ -122,7 +130,7 @@ namespace WalmartAPI.Classes
                 request.Headers.Add("WM_CONSUMER.ID:{0}".FormatWith(_authentication.consumerId));
                 request.Headers.Add("WM_SEC.TIMESTAMP:{0}".FormatWith(_authentication.timeStamp));
                 request.Headers.Add("WM_QOS.CORRELATION_ID:{0}".FormatWith(_authentication.correlationId));
-
+                request.ContentType = "application/xml";
 
                 if (_authentication.channelType.IsNullOrEmpty())
                 {

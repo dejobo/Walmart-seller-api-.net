@@ -120,10 +120,6 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ChannelOrderDownloads\ChannelOrderDownloads\ChannelOrderDownloads.csproj">
-      <Project>{708e9662-4f9f-44f8-b598-b792dbbe964a}</Project>
-      <Name>ChannelOrderDownloads</Name>
-    </ProjectReference>
     <ProjectReference Include="..\WalmartAPI\WalmartAPI.csproj">
       <Project>{1cc1618f-8f85-427a-ac4b-a097acdb0dad}</Project>
       <Name>WalmartAPI</Name>
