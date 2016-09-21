@@ -126,6 +126,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="mock\1017331470ship.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mock\1576446489347ship.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="mock\FeedRecordResponse.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>

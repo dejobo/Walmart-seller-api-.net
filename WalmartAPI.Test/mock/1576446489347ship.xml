@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:orderShipment
+    xmlns:ns2="http://walmart.com/mp/v3/orders"
+    xmlns:ns3="http://walmart.com/">
+    <ns2:orderLines>
+        <ns2:orderLine>
+            <ns2:lineNumber>1</ns2:lineNumber>
+            <ns2:orderLineStatuses>
+                <ns2:orderLineStatus>
+                    <ns2:status>Shipped</ns2:status>
+                    <ns2:statusQuantity>
+                        <ns2:unitOfMeasurement>Each</ns2:unitOfMeasurement>
+                        <ns2:amount>1</ns2:amount>
+                    </ns2:statusQuantity>
+                    <ns2:trackingInfo>
+                        <ns2:shipDateTime>2016-09-15T15:33:16.410</ns2:shipDateTime>
+                        <ns2:carrierName>
+                            <ns2:carrier>UPS</ns2:carrier>
+                        </ns2:carrierName>
+                        <ns2:methodCode>Standard</ns2:methodCode>
+                        <ns2:trackingNumber>1ZR0X152YW51943442</ns2:trackingNumber>
+                    </ns2:trackingInfo>
+                </ns2:orderLineStatus>
+            </ns2:orderLineStatuses>
+        </ns2:orderLine>
+		<ns2:orderLine>
+            <ns2:lineNumber>2</ns2:lineNumber>
+            <ns2:orderLineStatuses>
+                <ns2:orderLineStatus>
+                    <ns2:status>Shipped</ns2:status>
+                    <ns2:statusQuantity>
+                        <ns2:unitOfMeasurement>Each</ns2:unitOfMeasurement>
+                        <ns2:amount>1</ns2:amount>
+                    </ns2:statusQuantity>
+                    <ns2:trackingInfo>
+                        <ns2:shipDateTime>2016-09-15T15:33:16.410</ns2:shipDateTime>
+                        <ns2:carrierName>
+                            <ns2:carrier>UPS</ns2:carrier>
+                        </ns2:carrierName>
+                        <ns2:methodCode>Standard</ns2:methodCode>
+                        <ns2:trackingNumber>1ZR0X152YW51943442</ns2:trackingNumber>
+                    </ns2:trackingInfo>
+                </ns2:orderLineStatus>
+            </ns2:orderLineStatuses>
+        </ns2:orderLine>
+    </ns2:orderLines>
+</ns2:orderShipment>

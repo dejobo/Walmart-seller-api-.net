@@ -108,6 +108,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\IWMPostRequest.cs" />
+    <Compile Include="Classes\WMSystemShipment.cs" />
+    <Compile Include="Classes\ShippingUpdateRequestResponse.cs" />
     <Compile Include="Classes\General.cs" />
     <Compile Include="Classes\DataContext.cs" />
     <Compile Include="Classes\PostOrderAcknowladgements.cs" />
@@ -203,6 +206,22 @@
     <Compile Include="Migrations\201609142028218_fixVarchar.cs" />
     <Compile Include="Migrations\201609142028218_fixVarchar.Designer.cs">
       <DependentUpon>201609142028218_fixVarchar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609192012064_shipments.cs" />
+    <Compile Include="Migrations\201609192012064_shipments.Designer.cs">
+      <DependentUpon>201609192012064_shipments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609202340493_shippingUpdatedFlag.cs" />
+    <Compile Include="Migrations\201609202340493_shippingUpdatedFlag.Designer.cs">
+      <DependentUpon>201609202340493_shippingUpdatedFlag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609202350310_shippingSP.cs" />
+    <Compile Include="Migrations\201609202350310_shippingSP.Designer.cs">
+      <DependentUpon>201609202350310_shippingSP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609202359281_shippingOrderId.cs" />
+    <Compile Include="Migrations\201609202359281_shippingOrderId.Designer.cs">
+      <DependentUpon>201609202359281_shippingOrderId.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -407,6 +426,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609142028218_fixVarchar.resx">
       <DependentUpon>201609142028218_fixVarchar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609192012064_shipments.resx">
+      <DependentUpon>201609192012064_shipments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609202340493_shippingUpdatedFlag.resx">
+      <DependentUpon>201609202340493_shippingUpdatedFlag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609202350310_shippingSP.resx">
+      <DependentUpon>201609202350310_shippingSP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609202359281_shippingOrderId.resx">
+      <DependentUpon>201609202359281_shippingOrderId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

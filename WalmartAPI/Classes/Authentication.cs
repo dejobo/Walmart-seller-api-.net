@@ -74,6 +74,8 @@ namespace WalmartAPI.Classes
                 //timeStamp = ts.ToUnixTimeMilliseconds().ToString();
                 var strToSign = string.Format("{0}\n{1}\n{2}\n{3}\n", consumerId, baseUrl, httpRequestMethod, timeStamp);
 
+                Log.Debug("string to sign set to {strToSign}", strToSign);
+
                 //Decoding the Base 64, PKCS - 8 representation of your private key.Note that the key is encoded using PKCS-8. Libraries in various languages offer the ability to specify that the key is in this format and not in other conflicting formats such as PKCS-1.
                 var decoded = Convert.FromBase64String(privateKey);
                 var byteTosign = Encoding.Default.GetBytes(strToSign);
@@ -90,7 +92,7 @@ namespace WalmartAPI.Classes
                 }
                 //Encode the resulting signature using Base 64.
                 signature = signed;
-                Log.Debug("Signature set to {signature} for {timestemp}", signature,timeStamp);
+                Log.Debug("Signature set to {signature} for {timestemp} and url {url}", signature,timeStamp,baseUrl);
             }
             catch(Exception ex)
             {

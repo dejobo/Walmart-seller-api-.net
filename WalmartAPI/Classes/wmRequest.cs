@@ -13,6 +13,7 @@ using System.Collections.Specialized;
 using WalmartAPI.Classes.Walmart.Responses;
 using WalmartAPI.Classes.Walmart.Orders;
 using System.Net.Http;
+using System.Text;
 
 namespace WalmartAPI.Classes
 {
@@ -38,7 +39,7 @@ namespace WalmartAPI.Classes
         {
             Log.Verbose("Starting wmRequest with {url}", url);
             request = WebRequest.Create(url) as HttpWebRequest;
-            getHeaders();
+            setHeaders();
 
         }
         public void appendQueryStrings(NameValueCollection queryCollection)
@@ -61,11 +62,39 @@ namespace WalmartAPI.Classes
 
         public T getWMresponse<T>(HttpMethod method)
         {
+            return getWMresponse<T>(method, string.Empty);
+        }
+        public T getWMresponse<T>(HttpMethod method,string requestBody)
+        {
             try
             {
                 Log.Debug("Getting WM response for type {type}", typeof(T).MemberType.ToString());
                 request.Method = method.Method;
-                request.ContentLength = 0; //testin
+                _authentication.httpRequestMethod = request.Method;
+                _authentication.baseUrl = request.Address.AbsoluteUri;
+                _authentication.signData();
+
+                setAuthHeaders();
+                var postingData = !requestBody.IsNullOrEmpty();
+
+                byte[] data = null;
+                //set body
+                if (postingData)
+                {
+                    Log.Debug("posting data {requestBody}", requestBody);
+                    data = Encoding.Default.GetBytes(requestBody);
+                    request.ContentLength = data.Length;
+
+                    using (var stream = request.GetRequestStream())
+                    {
+                        stream.Write(data, 0, data.Length);
+                    }
+                }
+                else
+                {
+                    request.ContentLength = 0;
+                }
+
                 //request.ContentType = "application/xml";
                 using (var response = request.GetResponse().GetResponseStream())
                 {
@@ -98,7 +127,9 @@ namespace WalmartAPI.Classes
                     //var rsStr = new StreamReader(response).ReadToEnd();
                     var resObj = xmlDesrializer.Deserialize(response) as errors;
                     Log.Error(wex, resObj.error.First().description);
-                    throw;
+
+                    //if(wex.Status != 400)
+                        throw;
                 }
             }
             catch (Exception ex)
@@ -108,8 +139,13 @@ namespace WalmartAPI.Classes
             }
         }
 
+        private void setAuthHeaders()
+        {
+            request.Headers.Add("WM_SEC.AUTH_SIGNATURE:{0}".FormatWith(_authentication.signature));
+            request.Headers.Add("WM_SEC.TIMESTAMP:{0}".FormatWith(_authentication.timeStamp));
+        }
 
-        private void getHeaders()
+        private void setHeaders()
         {
             try
             {
@@ -119,16 +155,11 @@ namespace WalmartAPI.Classes
                 //_correlationId = Guid.NewGuid().ToString().Substring(0, 5);
                 //sign data...........
                 _authentication.signData();
-                Debug.WriteLine("WM_SEC.AUTH_SIGNATURE:{0}", _authentication.signature);
-                Debug.WriteLine("WM_SEC.TIMESTAMP:{0}", _authentication.timeStamp);
-
 
                 request.Accept = "application/xml";
                 //request.Host = "https://marketplace.walmartapis.com";
                 request.Headers.Add("WM_SVC.NAME:Walmart Marketplace");
-                request.Headers.Add("WM_SEC.AUTH_SIGNATURE:{0}".FormatWith(_authentication.signature));
                 request.Headers.Add("WM_CONSUMER.ID:{0}".FormatWith(_authentication.consumerId));
-                request.Headers.Add("WM_SEC.TIMESTAMP:{0}".FormatWith(_authentication.timeStamp));
                 request.Headers.Add("WM_QOS.CORRELATION_ID:{0}".FormatWith(_authentication.correlationId));
                 request.ContentType = "application/xml";
 

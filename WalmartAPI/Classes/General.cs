@@ -16,7 +16,9 @@ namespace WalmartAPI.Classes
         public static DataContext GetContext(Action<string> log)
         {
             Log.Verbose("Creating contex with logger");
+
             var ctx = new DataContext();
+            
             ctx.Database.Log = log;
             return ctx;
         }

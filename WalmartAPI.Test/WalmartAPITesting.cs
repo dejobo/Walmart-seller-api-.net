@@ -2,6 +2,7 @@
 using Xunit;
 using System.IO;
 using System.Xml.Serialization;
+using System.CodeDom.Compiler;
 using WalmartAPI.Classes;
 using WalmartAPI.Classes.Walmart.mp;
 using Xunit.Abstractions;
@@ -12,6 +13,7 @@ using Serilog;
 using Serilog.Events;
 using System.Reflection;
 using WalmartAPI.Classes.Walmart.Orders;
+using System.Linq;
 
 namespace WalmartAPI.Test
 {
@@ -23,6 +25,7 @@ namespace WalmartAPI.Test
         const string consumerId = "bfcfcaac-433d-42b1-adee-3e8e81486cd0";
         const string channelType = "0f3e4dd4-0514-4346-b39d-af0e00ea066d";
         string privateKey;
+        private Authentication auth;
 
         public void Dispose()
         {
@@ -42,6 +45,8 @@ namespace WalmartAPI.Test
                 privateKey = stream.ReadToEnd();
             }
 
+            auth = new Authentication(consumerId, privateKey, channelType);
+
         }
 
         public static void ConfigureLogger()
@@ -51,6 +56,7 @@ namespace WalmartAPI.Test
                             .WriteTo.Seq("http://srv3:5341", apiKey: "3yTsme0vzQWq50LW5ixB")
                             .WriteTo.Console()
                             .MinimumLevel.Verbose()
+                            .Enrich.FromLogContext()
                             .Enrich.WithEnvironmentUserName()
                             .Enrich.WithMachineName()
                             .Enrich.WithProcessId()
@@ -150,7 +156,7 @@ namespace WalmartAPI.Test
 
             Assert.NotEmpty(sut.response.elements);
         }
-        [Fact]
+        [Fact(Skip ="")]
         public void shouldGetAllOrdersInTable()
         {
             var sut = new OrdersRequestResponse(new Authentication(consumerId, privateKey, channelType));
@@ -188,18 +194,12 @@ namespace WalmartAPI.Test
                 Assert.NotEmpty(sut.response.elements);
             }
         }
+
         [Fact]
         public void loggerShouldWork()
         {
-            //Serilog.Log.Logger = new LoggerConfiguration()
-            //    .WriteTo.Seq("http://srv3:5341",apiKey: "3yTsme0vzQWq50LW5ixB")
-            //    .WriteTo.Console()
-            //    .MinimumLevel.Verbose()
-            //    .Enrich.WithEnvironmentUserName()
-            //    .Enrich.WithMachineName()
-            //    .CreateLogger();
-            //Serilog.Debugging.SelfLog.Enable(Console.Error);
-            //output.WriteLine(Log.Logger.GetType().FullName);
+            Log.ForContext<Authentication>().Verbose("Testing with context");
+
             Log.Verbose("Testing Logger base");
         }
 
@@ -213,12 +213,89 @@ namespace WalmartAPI.Test
         }
 
         [Fact]
+        [Trait("Action","Orders")]
         public void shouldAcknowlageOrders()
         {
-            var sut = new PostOrderAcknowladgements(new Authentication(consumerId, privateKey, channelType));
+            var sut = new PostOrderAcknowladgements(auth);
             sut.AcknowladgeImportedOrders();
-
         }
-    
+
+        //[Trait("Action", "Shipping")]
+        //[Theory]
+        //[InlineData("1576506880455", "9400115901264278320769", "USPS First Class Mail","USPS",4)]
+        //public void shouldCreateShipment(string order,string tracking,string method,string carrier,int count)
+        //{
+        //    var sut = new ShippingUpdateRequestResponse.ShippingUpdateRequest(order).GetShipmentUpdateRequest();
+        //    //is shipped
+        //    Assert.True(sut.orderLines.All(c => c.orderLineStatuses.All(s => s.status == orderLineStatusValueType.Shipped)));
+        //    //tracking number matches
+        //    Assert.True(sut.orderLines.All(c => c.orderLineStatuses.All(s => s.trackingInfo.trackingNumber == tracking)));
+
+        //    //carrier matches
+        //    Assert.True(sut.orderLines.All(c => c.orderLineStatuses.All(s => s.trackingInfo.carrierName.Item.ToString() == carrier)));
+        //    //check count
+        //    Assert.True(sut.orderLines.Length == count);
+        //}
+
+        //[Trait("Action","Shipping")]
+        //[Theory]
+        //[InlineData("1017331470", @"mock\1017331470ship.xml")]
+        //[InlineData("1576446489347", @"mock\1576446489347ship.xml")]
+        //public void checkShipmentXmlMocs(string order, string mockFile)
+        //{
+        //    var sut = new ShippingUpdateRequestResponse.ShippingUpdateRequest(order).GetShipmentUpdateRequest();
+        //    orderShipment sut2;
+        //    var mock = new XmlSerializer(typeof(orderShipment));
+        //    var ns = new XmlSerializerNamespaces();
+        //    ns.Add("ns2", "http://walmart.com/mp/v3/orders");
+
+        //    var xx = new orderShipment().GetType();//.Attributes;
+
+
+        //    using (var str = new StreamReader(mockFile))
+        //    {
+        //        sut2 = mock.Deserialize(str) as orderShipment;
+        //    }
+
+        //    string sutXml;
+        //    string sut2Xml;
+
+        //    using (var writer = new MemoryStream())
+        //    {
+        //        using (var reader = new StreamReader(writer))
+        //        {
+        //            mock.Serialize(writer, sut,ns);
+        //            writer.Position = 0;
+        //            sutXml = reader.ReadToEnd();
+
+        //            writer.SetLength(0);
+        //            mock.Serialize(writer, sut2);
+        //            writer.Position = 0;
+        //            sut2Xml = reader.ReadToEnd();
+        //        }
+        //    }
+        //    Log.Verbose("sut {xml}", sutXml);
+        //    Log.Verbose("sut2 {xml}", sut2Xml);
+        //    //output.WriteLine(sutXml);
+        //    Assert.Equal(sutXml, sut2Xml);
+        //}
+
+        [Fact]
+        public void testAttributes()
+        {
+            var xx = new orderShipment().GetType()
+                .CustomAttributes
+                .Where(a => a.NamedArguments.Any(n => n.MemberName == "Namespace"));
+                
+                
+        }
+
+        [Trait("Action", "Shipping")]
+        [Fact]
+        public void shouldUpdateShipping()
+        {
+            var sut = new ShippingUpdateRequestResponse(auth);
+            sut.uploadAllShipping(true);
+        }
     }
 }

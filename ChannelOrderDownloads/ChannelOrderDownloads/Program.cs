@@ -42,6 +42,7 @@ namespace ChannelOrderDownloads
             Log.Logger = new LoggerConfiguration()
                             .WriteTo.Seq("http://srv3:5341", apiKey: "3yTsme0vzQWq50LW5ixB")
                             .MinimumLevel.Verbose()
+                            .Enrich.FromLogContext()
                             .Enrich.WithEnvironmentUserName()
                             .Enrich.WithMachineName()
                             .Enrich.WithProcessId()
