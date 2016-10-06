@@ -1,25 +1,26 @@
-﻿using AutoMapper;
-using Extensions;
+﻿using Extensions;
 using MoreLinq;
 using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using WalmartAPI.Classes.Walmart.Orders;
-using WalmartAPI;
 
 namespace WalmartAPI.Classes
 {
     public class OrdersRequestResponse : IWMRequestResponse
     {
         #region Constructors
-        private OrdersRequestResponse() { }
+        private OrdersRequestResponse()
+        {
+        }
         public OrdersRequestResponse(Authentication authentication) : this()
         {
+            Log = Serilog.Log.ForContext<OrdersRequestResponse>();
+
             _authentication = authentication;
             this.request = new GetOrdersRequest(_authentication, new Uri("https://marketplace.walmartapis.com/v3/orders"));
         }
@@ -53,7 +54,7 @@ namespace WalmartAPI.Classes
                 this.response = value as GetOrdersResponse;
             }
         }
-
+        public static ILogger Log { get; set; }
         #endregion
 
         #region Inner classes
@@ -76,11 +77,11 @@ namespace WalmartAPI.Classes
                 this.requestUri = requestUri;
                 //new Uri("https://marketplace.walmartapis.com/v3/orders");
 
-                Log.Debug("Creating authorization for orders request");
+                Log.Verbose("Creating authorization for orders request");
                 //create auth
                 var auth = new Authentication(authentication.consumerId, requestUri, authentication.privateKey, HttpMethod.Get, authentication.channelType);
                 //Init wmRequest
-                Log.Debug("Initiating wmRequest prop");
+                Log.Verbose("Initiating wmRequest prop");
                 wmRequest = new WMRequest(requestUri.AbsoluteUri, auth);
             }
 
@@ -138,7 +139,7 @@ namespace WalmartAPI.Classes
                         db.systemOrderSet.AddRange(filteredlist);
                     }
                     var cnt = db.SaveChanges();
-                    Log.Debug("Saved {count} records to the WMSystemOrders table", cnt);
+                    Log.Verbose("Saved {count} records to the WMSystemOrders table", cnt);
                 }
 
                 //check if next cursor was provided.
@@ -160,9 +161,15 @@ namespace WalmartAPI.Classes
                     nextCursor = null;
                 }
             }
+            catch(WebException wex)
+            {
+                //Log.Verbose(wex, "Web exception already handled lower in the stack");
+                throw;
+            }
             catch(Exception ex)
             {
                 ex.LogWithSerilog();
+                throw;
             }
         }
 

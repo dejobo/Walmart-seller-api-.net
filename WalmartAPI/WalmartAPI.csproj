@@ -68,6 +68,10 @@
       <HintPath>packages\Serilog.Sinks.File.3.0.1\lib\net45\Serilog.Sinks.File.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Serilog.Sinks.PeriodicBatching, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>packages\Serilog.Sinks.PeriodicBatching.2.0.1\lib\net45\Serilog.Sinks.PeriodicBatching.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Serilog.Sinks.RollingFile, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
       <HintPath>packages\Serilog.Sinks.RollingFile.3.0.1\lib\net45\Serilog.Sinks.RollingFile.dll</HintPath>
       <Private>True</Private>
@@ -108,7 +112,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\IWMPostRequest.cs" />
+    <Compile Include="Classes\ItemsRequestResponse.cs" />
+    <Compile Include="Classes\InventoryRequestResponse.cs" />
+    <Compile Include="Classes\InventoryFeedRequestResponse.cs" />
+    <Compile Include="Classes\Walmart\mp\ItemPublishStatus.cs" />
+    <Compile Include="Classes\Walmart\mp\MPItemView.cs" />
+    <Compile Include="Classes\WMSystemInventory.cs" />
+    <Compile Include="Interfaces\IWMPostRequest.cs" />
+    <Compile Include="Classes\Walmart\Inventory\inventory.cs" />
+    <Compile Include="Classes\Walmart\Inventory\InventoryFeed.cs" />
+    <Compile Include="Classes\Walmart\Inventory\InventoryHeaderVersion.cs">
+      <SubType>code</SubType>
+    </Compile>
+    <Compile Include="Classes\Walmart\Inventory\InventoryHeader.cs" />
+    <Compile Include="Classes\Walmart\Inventory\Quantity.cs" />
+    <Compile Include="Classes\Walmart\Inventory\UnitOfMeasurement.cs" />
+    <Compile Include="Classes\Walmart\prices\BulkPriceFeed.cs" />
     <Compile Include="Classes\WMSystemShipment.cs" />
     <Compile Include="Classes\ShippingUpdateRequestResponse.cs" />
     <Compile Include="Classes\General.cs" />
@@ -118,11 +137,10 @@
     <Compile Include="Classes\Walmart\Responses\cause.cs" />
     <Compile Include="Classes\Authentication.cs" />
     <Compile Include="Classes\ExtensionMethods.cs" />
-    <Compile Include="Classes\getOrders.cs" />
     <Compile Include="Classes\FeedsRequest.cs" />
-    <Compile Include="Classes\IWMRequestResponse.cs" />
-    <Compile Include="Classes\IWMRequest.cs" />
-    <Compile Include="Classes\IWMResponse.cs" />
+    <Compile Include="Interfaces\IWMRequestResponse.cs" />
+    <Compile Include="Interfaces\IWMRequest.cs" />
+    <Compile Include="Interfaces\IWMResponse.cs" />
     <Compile Include="Classes\OrdersRequestResponse.cs" />
     <Compile Include="Classes\WalmartApiService.cs" />
     <Compile Include="Classes\Walmart\mp\activeIngredient.cs" />
@@ -146,9 +164,9 @@
     <Compile Include="Classes\Walmart\Orders\Order.cs" />
     <Compile Include="Classes\Walmart\mp\ErrorType.cs" />
     <Compile Include="Classes\Walmart\mp\fabricContentValue.cs" />
-    <Compile Include="Classes\Walmart\mp\FeedAcknowledgement.cs" />
-    <Compile Include="Classes\Walmart\mp\FeedHeader.cs" />
-    <Compile Include="Classes\Walmart\mp\FeedHeaderVersion.cs" />
+    <Compile Include="Classes\Walmart\Feeds\FeedAcknowledgement.cs" />
+    <Compile Include="Classes\Walmart\Feeds\FeedHeader.cs" />
+    <Compile Include="Classes\Walmart\Feeds\FeedHeaderVersion.cs" />
     <Compile Include="Classes\Walmart\mp\IngestionError.cs" />
     <Compile Include="Classes\Walmart\mp\ItemIngestionStatus.cs" />
     <Compile Include="Classes\Walmart\mp\ItemStatus.cs" />
@@ -222,6 +240,10 @@
     <Compile Include="Migrations\201609202359281_shippingOrderId.cs" />
     <Compile Include="Migrations\201609202359281_shippingOrderId.Designer.cs">
       <DependentUpon>201609202359281_shippingOrderId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609222153164_InventoryUpdate.cs" />
+    <Compile Include="Migrations\201609222153164_InventoryUpdate.Designer.cs">
+      <DependentUpon>201609222153164_InventoryUpdate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -438,6 +460,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609202359281_shippingOrderId.resx">
       <DependentUpon>201609202359281_shippingOrderId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609222153164_InventoryUpdate.resx">
+      <DependentUpon>201609222153164_InventoryUpdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

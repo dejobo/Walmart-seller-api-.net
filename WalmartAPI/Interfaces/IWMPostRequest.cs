@@ -9,5 +9,6 @@ namespace WalmartAPI.Classes
     interface IWMPostRequest : IWMRequest
     {
         string requestBody { get; set; }
+
     }
 }

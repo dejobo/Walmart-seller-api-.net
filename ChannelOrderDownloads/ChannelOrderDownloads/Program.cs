@@ -6,6 +6,7 @@ using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
 using Extensions;
+using System.Reflection;
 
 namespace ChannelOrderDownloads
 {
@@ -33,12 +34,14 @@ namespace ChannelOrderDownloads
             }
             finally
             {
+                System.Threading.Thread.Sleep(2500);
                 Log.CloseAndFlush();
             }
         }
-        static void ConfigureLogger()
+        internal static void ConfigureLogger()
         {
-            //var applicationAssembly = Assembly.GetEntryAssembly().GetName();
+            var applicationAssembly = Assembly.GetEntryAssembly();//.GetName();
+            
             Log.Logger = new LoggerConfiguration()
                             .WriteTo.Seq("http://srv3:5341", apiKey: "3yTsme0vzQWq50LW5ixB")
                             .MinimumLevel.Verbose()

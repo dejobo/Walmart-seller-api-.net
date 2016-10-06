@@ -13,14 +13,24 @@ namespace WalmartAPI.Classes
 
     public class Authentication
     {
-        #region constructors
-
-        public Authentication()
+        private void SetTimestemp()
         {
             //set timestemp
             var ts = DateTimeOffset.UtcNow;
             timeStamp = ts.ToUnixTimeMilliseconds().ToString();
+        }
+        private void SetCorrelationId()
+        {
             correlationId = Guid.NewGuid().ToString().Replace("-", "");
+        }
+        #region constructors
+
+        public Authentication()
+        {
+            Log = Serilog.Log.ForContext<Authentication>();
+
+            SetTimestemp();
+            SetCorrelationId();
         }
         /// <summary>
         /// Create an authentication object to be used with a request to walmart.com API
@@ -61,6 +71,7 @@ namespace WalmartAPI.Classes
         public string signature { get; set; }
         public string channelType { get; set; }
         public string correlationId { get; set; }
+        public static ILogger Log { get; set; }
 
         #endregion
 
@@ -69,12 +80,14 @@ namespace WalmartAPI.Classes
             Log.Verbose("Begining signData()");
             try
             {
+                SetTimestemp();
+                SetCorrelationId();
                 //set timestemp
                 //var ts = DateTimeOffset.UtcNow;
                 //timeStamp = ts.ToUnixTimeMilliseconds().ToString();
                 var strToSign = string.Format("{0}\n{1}\n{2}\n{3}\n", consumerId, baseUrl, httpRequestMethod, timeStamp);
 
-                Log.Debug("string to sign set to {strToSign}", strToSign);
+                Log.Verbose("string to sign set to {strToSign}", strToSign);
 
                 //Decoding the Base 64, PKCS - 8 representation of your private key.Note that the key is encoded using PKCS-8. Libraries in various languages offer the ability to specify that the key is in this format and not in other conflicting formats such as PKCS-1.
                 var decoded = Convert.FromBase64String(privateKey);
@@ -92,7 +105,7 @@ namespace WalmartAPI.Classes
                 }
                 //Encode the resulting signature using Base 64.
                 signature = signed;
-                Log.Debug("Signature set to {signature} for {timestemp} and url {url}", signature,timeStamp,baseUrl);
+                Log.Verbose("Signature set to {signature} for {timestemp} and url {url}", signature,timeStamp,baseUrl);
             }
             catch(Exception ex)
             {

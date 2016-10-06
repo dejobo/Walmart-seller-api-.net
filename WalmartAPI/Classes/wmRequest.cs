@@ -14,6 +14,7 @@ using WalmartAPI.Classes.Walmart.Responses;
 using WalmartAPI.Classes.Walmart.Orders;
 using System.Net.Http;
 using System.Text;
+using Serilog.Events;
 
 namespace WalmartAPI.Classes
 {
@@ -64,73 +65,159 @@ namespace WalmartAPI.Classes
         {
             return getWMresponse<T>(method, string.Empty);
         }
-        public T getWMresponse<T>(HttpMethod method,string requestBody)
+        public T getWMresponse<T>(HttpMethod method, string requestBody)
         {
+            return getWMresponse<T>(method, requestBody, "application/xml");
+        }
+        public T getWMresponse<T>(HttpMethod method,string requestBody, string contentType)
+        {
+            var fileUpload = contentType == "multipart/form-data";
+
+            var tp = typeof(T);
             try
             {
-                Log.Debug("Getting WM response for type {type}", typeof(T).MemberType.ToString());
+                Log.Debug("Getting WM response for type {type}", tp.GetType());
                 request.Method = method.Method;
                 _authentication.httpRequestMethod = request.Method;
                 _authentication.baseUrl = request.Address.AbsoluteUri;
                 _authentication.signData();
 
+                //set contentType
+                request.ContentType = contentType;
+
                 setAuthHeaders();
                 var postingData = !requestBody.IsNullOrEmpty();
-
-                byte[] data = null;
-                //set body
-                if (postingData)
+                if (fileUpload)
                 {
-                    Log.Debug("posting data {requestBody}", requestBody);
-                    data = Encoding.Default.GetBytes(requestBody);
-                    request.ContentLength = data.Length;
 
-                    using (var stream = request.GetRequestStream())
+                    var content = Encoding.UTF8.GetBytes(requestBody);
+                    request.ContentLength = content.Length;
+
+
+
+                    var headers = new WebHeaderCollection();
+
+                    headers.Add(HttpRequestHeader.ContentLength, content.Length.ToString());
+
+                    foreach (var item in request.Headers.AllKeys)
                     {
-                        stream.Write(data, 0, data.Length);
+                        headers.Add(item, request.Headers.Get(item));
                     }
+
+                    var cli = new WebClient() { Headers = headers };
+                    //cli.Headers[HttpRequestHeader.ContentType] = contentType;
+                    //cli.Headers.Add(HttpRequestHeader.ContentLength, content.Length.ToString());
+                    //using (var str = cli.OpenWrite(request.RequestUri, method.Method))
+                    //{
+                    //    str.Write(content, 0, content.Length);
+                    //}
+                    //using (var writer = new StreamWriter(@"c:\temp\tstWminv.xml"))
+                    //{
+                    //    writer.Write(requestBody);
+                    //}
+                    //var rsp = cli.UploadFile(request.RequestUri, @"c:\temp\tstWminv.xml");
+                    var rsp = cli.UploadData(request.RequestUri, method.Method, content);
+
+                    using (var strm = new MemoryStream(rsp))
+                    {
+                        var xmlDesrializer = new XmlSerializer(typeof(T));
+                        var resObj = xmlDesrializer.Deserialize(strm);
+
+
+                        var res = (T)resObj;
+                        return res;
+
+                    }
+
+
                 }
                 else
                 {
-                    request.ContentLength = 0;
-                }
-
-                //request.ContentType = "application/xml";
-                using (var response = request.GetResponse().GetResponseStream())
-                {
-
-                    var xmlDesrializer = new XmlSerializer(typeof(T));
-                    var resObj = xmlDesrializer.Deserialize(response);
-
-                    var res= (T)resObj;
-
-                    var metaProperties = res.GetType().GetProperties()
-                        .Where(p => p.PropertyType == typeof(metaType));
-                    //check meta properties
-                    if (metaProperties.Count() > 0)
+                    byte[] data = null;
+                    //set body
+                    if (postingData)
                     {
-                        //if(metaProperties.Count()>1)
-                        Log.Debug("meta properties found, let's get it!");
-                        var pp = metaProperties.Single();
-                        var ppp = pp.GetValue(res) as metaType;
-                        Log.Debug("got {nextCursor} from the meta", ppp.nextCursor);
+                        Log.Debug("posting data {requestBody}", requestBody);
+                        data = Encoding.Default.GetBytes(requestBody);
+                        request.ContentLength = data.Length;
+
+                        using (var stream = request.GetRequestStream())
+                        {
+                            stream.Write(data, 0, data.Length);
+                        }
+                    }
+                    else
+                    {
+                        request.ContentLength = 0;
                     }
 
-                    return res;
+
+                    if(request.RequestUri.AbsoluteUri != _authentication.baseUrl)
+                    {
+                        throw new InvalidDataException("The request uri and the authentication uri don't match");
+                    }
+
+                    //request.ContentType = "application/xml";
+                    var rs = request.GetResponse();
+                    using (var response = rs.GetResponseStream())
+                    {
+
+                        var xmlDesrializer = new XmlSerializer(typeof(T));
+                        var resObj = xmlDesrializer.Deserialize(response);
+
+                        var res = (T)resObj;
+
+                        var metaProperties = res.GetType().GetProperties()
+                            .Where(p => p.PropertyType == typeof(metaType));
+                        //check meta properties
+                        if (metaProperties.Count() > 0)
+                        {
+                            //if(metaProperties.Count()>1)
+                            Log.Debug("meta properties found, let's get it!");
+                            var pp = metaProperties.Single();
+                            var ppp = pp.GetValue(res) as metaType;
+                            Log.Debug("got {nextCursor} from the meta", ppp.nextCursor);
+                        }
+
+                        return res;
+                    }
                 }
             }
             catch (WebException wex)
             {
-                using (var response = wex.Response.GetResponseStream())
+                try
                 {
-                    var xmlDesrializer = new XmlSerializer(typeof(errors));
-                    //var rsStr = new StreamReader(response).ReadToEnd();
-                    var resObj = xmlDesrializer.Deserialize(response) as errors;
-                    Log.Error(wex, resObj.error.First().description);
+                    using (var response = wex.Response.GetResponseStream())
+                    {
+                        var xmlDesrializer = new XmlSerializer(typeof(errors));
+                        //var rsStr = new StreamReader(response).ReadToEnd();
+                        var resObj = xmlDesrializer.Deserialize(response) as errors;
 
-                    //if(wex.Status != 400)
+                        var level = new LogEventLevel();
+                        switch (resObj.error.Single().severity)
+                        {
+                            case errorSeverity.INFO:
+                                level = LogEventLevel.Information;
+                                break;
+                            case errorSeverity.WARN:
+                                level = LogEventLevel.Warning;
+                                break;
+                            case errorSeverity.ERROR:
+                                level = LogEventLevel.Error;
+                                break;
+                        }
+
+                        Log.Write(level, wex, resObj.error.Single().description);
                         throw;
+                    }
                 }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+
+                
             }
             catch (Exception ex)
             {
@@ -138,6 +225,7 @@ namespace WalmartAPI.Classes
                 throw;
             }
         }
+
 
         private void setAuthHeaders()
         {
@@ -161,7 +249,7 @@ namespace WalmartAPI.Classes
                 request.Headers.Add("WM_SVC.NAME:Walmart Marketplace");
                 request.Headers.Add("WM_CONSUMER.ID:{0}".FormatWith(_authentication.consumerId));
                 request.Headers.Add("WM_QOS.CORRELATION_ID:{0}".FormatWith(_authentication.correlationId));
-                request.ContentType = "application/xml";
+                //request.ContentType = "application/xml";
 
                 if (_authentication.channelType.IsNullOrEmpty())
                 {

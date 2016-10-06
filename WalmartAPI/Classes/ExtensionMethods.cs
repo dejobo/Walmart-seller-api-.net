@@ -38,5 +38,8 @@ namespace WalmartAPI.Classes
                 throw;
             }
         }
+
+        //public static void SetRequestBody<T>(this IWMPostRequest request)
+
     }
 }

@@ -1,4 +1,4 @@
-namespace WalmartAPI.Classes
+namespace WalmartAPI.Classes.Walmart.Feeds
 {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]

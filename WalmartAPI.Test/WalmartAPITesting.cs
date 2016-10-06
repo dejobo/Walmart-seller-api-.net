@@ -14,6 +14,8 @@ using Serilog.Events;
 using System.Reflection;
 using WalmartAPI.Classes.Walmart.Orders;
 using System.Linq;
+using System.Net;
+using Serilog.Context;
 
 namespace WalmartAPI.Test
 {
@@ -52,7 +54,7 @@ namespace WalmartAPI.Test
         public static void ConfigureLogger()
         {
             //var applicationAssembly = Assembly.GetEntryAssembly().GetName();
-            Log.Logger = new LoggerConfiguration()
+            Serilog.Log.Logger = new LoggerConfiguration()
                             .WriteTo.Seq("http://srv3:5341", apiKey: "3yTsme0vzQWq50LW5ixB")
                             .WriteTo.Console()
                             .MinimumLevel.Verbose()
@@ -62,11 +64,13 @@ namespace WalmartAPI.Test
                             .Enrich.WithProcessId()
                             .Enrich.WithThreadId()
                             .Enrich.WithProperty("ApplicationName", "WalmartAPITesting")
+                            .Enrich.WithProperty("IsProduction",false)
                             .CreateLogger();
         }
-       
+
         #endregion
 
+        [Trait("Writes data", "false")]
         [Fact(DisplayName = "Xunit is working")]
         public void test()
         {
@@ -74,6 +78,7 @@ namespace WalmartAPI.Test
             Assert.Equal("tst", sut);
         }
 
+        [Trait("Writes data", "false")]
         [Theory]
         [InlineData("PrivateKey.cer")]
         public void testFeeds(string privateKeyFile)
@@ -98,30 +103,27 @@ namespace WalmartAPI.Test
         }
 
         [Theory]
-        [InlineData("PrivateKey.cer", @"https://marketplace.walmartapis.com/v2/items","GET")]
-        public void shouldCreateSignature(string privateKeyFile,string url,string requestMethod)
+        [Trait("Writes data", "false")]
+        [InlineData(@"https://marketplace.walmartapis.com/v2/items","GET")]
+        [InlineData(@"https://marketplace.walmartapis.com/v2/feeds?feedType=inventory", "POST")]
+        [InlineData(@"https://marketplace.walmartapis.com/v2/inventory?sku=114216", "PUT")]
+        public void shouldCreateSignature(string url,string requestMethod)
         {
-            var key = "";
-            using (var stream = new StreamReader(privateKeyFile))
-            {
-                key = stream.ReadToEnd();
-            }
-            var sut = new Authentication()
-            {
-                consumerId = "bfcfcaac-433d-42b1-adee-3e8e81486cd0",
-                privateKey = key,
-                httpRequestMethod = requestMethod,
-                baseUrl = url,
-                correlationId = Guid.NewGuid().ToString().Substring(0, 5)
-            };
-            sut.signData();
 
-            //output.WriteLine("WM_QOS.CORRELATION_ID:{0}", sut.correlationId);
-            //output.WriteLine("WM_SEC.AUTH_SIGNATURE:{0}",sut.signature);
-            //output.WriteLine("WM_SEC.TIMESTAMP:{0}",sut.timeStamp);
+            var sut = auth;
+            sut.baseUrl = url;
+            sut.httpRequestMethod = requestMethod;
+            sut.signData();
+            output.WriteLine("WM_SVC.NAME:Walmart Marketplace");
+            output.WriteLine("WM_QOS.CORRELATION_ID:{0}", sut.correlationId);
+            output.WriteLine("WM_SEC.AUTH_SIGNATURE:{0}",sut.signature);
+            output.WriteLine("WM_SEC.TIMESTAMP:{0}",sut.timeStamp);
+            output.WriteLine("WM_CONSUMER.ID:{0}", sut.consumerId);
+
             Assert.True(true);
         }
 
+        [Trait("Writes data", "false")]
         [Theory]
         [InlineData(@"mock\FeedRecordResponse.xml",typeof(feedRecordResponse))]
         [InlineData(@"mock\XMLFile.xml",typeof(feedRecordResponse))]
@@ -139,6 +141,7 @@ namespace WalmartAPI.Test
         }
 
         [Fact]
+        [Trait("Writes data", "false")]
         public void orderRequestResponse()
         {
 
@@ -146,7 +149,7 @@ namespace WalmartAPI.Test
             var qs = new NameValueCollection();
             qs.Add("createdStartDate", DateTime.Now.AddDays(-3).Date.ToString("yyyy-MM-dd"));
             qs.Add("status", "Created");
-            qs.Add("status", "Acknowledged");
+            //qs.Add("status", "Acknowledged");
             sut.request.wmRequest.appendQueryStrings(qs);
             var resp = sut.request.wmRequest.getWMresponse<WalmartAPI.Classes.Walmart.Orders.ordersListType>();
             sut.response = new OrdersRequestResponse.GetOrdersResponse();
@@ -156,7 +159,9 @@ namespace WalmartAPI.Test
 
             Assert.NotEmpty(sut.response.elements);
         }
+
         [Fact(Skip ="")]
+        [Trait("Writes data", "true")]
         public void shouldGetAllOrdersInTable()
         {
             var sut = new OrdersRequestResponse(new Authentication(consumerId, privateKey, channelType));
@@ -195,22 +200,20 @@ namespace WalmartAPI.Test
             }
         }
 
+        [Trait("Writes data","false")]
+        [Trait("Action", "Logging")]
         [Fact]
         public void loggerShouldWork()
         {
+            var en = Log.IsEnabled(LogEventLevel.Error);
             Log.ForContext<Authentication>().Verbose("Testing with context");
 
-            Log.Verbose("Testing Logger base");
+            Log.Error("Testing Logger base");
+
+            LogContext.PushProperty("Test", "hello");
+            Log.Debug("Test value is {Test}");
         }
 
-        [Fact(Skip = "Untestable")]
-        public void shouldGetAuthKeys()
-        {
-            //var sut = new OrderCollector();
-            //Assert.Equal(consumerId, sut.consumerId);
-            //Assert.Equal(channelType, sut.channelId);
-            //Assert.Equal(privateKey, sut.privateKey);
-        }
 
         [Fact]
         [Trait("Action","Orders")]
@@ -280,6 +283,7 @@ namespace WalmartAPI.Test
         //    Assert.Equal(sutXml, sut2Xml);
         //}
 
+        [Trait("Writes data", "false")]
         [Fact]
         public void testAttributes()
         {
@@ -296,6 +300,72 @@ namespace WalmartAPI.Test
         {
             var sut = new ShippingUpdateRequestResponse(auth);
             sut.uploadAllShipping(true);
+        }
+
+        [Trait("Action","Inventory")]
+        [Trait("Writes data", "false")]
+        [Fact]
+        void shouldCreateInventoryFeed()
+        {
+            var sut = new InventoryFeedRequestResponse(auth);
+            sut.UpdateAllInventory();
+            sut.request.SetRequestBody();
+
+            Assert.NotNull(sut.request.inventoryFeed);
+            Assert.NotEmpty(sut.request.inventoryFeed.Items);
+        }
+
+        [Trait("Action", "Inventory")]
+        [Trait("Writes data", "false")]
+        [Fact]
+        void shouldUpdateAllInventory()
+        {
+            var sut = new InventoryRequestResponse(auth);
+            sut.UpdateAllInventory();
+        }
+
+        [Trait("Action", "Inventory")]
+        [Trait("Writes data", "false")]
+        [Fact]
+        public void shouldGetItems()
+        {
+            Log.Verbose("Testing shouldGetItems() {Status}","started");
+            var sut = new ItemsRequestResponse(auth) { request = new ItemsRequestResponse.ItemsRequest(auth, 20, 200000) };
+            try
+            {
+                var res = sut.request.wmRequest.getWMresponse<MPItemViews>();
+                Assert.NotNull(res);
+                Assert.NotEmpty(res.MPItemView);
+            }
+            catch (WebException ex)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
+
+            Log.Verbose("Testing shouldGetItems() {Status}", "compleeted");
+        }
+        [Trait("Action", "Inventory")]
+        [Trait("Writes data", "false")]
+        [Fact]
+        void shouldGetAllItemsLazy()
+        {
+            var sutttt = new ItemsRequestResponse(auth);
+            var res = sutttt.getAllItems();
+            var sk = res.First().MPItemView.First().sku;
+            output.WriteLine(sk);
+        }
+
+        [Trait("Writes data", "false")]
+        [Fact]
+        void shouldReturnTimespan() {
+            var start = DateTime.Now;
+            System.Threading.Thread.Sleep(5000);
+            output.WriteLine("started {0} ended {1} span is {2}", start, DateTime.Now, DateTime.Now.Subtract(start).TotalSeconds);
         }
     }
 }

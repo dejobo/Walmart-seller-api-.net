@@ -1,5 +1,6 @@
-namespace WalmartAPI.Classes.Walmart.mp
+namespace WalmartAPI.Classes.Walmart.Feeds
 {
+    using WalmartAPI.Classes.Walmart.mp;
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
     [System.SerializableAttribute()]
@@ -10,7 +11,7 @@ namespace WalmartAPI.Classes.Walmart.mp
     public partial class FeedHeader
     {
 
-        private FeedHeaderVersion versionField;
+        private WalmartAPI.Classes.Walmart.Feeds.FeedHeaderVersion versionField;
 
         private string partnerIdField;
 
@@ -40,12 +41,12 @@ namespace WalmartAPI.Classes.Walmart.mp
 
         public FeedHeader()
         {
-            this.versionField = FeedHeaderVersion.Item21;
+            this.versionField = WalmartAPI.Classes.Walmart.Feeds.FeedHeaderVersion.Item21;
             this.localeField = "en_US";
         }
 
         /// <remarks/>
-        public FeedHeaderVersion version
+        public WalmartAPI.Classes.Walmart.Feeds.FeedHeaderVersion version
         {
             get
             {

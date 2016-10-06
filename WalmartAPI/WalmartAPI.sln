@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extensions", "Y:\eli\My Doc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChannelOrderDownloads", "..\ChannelOrderDownloads\ChannelOrderDownloads\ChannelOrderDownloads.csproj", "{708E9662-4F9F-44F8-B598-B792DBBE964A}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ChannelDownloaderSetup", "..\Setup1\Setup1.vdproj", "{FEE094C8-6830-499D-9E76-072F29BF3A49}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +99,13 @@ Global
 		{708E9662-4F9F-44F8-B598-B792DBBE964A}.Release|x64.Build.0 = Release|Any CPU
 		{708E9662-4F9F-44F8-B598-B792DBBE964A}.Release|x86.ActiveCfg = Release|Any CPU
 		{708E9662-4F9F-44F8-B598-B792DBBE964A}.Release|x86.Build.0 = Release|Any CPU
+		{FEE094C8-6830-499D-9E76-072F29BF3A49}.Debug|Any CPU.ActiveCfg = Debug
+		{FEE094C8-6830-499D-9E76-072F29BF3A49}.Debug|x64.ActiveCfg = Debug
+		{FEE094C8-6830-499D-9E76-072F29BF3A49}.Debug|x86.ActiveCfg = Debug
+		{FEE094C8-6830-499D-9E76-072F29BF3A49}.Release|Any CPU.ActiveCfg = Release
+		{FEE094C8-6830-499D-9E76-072F29BF3A49}.Release|Any CPU.Build.0 = Release
+		{FEE094C8-6830-499D-9E76-072F29BF3A49}.Release|x64.ActiveCfg = Release
+		{FEE094C8-6830-499D-9E76-072F29BF3A49}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

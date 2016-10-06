@@ -15,6 +15,7 @@ using Extensions;
 using WalmartAPI.Classes;
 using System.Collections.Specialized;
 using Serilog.Context;
+using System.Reflection;
 
 namespace ChannelOrderDownloads
 {
@@ -25,6 +26,7 @@ namespace ChannelOrderDownloads
         public string channelId { get; set; }
         public string privateKey { get; set; }
         public System.Timers.Timer timer { get; set; }
+        public System.Timers.Timer inventoryTimer { get; set; }
         public int daysToDownload { get; set; }
         public int timerInterval { get; set; }
         #endregion
@@ -37,6 +39,11 @@ namespace ChannelOrderDownloads
             //Log.CloseAndFlush();
             //System.Threading.Thread.Sleep(1000);
         }
+        protected override void OnShutdown()
+        {
+            Log.Warning("service was shutdown");
+            base.OnShutdown();
+        }
 
         private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
@@ -46,23 +53,76 @@ namespace ChannelOrderDownloads
             timer.Interval = timerInterval;
 
             s = LogContext.PushProperty("Method", "getOrders");
-            Log.Verbose("Calling getOrders(\"Created\")");
+            Log.Information("Calling getOrders(\"Created\")");
             getOrders("Created");
 
-            Log.Verbose("Calling getOrders(\"Acknowledged\")");
+            Log.Information("Calling getOrders(\"Acknowledged\")");
             getOrders("Acknowledged");
             s.Dispose();
 
             s = LogContext.PushProperty("Method", "acknowladgeOrders");
-            Log.Verbose("Calling acknowladgOrders()");
+            Log.Information("Calling acknowladgOrders()");
             acknowladgeOrders();
             s.Dispose();
 
             s = LogContext.PushProperty("Method", "updateShipping");
-            Log.Verbose("Calling updateShipping()");
+            Log.Information("Calling updateShipping()");
             updateShipping();
             s.Dispose();
         }
+
+
+        protected override void OnStart(string[] args)
+        {
+            //ConfigureLogger();
+            //System.Threading.Thread.Sleep(10000);
+            Log.Information("Order collector service is starting");
+            Log.Debug("Configuring timer");
+            getConfigSettings();
+            timer = new System.Timers.Timer();
+            timer.Interval = 60000;
+            inventoryTimer = new System.Timers.Timer(500);
+            inventoryTimer.Start();
+
+            //timer.Interval = timerInterval;
+            //timer.Enabled = true;
+            timer.Start();
+
+
+            
+
+            //subscribe to elapsed event
+            timer.Elapsed += Timer_Elapsed;
+            inventoryTimer.Elapsed += InventoryTimer_Elapsed;
+        }
+
+        private void InventoryTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            inventoryTimer.Stop();
+            Log.Verbose("Timer elapsed on {SignalTime}", e.SignalTime);
+            //inventoryTimer.Stop();
+            inventoryTimer.Interval = 18000000;
+            //inventoryTimer.Start();
+            var s = LogContext.PushProperty("Method", "UpdateAllInventory");
+            try
+            {
+                Log.Information("Calling UpdateAllInventory()");
+
+                var sut = new InventoryRequestResponse(new Authentication(consumerId, privateKey, channelId));
+                sut.UpdateAllInventory();
+            }
+            catch (Exception ex)
+            {
+                ex.LogWithSerilog();
+            }
+            finally
+            {
+                s.Dispose();
+                inventoryTimer.Start();
+            }
+        }
+
+        #endregion
 
         private void updateShipping()
         {
@@ -77,43 +137,31 @@ namespace ChannelOrderDownloads
                 ex.LogWithSerilog();
             }
         }
-
-        protected override void OnStart(string[] args)
-        {
-            //ConfigureLogger();
-            //System.Threading.Thread.Sleep(10000);
-            Log.Information("Order collector service is starting");
-            Log.Debug("Configuring timer");
-            getConfigSettings();
-            timer = new System.Timers.Timer();
-            timer.Interval = 60000;
-            //timer.Interval = timerInterval;
-            //timer.Enabled = true;
-            timer.Start();
-            
-            //subscribe to elapsed event
-            timer.Elapsed += Timer_Elapsed;
-
-        }
-
-        #endregion
-
         public OrderCollector()
         {
             InitializeComponent();
         }
         private void getConfigSettings()
         {
+            IDisposable s = null;
             try
             {
+                s = LogContext.PushProperty("Method", "getConfigSettings");
+                var assembly = Assembly.GetEntryAssembly();
+                var currentPath = Path.GetDirectoryName(assembly.Location);
+
+                //privateKey = Encoding.UTF8.GetString(Resources.PrivateKey);
+                //Log.Debug("Got {privateKey}", privateKey);
                 //var config = ConfigurationManager.OpenExeConfiguration("ChannelOrderDownloads.exe").AppSettings;
                 consumerId = ConfigurationManager.AppSettings["ConsumerId"];
                 channelId = ConfigurationManager.AppSettings["channelType"];
 
-                var privateKeyFile = ConfigurationManager.AppSettings["privateKey"];
+                var privateKeyFile = string.Format(@"{0}\{1}", currentPath, ConfigurationManager.AppSettings["privateKey"]);
+                Log.Debug("Key file is at {privateKeyFile}", privateKeyFile);
                 using (var stream = new StreamReader(privateKeyFile))
                 {
                     privateKey = stream.ReadToEnd();
+                    Log.Debug("Got {privateKey} from {file}", privateKey,privateKeyFile);
                 }
                 daysToDownload = int.Parse(ConfigurationManager.AppSettings["DaysToSearch"]);
                 timerInterval = int.Parse(ConfigurationManager.AppSettings["TimerInterval"]);
@@ -123,6 +171,10 @@ namespace ChannelOrderDownloads
             catch(Exception ex)
             {
                 ex.LogWithSerilog();
+            }
+            finally
+            {
+                s.Dispose();
             }
         }
         private void getOrders(string orderStatus)

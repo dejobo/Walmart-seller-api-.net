@@ -1,3 +1,5 @@
+using System;
+
 namespace WalmartAPI.Classes.Walmart.Responses
 {
     /// <remarks/>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns4:errors xmlns:ns2="http://walmart.com/mp/orders" xmlns:ns3="http://walmart.com/mp/v3/orders" xmlns:ns4="http://walmart.com/">
+    <ns4:error>
+        <ns4:code>CONTENT_NOT_FOUND.GMP_ORDER_API</ns4:code>
+        <ns4:description>Failed when called getAllOrders. Orders not found for given search parameters </ns4:description>
+        <ns4:info>Requested content could not be found.</ns4:info>
+        <ns4:severity>INFO</ns4:severity>
+        <ns4:category>APPLICATION</ns4:category>
+        <ns4:causes/>
+        <ns4:errorIdentifiers/>
+    </ns4:error>
+</ns4:errors>
