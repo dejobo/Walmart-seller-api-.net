@@ -42,6 +42,7 @@ namespace ChannelOrderDownloads
         protected override void OnShutdown()
         {
             Log.Warning("service was shutdown");
+            Thread.Sleep(5000);
             base.OnShutdown();
         }
 

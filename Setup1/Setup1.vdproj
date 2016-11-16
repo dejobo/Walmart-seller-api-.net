@@ -16,12 +16,6 @@
         "Entry"
         {
         "MsmKey" = "8:_13FF1DF7E63768610F68477A77F72BB1"
-        "OwnerKey" = "8:_9CA78E4D94B8306591E0319F65973F75"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_13FF1DF7E63768610F68477A77F72BB1"
         "OwnerKey" = "8:_5D1F59C638A48EBFD7CC28A48B2B8B35"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -39,19 +33,25 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_15590DC9C194C037CF01FBF05014E6AD"
-        "OwnerKey" = "8:_EBD71FCA95BBE8EDD35F7CB39920BB72"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_15590DC9C194C037CF01FBF05014E6AD"
-        "OwnerKey" = "8:_51929078DBF048168FB7DB8B8A16A9BA"
+        "MsmKey" = "8:_13FF1DF7E63768610F68477A77F72BB1"
+        "OwnerKey" = "8:_9CA78E4D94B8306591E0319F65973F75"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_179A0D915D32E688B108FEBC77FEFD2E"
+        "OwnerKey" = "8:_51929078DBF048168FB7DB8B8A16A9BA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_32D23A10F221314F4429B0CC55E906A2"
+        "OwnerKey" = "8:_39D649B6381BE011BEF89F875B2852E6"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_32D23A10F221314F4429B0CC55E906A2"
         "OwnerKey" = "8:_51929078DBF048168FB7DB8B8A16A9BA"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -64,6 +64,18 @@
         "Entry"
         {
         "MsmKey" = "8:_38A0958146BAF67724B92768AF0C1550"
+        "OwnerKey" = "8:_51929078DBF048168FB7DB8B8A16A9BA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_39D649B6381BE011BEF89F875B2852E6"
+        "OwnerKey" = "8:_56A20BF2D8EA42955FC793DBA2A819DE"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_39D649B6381BE011BEF89F875B2852E6"
         "OwnerKey" = "8:_51929078DBF048168FB7DB8B8A16A9BA"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -99,7 +111,91 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_59C314C9CD379E88FF5A87F575059FE9"
+        "OwnerKey" = "8:_5D1F59C638A48EBFD7CC28A48B2B8B35"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_59C314C9CD379E88FF5A87F575059FE9"
+        "OwnerKey" = "8:_F88E7BDF8C4DB55D906CCAEAFF176DAC"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_59C314C9CD379E88FF5A87F575059FE9"
+        "OwnerKey" = "8:_EE7A5E78C847665B6952C0684D97B030"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_59C314C9CD379E88FF5A87F575059FE9"
+        "OwnerKey" = "8:_179A0D915D32E688B108FEBC77FEFD2E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_59C314C9CD379E88FF5A87F575059FE9"
+        "OwnerKey" = "8:_AAFD197A00AE6A689AA3390CCC75E21B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_59C314C9CD379E88FF5A87F575059FE9"
+        "OwnerKey" = "8:_51929078DBF048168FB7DB8B8A16A9BA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_59C314C9CD379E88FF5A87F575059FE9"
+        "OwnerKey" = "8:_32D23A10F221314F4429B0CC55E906A2"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_59C314C9CD379E88FF5A87F575059FE9"
+        "OwnerKey" = "8:_39D649B6381BE011BEF89F875B2852E6"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_59C314C9CD379E88FF5A87F575059FE9"
+        "OwnerKey" = "8:_9595927E26A3BCEFFB80369FF3B68348"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_59C314C9CD379E88FF5A87F575059FE9"
+        "OwnerKey" = "8:_38A0958146BAF67724B92768AF0C1550"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_59C314C9CD379E88FF5A87F575059FE9"
+        "OwnerKey" = "8:_56A20BF2D8EA42955FC793DBA2A819DE"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_59C314C9CD379E88FF5A87F575059FE9"
+        "OwnerKey" = "8:_9CA78E4D94B8306591E0319F65973F75"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_5D1F59C638A48EBFD7CC28A48B2B8B35"
+        "OwnerKey" = "8:_51929078DBF048168FB7DB8B8A16A9BA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_9595927E26A3BCEFFB80369FF3B68348"
+        "OwnerKey" = "8:_56A20BF2D8EA42955FC793DBA2A819DE"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_9595927E26A3BCEFFB80369FF3B68348"
         "OwnerKey" = "8:_51929078DBF048168FB7DB8B8A16A9BA"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -123,74 +219,14 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_BE8B8FF3381EEEC3F2D0F1EB108F4140"
-        "OwnerKey" = "8:_9CA78E4D94B8306591E0319F65973F75"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_BE8B8FF3381EEEC3F2D0F1EB108F4140"
-        "OwnerKey" = "8:_5D1F59C638A48EBFD7CC28A48B2B8B35"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_BE8B8FF3381EEEC3F2D0F1EB108F4140"
-        "OwnerKey" = "8:_EE7A5E78C847665B6952C0684D97B030"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_BE8B8FF3381EEEC3F2D0F1EB108F4140"
-        "OwnerKey" = "8:_179A0D915D32E688B108FEBC77FEFD2E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_BE8B8FF3381EEEC3F2D0F1EB108F4140"
-        "OwnerKey" = "8:_AAFD197A00AE6A689AA3390CCC75E21B"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_BE8B8FF3381EEEC3F2D0F1EB108F4140"
+        "MsmKey" = "8:_CB2FD7B8F8493EAF6B5C3EF676A5991B"
         "OwnerKey" = "8:_51929078DBF048168FB7DB8B8A16A9BA"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_BE8B8FF3381EEEC3F2D0F1EB108F4140"
-        "OwnerKey" = "8:_15590DC9C194C037CF01FBF05014E6AD"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_BE8B8FF3381EEEC3F2D0F1EB108F4140"
-        "OwnerKey" = "8:_EBD71FCA95BBE8EDD35F7CB39920BB72"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_BE8B8FF3381EEEC3F2D0F1EB108F4140"
-        "OwnerKey" = "8:_D73F59C2651A4FF6FC90FD88C55BBC3A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_BE8B8FF3381EEEC3F2D0F1EB108F4140"
-        "OwnerKey" = "8:_38A0958146BAF67724B92768AF0C1550"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_BE8B8FF3381EEEC3F2D0F1EB108F4140"
-        "OwnerKey" = "8:_56A20BF2D8EA42955FC793DBA2A819DE"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_CB2FD7B8F8493EAF6B5C3EF676A5991B"
-        "OwnerKey" = "8:_51929078DBF048168FB7DB8B8A16A9BA"
+        "OwnerKey" = "8:_56A20BF2D8EA42955FC793DBA2A819DE"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -207,24 +243,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_CB2FD7B8F8493EAF6B5C3EF676A5991B"
-        "OwnerKey" = "8:_56A20BF2D8EA42955FC793DBA2A819DE"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_D73F59C2651A4FF6FC90FD88C55BBC3A"
-        "OwnerKey" = "8:_56A20BF2D8EA42955FC793DBA2A819DE"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_D73F59C2651A4FF6FC90FD88C55BBC3A"
-        "OwnerKey" = "8:_51929078DBF048168FB7DB8B8A16A9BA"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_E7EA9C941439DB26AF311369409FC4EE"
         "OwnerKey" = "8:_9CA78E4D94B8306591E0319F65973F75"
         "MsmSig" = "8:_UNDEFINED"
@@ -232,18 +250,6 @@
         "Entry"
         {
         "MsmKey" = "8:_E7EA9C941439DB26AF311369409FC4EE"
-        "OwnerKey" = "8:_51929078DBF048168FB7DB8B8A16A9BA"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_EBD71FCA95BBE8EDD35F7CB39920BB72"
-        "OwnerKey" = "8:_56A20BF2D8EA42955FC793DBA2A819DE"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_EBD71FCA95BBE8EDD35F7CB39920BB72"
         "OwnerKey" = "8:_51929078DBF048168FB7DB8B8A16A9BA"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -279,6 +285,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_F88E7BDF8C4DB55D906CCAEAFF176DAC"
+        "OwnerKey" = "8:_51929078DBF048168FB7DB8B8A16A9BA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_51929078DBF048168FB7DB8B8A16A9BA"
         "MsmSig" = "8:_UNDEFINED"
@@ -286,13 +298,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_9CA78E4D94B8306591E0319F65973F75"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_5D1F59C638A48EBFD7CC28A48B2B8B35"
+        "OwnerKey" = "8:_F88E7BDF8C4DB55D906CCAEAFF176DAC"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -328,25 +334,31 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_9CA78E4D94B8306591E0319F65973F75"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_56A20BF2D8EA42955FC793DBA2A819DE"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_EBD71FCA95BBE8EDD35F7CB39920BB72"
+        "OwnerKey" = "8:_39D649B6381BE011BEF89F875B2852E6"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_15590DC9C194C037CF01FBF05014E6AD"
+        "OwnerKey" = "8:_32D23A10F221314F4429B0CC55E906A2"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_D73F59C2651A4FF6FC90FD88C55BBC3A"
+        "OwnerKey" = "8:_9595927E26A3BCEFFB80369FF3B68348"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -358,7 +370,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_BE8B8FF3381EEEC3F2D0F1EB108F4140"
+        "OwnerKey" = "8:_5D1F59C638A48EBFD7CC28A48B2B8B35"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_59C314C9CD379E88FF5A87F575059FE9"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -567,37 +585,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_15590DC9C194C037CF01FBF05014E6AD"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Serilog.Sinks.File, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_15590DC9C194C037CF01FBF05014E6AD"
-                    {
-                    "Name" = "8:Serilog.Sinks.File.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Serilog.Sinks.File.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_6DF91A7FA3614D5DBB5F368EE854DD39"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_179A0D915D32E688B108FEBC77FEFD2E"
             {
             "AssemblyRegister" = "3:1"
@@ -629,6 +616,37 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_32D23A10F221314F4429B0CC55E906A2"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Serilog.Sinks.File, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_32D23A10F221314F4429B0CC55E906A2"
+                    {
+                    "Name" = "8:Serilog.Sinks.File.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Serilog.Sinks.File.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_6DF91A7FA3614D5DBB5F368EE854DD39"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_38A0958146BAF67724B92768AF0C1550"
             {
             "AssemblyRegister" = "3:1"
@@ -643,6 +661,37 @@
                     }
                 }
             "SourcePath" = "8:Serilog.Formatting.Compact.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_6DF91A7FA3614D5DBB5F368EE854DD39"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_39D649B6381BE011BEF89F875B2852E6"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Serilog.Sinks.RollingFile, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_39D649B6381BE011BEF89F875B2852E6"
+                    {
+                    "Name" = "8:Serilog.Sinks.RollingFile.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Serilog.Sinks.RollingFile.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_6DF91A7FA3614D5DBB5F368EE854DD39"
@@ -742,6 +791,37 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_59C314C9CD379E88FF5A87F575059FE9"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_59C314C9CD379E88FF5A87F575059FE9"
+                    {
+                    "Name" = "8:Serilog.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Serilog.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_6DF91A7FA3614D5DBB5F368EE854DD39"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_5D1F59C638A48EBFD7CC28A48B2B8B35"
             {
             "AssemblyRegister" = "3:1"
@@ -756,6 +836,37 @@
                     }
                 }
             "SourcePath" = "8:WalmartAPI.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_6DF91A7FA3614D5DBB5F368EE854DD39"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9595927E26A3BCEFFB80369FF3B68348"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Serilog.Sinks.PeriodicBatching, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_9595927E26A3BCEFFB80369FF3B68348"
+                    {
+                    "Name" = "8:Serilog.Sinks.PeriodicBatching.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Serilog.Sinks.PeriodicBatching.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_6DF91A7FA3614D5DBB5F368EE854DD39"
@@ -835,37 +946,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_BE8B8FF3381EEEC3F2D0F1EB108F4140"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_BE8B8FF3381EEEC3F2D0F1EB108F4140"
-                    {
-                    "Name" = "8:Serilog.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Serilog.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_6DF91A7FA3614D5DBB5F368EE854DD39"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_CB2FD7B8F8493EAF6B5C3EF676A5991B"
             {
             "AssemblyRegister" = "3:1"
@@ -897,37 +977,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D73F59C2651A4FF6FC90FD88C55BBC3A"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Serilog.Sinks.PeriodicBatching, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_D73F59C2651A4FF6FC90FD88C55BBC3A"
-                    {
-                    "Name" = "8:Serilog.Sinks.PeriodicBatching.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Serilog.Sinks.PeriodicBatching.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_6DF91A7FA3614D5DBB5F368EE854DD39"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E7EA9C941439DB26AF311369409FC4EE"
             {
             "AssemblyRegister" = "3:1"
@@ -942,37 +991,6 @@
                     }
                 }
             "SourcePath" = "8:Newtonsoft.Json.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_6DF91A7FA3614D5DBB5F368EE854DD39"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_EBD71FCA95BBE8EDD35F7CB39920BB72"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Serilog.Sinks.RollingFile, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_EBD71FCA95BBE8EDD35F7CB39920BB72"
-                    {
-                    "Name" = "8:Serilog.Sinks.RollingFile.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Serilog.Sinks.RollingFile.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_6DF91A7FA3614D5DBB5F368EE854DD39"
@@ -1083,6 +1101,37 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F88E7BDF8C4DB55D906CCAEAFF176DAC"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Serilog.Sinks.EventLog, Version=3.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_F88E7BDF8C4DB55D906CCAEAFF176DAC"
+                    {
+                    "Name" = "8:Serilog.Sinks.EventLog.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Serilog.Sinks.EventLog.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_6DF91A7FA3614D5DBB5F368EE854DD39"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
         }
         "FileType"
         {
@@ -1138,20 +1187,20 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:ChannelDownloaderSetup"
-        "ProductCode" = "8:{902360C7-6514-4C51-BEC9-08602A65AEC7}"
-        "PackageCode" = "8:{0C222B37-BABB-410C-BAE5-7A67C46D0549}"
+        "ProductName" = "8:Order Collector"
+        "ProductCode" = "8:{55789A9B-21C4-4005-A338-7CCA4F1AB51C}"
+        "PackageCode" = "8:{BE2E023D-7501-4806-964E-2CD6764E1BBD}"
         "UpgradeCode" = "8:{8A002A56-DD88-4495-86C9-58C61BC783CD}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
-        "RemovePreviousVersions" = "11:TRUE"
-        "DetectNewerInstalledVersion" = "11:FALSE"
+        "RemovePreviousVersions" = "11:FALSE"
+        "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.0.7"
+        "ProductVersion" = "8:1.0.8"
         "Manufacturer" = "8:Jafgifts Inc"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:Channel Downloader"
+        "Title" = "8:Order Collector"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Eli Ekstein"
         "Keywords" = "8:"

@@ -44,6 +44,7 @@ namespace ChannelOrderDownloads
             
             Log.Logger = new LoggerConfiguration()
                             .WriteTo.Seq("http://srv3:5341", apiKey: "3yTsme0vzQWq50LW5ixB")
+                            .WriteTo.EventLog("Order collector service",restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Error)
                             .MinimumLevel.Verbose()
                             .Enrich.FromLogContext()
                             .Enrich.WithEnvironmentUserName()

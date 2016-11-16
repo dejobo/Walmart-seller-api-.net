@@ -224,95 +224,119 @@ namespace WalmartAPI.Classes
 
         private void verifyValidStatus(IQueryable<WMSystemShipment> ships)
         {
-            Log.Debug("Verifying existing shipments");
-            var orToV = ships
-                .ToList()
-                .Select(s => s.orderNumber)
-                .Distinct()
-                .ToList();
-
-            var taskList = new List<Task>();
-            foreach (var item in orToV)
+            using (LogContext.PushProperty("InternalMethod", "verifyValidStatus"))
             {
-                var tsk = new Task(() =>
+
+                Log.Debug("Verifying existing shipments");
+                //getting list of shipments from system
+                var orToV = ships
+                    .ToList()
+                    .Select(s => s.orderNumber)
+                    .Distinct()
+                    .ToList();
+
+                var taskList = new List<Task>();
+                foreach (var item in orToV)
                 {
-                    orderLineStatusValueType stat;
-                    try
+                    var tsk = new Task(() =>
                     {
-                        stat = new OrdersRequestResponse(_authentication).GetStat(item);
-                        Log.Verbose("order {order} status is {status}", item, stat);
-
-
-                        if (stat == orderLineStatusValueType.Shipped)
+                        orderLineStatusValueType stat;
+                        try
                         {
-                            var toupdate = ships.Where(o => o.orderNumber == item);
+                            stat = new OrdersRequestResponse(_authentication).GetStat(item);
+                            Log.Verbose("order {order} status is {status}", item, stat);
 
-                            foreach (var ord in toupdate)
+
+                            if (stat == orderLineStatusValueType.Shipped)
                             {
-                                ord.updated = true;
+                                var toupdate = ships.Where(o => o.orderNumber == item);
+
+                                foreach (var ord in toupdate)
+                                {
+                                    ord.updated = true;
+                                }
                             }
                         }
-                    }
-                    catch (Exception ex)
-                    {
-                        ex.LogWithSerilog();
-                    }
-                });
-                tsk.Start();
-                taskList.Add(tsk);
-                Task.WaitAll(taskList.ToArray());
-            }
+                        catch (Exception ex)
+                        {
+                            ex.LogWithSerilog();
+                        }
+                    });
+                    tsk.Start();
+                    taskList.Add(tsk);
+                    Task.WaitAll(taskList.ToArray());
+                }
 
+            }
         }
         public async void uploadAllShipping(bool verify)
         {
-            Log.Debug("starting uploadAllShipping()");
-            using (var db = General.GetContext())
+            using (LogContext.PushProperty("InternalMethod", "uploadAllShipping"))
             {
-                var ships = from f in db.systemShipmentSet
-                            where !f.updated
-                            select f;
 
-                if (verify)
+                Log.Debug("starting {InternalMethod}");
+                using (var db = General.GetContext())
                 {
-                    verifyValidStatus(ships);
-                    var sr = db.SaveChanges();
-                    Log.Debug("saved {count} records", sr);
+                    var ships = from f in db.systemShipmentSet
+                                where !f.updated
+                                select f;
+
+                    if (verify)
+                    {
+                        verifyValidStatus(ships);
+                        var sr = db.SaveChanges();
+                        Log.Debug("saved {count} records", sr);
+                    }
+
+                    var orderShips = ships
+                        .Select(s => s.orderNumber)
+                        .Distinct()
+                        .ToList()
+                        .Select(s => new ShippingUpdateRequestResponse(_authentication, s))
+                        .ToList();
+
+                    orderShips.ForEach(o =>
+                    {
+                        using (LogContext.PushProperty("order", o._order))
+                        {
+                            try
+                            {
+                                o.GetReponse();
+                                o.SetToUpdated();
+                                Log.Information("{order} updated");
+
+                            }
+                            catch (Exception ex)
+                            {
+                                ex.LogWithSerilog();
+                            }
+                        }
+                    });
+
+
                 }
 
-                var orderShips = ships
-                    .Select(s => s.orderNumber)
-                    .Distinct()
-                    .ToList()
-                    .Select(s => new ShippingUpdateRequestResponse(_authentication, s))
-                    .ToList();
-
-                orderShips.ForEach(o =>
-                {
-                    o.GetReponse();
-                    o.SetToUpdated();
-                    Log.Information("{order} updated");
-                });
-                
-
             }
-                        
-
         }
 
         private async void SetToUpdated()
         {
-            using (var db = General.GetContext())
+            using (LogContext.PushProperty("InternalMethod", "SetToUpdated"))
             {
-                var set = from f in db.systemShipmentSet
-                          where f.orderNumber == _order
-                          select f;
 
-                foreach (var item in set)
+                using (var db = General.GetContext())
                 {
-                    item.updated = true;
+                    var set = from f in db.systemShipmentSet
+                              where f.orderNumber == _order
+                              select f;
+
+                    foreach (var item in set)
+                    {
+                        item.updated = true;
+                        Log.Verbose("{Shipment} set to updated in system", item.id);
+                    }
+                    await db.SaveChangesAsync();
                 }
-                await db.SaveChangesAsync();
             }
         }
         #endregion

@@ -71,7 +71,7 @@ namespace WalmartAPI.Classes
                     fulfillmentLagTime = w.fulfillmentLagTime,
                     quantity = new Quantity { amount = ((decimal)w.quantity), unit = Walmart.Inventory.UnitOfMeasurement.EACH }
                 })
-                .Single();
+                .SingleOrDefault();
             }
             return inv2;
         }
@@ -93,6 +93,11 @@ namespace WalmartAPI.Classes
             {
                 //Getting inventory from system
                 var inv = GetSystemInventory(item);
+                if(inv == null)
+                {
+                    Log.Debug("{Item} doesn't need to be updated now.");
+                    return;
+                }
                 Log.Verbose("Updating {Item} on walmart", inv.sku);
 
                 //creating new authentication
@@ -139,11 +144,7 @@ namespace WalmartAPI.Classes
                         //filtering items to published
                         var filterItems = item.MPItemView
                             .Where(i => i.publishedStatus == ItemPublishStatus.PUBLISHED)
-                            //.Select(i => new Task(() => UpdateInventryForItem(i.sku))) // get tasks
-                            //.Pipe(i => i.Start()) //start task
                             .ToList();
-
-                        //taskList.AddRange(filterItems);
 
                         foreach (var item2 in filterItems)
                         {

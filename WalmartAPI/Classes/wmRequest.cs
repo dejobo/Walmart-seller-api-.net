@@ -193,21 +193,25 @@ namespace WalmartAPI.Classes
                         //var rsStr = new StreamReader(response).ReadToEnd();
                         var resObj = xmlDesrializer.Deserialize(response) as errors;
 
-                        var level = new LogEventLevel();
-                        switch (resObj.error.Single().severity)
+                        foreach (var err in resObj.error)
                         {
-                            case errorSeverity.INFO:
-                                level = LogEventLevel.Information;
-                                break;
-                            case errorSeverity.WARN:
-                                level = LogEventLevel.Warning;
-                                break;
-                            case errorSeverity.ERROR:
-                                level = LogEventLevel.Error;
-                                break;
-                        }
+                            //get error info from error object
+                            var level = new LogEventLevel();
+                            switch (err.severity)
+                            {
+                                case errorSeverity.INFO:
+                                    level = LogEventLevel.Information;
+                                    break;
+                                case errorSeverity.WARN:
+                                    level = LogEventLevel.Warning;
+                                    break;
+                                case errorSeverity.ERROR:
+                                    level = LogEventLevel.Error;
+                                    break;
+                            }
 
-                        Log.Write(level, wex, resObj.error.Single().description);
+                            Log.Write(level, wex, err.description);
+                        }
                         throw;
                     }
                 }
