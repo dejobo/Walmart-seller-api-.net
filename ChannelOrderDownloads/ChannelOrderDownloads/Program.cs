@@ -15,7 +15,6 @@ namespace ChannelOrderDownloads
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeRush", "Can combine initialization with declaration")]
         static void Main()
         {
             ConfigureLogger();

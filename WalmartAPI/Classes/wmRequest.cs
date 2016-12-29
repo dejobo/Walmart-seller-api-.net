@@ -69,100 +69,81 @@ namespace WalmartAPI.Classes
         {
             return getWMresponse<T>(method, requestBody, "application/xml");
         }
-        public T getWMresponse<T>(HttpMethod method,string requestBody, string contentType)
+        public T getWMresponse<T>(HttpMethod method, string requestBody, string contentType)
         {
             var fileUpload = contentType == "multipart/form-data";
 
             var tp = typeof(T);
             try
             {
-                Log.Debug("Getting WM response for type {type}", tp.GetType());
+                Log.Debug("Getting WM response for type {type}", tp.GetType().Name);
                 request.Method = method.Method;
                 _authentication.httpRequestMethod = request.Method;
                 _authentication.baseUrl = request.Address.AbsoluteUri;
                 _authentication.signData();
 
                 //set contentType
-                request.ContentType = contentType;
-
-                setAuthHeaders();
                 var postingData = !requestBody.IsNullOrEmpty();
                 if (fileUpload)
                 {
+                    var fileBoundry = "--InventoryUpload{0}".FormatWith(Guid.NewGuid().ToString().Replace("-", string.Empty));
 
-                    var content = Encoding.UTF8.GetBytes(requestBody);
-                    request.ContentLength = content.Length;
+                    Log.Verbose("Created file boundry {FileBoundry}", fileBoundry);
+                    var boundryData = "Content-Disposition: form-data; name=\"fileUpload\"; filename=\"Bulk_inventory.xml\"";
+                    boundryData += Environment.NewLine;
+                    boundryData += "Content-Type: text/xml";
 
 
+                    requestBody = "--{0}{2}{1}{2}{2}{3}{2}{2}{0}--".FormatWith(fileBoundry,boundryData, Environment.NewLine, requestBody);
 
-                    var headers = new WebHeaderCollection();
+                    contentType += "; boundary={0}".FormatWith(fileBoundry);
 
-                    headers.Add(HttpRequestHeader.ContentLength, content.Length.ToString());
+                }
 
-                    foreach (var item in request.Headers.AllKeys)
+                request.ContentType = contentType;
+
+                setAuthHeaders();
+
+                byte[] data = null;
+                //set body
+                if (postingData)
+                {
+                    Log.Debug("posting data {requestBody}", requestBody);
+                    data = Encoding.Default.GetBytes(requestBody);
+                    request.ContentLength = data.Length;
+
+                    using (var stream = request.GetRequestStream())
                     {
-                        headers.Add(item, request.Headers.Get(item));
+                        stream.Write(data, 0, data.Length);
                     }
-
-                    var cli = new WebClient() { Headers = headers };
-                    //cli.Headers[HttpRequestHeader.ContentType] = contentType;
-                    //cli.Headers.Add(HttpRequestHeader.ContentLength, content.Length.ToString());
-                    //using (var str = cli.OpenWrite(request.RequestUri, method.Method))
-                    //{
-                    //    str.Write(content, 0, content.Length);
-                    //}
-                    //using (var writer = new StreamWriter(@"c:\temp\tstWminv.xml"))
-                    //{
-                    //    writer.Write(requestBody);
-                    //}
-                    //var rsp = cli.UploadFile(request.RequestUri, @"c:\temp\tstWminv.xml");
-                    var rsp = cli.UploadData(request.RequestUri, method.Method, content);
-
-                    using (var strm = new MemoryStream(rsp))
-                    {
-                        var xmlDesrializer = new XmlSerializer(typeof(T));
-                        var resObj = xmlDesrializer.Deserialize(strm);
-
-
-                        var res = (T)resObj;
-                        return res;
-
-                    }
-
-
                 }
                 else
                 {
-                    byte[] data = null;
-                    //set body
-                    if (postingData)
-                    {
-                        Log.Debug("posting data {requestBody}", requestBody);
-                        data = Encoding.Default.GetBytes(requestBody);
-                        request.ContentLength = data.Length;
-
-                        using (var stream = request.GetRequestStream())
-                        {
-                            stream.Write(data, 0, data.Length);
-                        }
-                    }
-                    else
-                    {
-                        request.ContentLength = 0;
-                    }
+                    request.ContentLength = 0;
+                }
 
 
-                    if(request.RequestUri.AbsoluteUri != _authentication.baseUrl)
-                    {
-                        throw new InvalidDataException("The request uri and the authentication uri don't match");
-                    }
+                if (request.RequestUri.AbsoluteUri != _authentication.baseUrl)
+                {
+                    throw new InvalidDataException("The request uri and the authentication uri don't match");
+                }
 
                     //request.ContentType = "application/xml";
                     var rs = request.GetResponse();
-                    using (var response = rs.GetResponseStream())
+                using (var response = CopyAndClose(rs.GetResponseStream()))
+                {
+                    //try logging the response
+                    using (var rdr = new StreamReader(response))
                     {
+                        if (response.CanSeek)
+                        {
+                            var rsp = rdr.ReadToEnd();
+                            Log.Debug("Received web response {Response}", rsp);
+                            response.Position = 0;
+                        }
 
                         var xmlDesrializer = new XmlSerializer(typeof(T));
+
                         var resObj = xmlDesrializer.Deserialize(response);
 
                         var res = (T)resObj;
@@ -189,48 +170,91 @@ namespace WalmartAPI.Classes
                 {
                     using (var response = wex.Response.GetResponseStream())
                     {
-                        var xmlDesrializer = new XmlSerializer(typeof(errors));
-                        //var rsStr = new StreamReader(response).ReadToEnd();
-                        var resObj = xmlDesrializer.Deserialize(response) as errors;
-
-                        foreach (var err in resObj.error)
+                        using (var rdr = new StreamReader(response))
                         {
-                            //get error info from error object
-                            var level = new LogEventLevel();
-                            switch (err.severity)
+                            try
                             {
-                                case errorSeverity.INFO:
-                                    level = LogEventLevel.Information;
-                                    break;
-                                case errorSeverity.WARN:
-                                    level = LogEventLevel.Warning;
-                                    break;
-                                case errorSeverity.ERROR:
-                                    level = LogEventLevel.Error;
-                                    break;
+                                var rsp = rdr.ReadToEnd();
+                                response.Position = 0;
+
+                                Log.Debug("Received web response {Response}", rsp);
+
+                            }
+                            catch (Exception ex)
+                            {
+                                throw ex.LogWithSerilog();
                             }
 
-                            Log.Write(level, wex, err.description);
+                            var xmlDesrializer = new XmlSerializer(typeof(errors));
+                            //var rsStr = new StreamReader(response).ReadToEnd();
+                            var resObj = xmlDesrializer.Deserialize(response) as errors;
+
+                            foreach (var err in resObj.error)
+                            {
+                                //get error info from error object
+                                var level = new LogEventLevel();
+                                switch (err.severity)
+                                {
+                                    case errorSeverity.INFO:
+                                        level = LogEventLevel.Information;
+                                        break;
+                                    case errorSeverity.WARN:
+                                        level = LogEventLevel.Warning;
+                                        break;
+                                    case errorSeverity.ERROR:
+                                        level = LogEventLevel.Error;
+                                        break;
+                                }
+
+                                Log.Write(level, wex, err.description);
+                            }
+                            
+                            if(resObj.error.Any(e => e.severity == errorSeverity.ERROR))
+                            {
+                                throw;
+                            }
+                            else
+                            {
+                                Log.Verbose("Returning null from WMRequest because a non error exception");
+                                return default(T);
+                            }
+
+
                         }
-                        throw;
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-
-                    throw;
+                    throw ex.LogWithSerilog();
                 }
-
-                
             }
             catch (Exception ex)
             {
-                ex.LogWithSerilog();
-                throw;
+                throw ex.LogWithSerilog();
             }
         }
+    
 
 
+    
+
+
+        private static Stream CopyAndClose(Stream inputStream)
+        {
+            const int readSize = 256;
+            byte[] buffer = new byte[readSize];
+            MemoryStream ms = new MemoryStream();
+
+            int count = inputStream.Read(buffer, 0, readSize);
+            while (count > 0)
+            {
+                ms.Write(buffer, 0, count);
+                count = inputStream.Read(buffer, 0, readSize);
+            }
+            ms.Position = 0;
+            inputStream.Close();
+            return ms;
+        }
         private void setAuthHeaders()
         {
             request.Headers.Add("WM_SEC.AUTH_SIGNATURE:{0}".FormatWith(_authentication.signature));

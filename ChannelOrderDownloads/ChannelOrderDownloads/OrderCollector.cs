@@ -46,30 +46,55 @@ namespace ChannelOrderDownloads
             base.OnShutdown();
         }
 
-        private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        private async void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-            IDisposable s = null;
+            try
+            {
+                timer.Stop();
+                IDisposable s = null;
 
-            Log.Verbose("Timer elapsed on {SignalTime}", e.SignalTime);
-            timer.Interval = timerInterval;
+                Log.Verbose("Timer elapsed on {SignalTime}", e.SignalTime);
+                timer.Interval = timerInterval;
 
-            s = LogContext.PushProperty("Method", "getOrders");
-            Log.Information("Calling getOrders(\"Created\")");
-            getOrders("Created");
+                s = LogContext.PushProperty("Method", "getOrders(\"Created\")");
+                Log.Information("Calling {Method}");
+                await getOrders("Created");
+                s.Dispose();
 
-            Log.Information("Calling getOrders(\"Acknowledged\")");
-            getOrders("Acknowledged");
-            s.Dispose();
+                //s = LogContext.PushProperty("Method", "getOrders(\"Acknowledged\")");
+                //Log.Information("Calling {Method}");
+                //await getOrders("Acknowledged");
+                //s.Dispose();
 
-            s = LogContext.PushProperty("Method", "acknowladgeOrders");
-            Log.Information("Calling acknowladgOrders()");
-            acknowladgeOrders();
-            s.Dispose();
+                s = LogContext.PushProperty("Method", "acknowladgeOrders");
+                Log.Information("Calling {Method}");
+                await acknowladgeOrders();
+                s.Dispose();
 
-            s = LogContext.PushProperty("Method", "updateShipping");
-            Log.Information("Calling updateShipping()");
-            updateShipping();
-            s.Dispose();
+                s = LogContext.PushProperty("Method", "updateShipping");
+                Log.Information("Calling {Method}");
+                await updateShipping();
+                s.Dispose();
+
+                await Task.Run(() =>
+                 {
+                     using (LogContext.PushProperty("Method", "CancelOrders()"))
+                     {
+                         Log.Information("Calling {Method}");
+                         var cnc = new OrderCancelationRequestResponse(new Authentication(consumerId, privateKey, channelId));
+                         cnc.CancelOrders();
+                     }
+                 });
+
+            }
+            catch (Exception ex)
+            {
+                throw ex.LogWithSerilog();
+            }
+            finally
+            {
+                timer.Start();
+            }
         }
 
 
@@ -102,41 +127,49 @@ namespace ChannelOrderDownloads
             inventoryTimer.Stop();
             Log.Verbose("Timer elapsed on {SignalTime}", e.SignalTime);
             //inventoryTimer.Stop();
-            inventoryTimer.Interval = 18000000;
+            inventoryTimer.Interval = 3600000;
             //inventoryTimer.Start();
-            var s = LogContext.PushProperty("Method", "UpdateAllInventory");
-            try
+            using (LogContext.PushProperty("Method", "UpdateAllInventory"))
             {
-                Log.Information("Calling UpdateAllInventory()");
+                try
+                {
+                    Log.Information("Calling UpdateAllInventory()");
 
-                var sut = new InventoryRequestResponse(new Authentication(consumerId, privateKey, channelId));
-                sut.UpdateAllInventory();
-            }
-            catch (Exception ex)
-            {
-                ex.LogWithSerilog();
-            }
-            finally
-            {
-                s.Dispose();
-                inventoryTimer.Start();
+                    var auth = new Authentication(consumerId, privateKey, channelId);
+                    var feedReq = new InventoryFeedRequestResponse(auth);
+                    feedReq.UpdateAllInventory();
+
+                    //var sut = new InventoryRequestResponse(new Authentication(consumerId, privateKey, channelId));
+                    //sut.UpdateAllInventory();
+                }
+                catch (Exception ex)
+                {
+                    ex.LogWithSerilog();
+                }
+                finally
+                {
+                    inventoryTimer.Start();
+                }
             }
         }
 
         #endregion
 
-        private void updateShipping()
+        private async Task updateShipping()
         {
-            try
+            await Task.Run(() =>
             {
-                var ships = new ShippingUpdateRequestResponse(new Authentication(consumerId,privateKey,channelId));
-                ships.uploadAllShipping(true);
+                try
+                {
+                    var ships = new ShippingUpdateRequestResponse(new Authentication(consumerId, privateKey, channelId));
+                    ships.uploadAllShipping(true);
 
-            }
-            catch (Exception ex)
-            {
-                ex.LogWithSerilog();
-            }
+                }
+                catch (Exception ex)
+                {
+                    ex.LogWithSerilog();
+                }
+            });
         }
         public OrderCollector()
         {
@@ -178,45 +211,54 @@ namespace ChannelOrderDownloads
                 s.Dispose();
             }
         }
-        private void getOrders(string orderStatus)
+        private async Task getOrders(string orderStatus)
         {
-            try
+            await Task.Run(() =>
             {
-                //create ordersrequestresponse object
-                var orders = new OrdersRequestResponse(new Authentication(consumerId, privateKey, channelId));
-
-                //add required query strings
-                var qs = new NameValueCollection();
-                qs.Add("createdStartDate", DateTime.Now.AddDays(-daysToDownload).Date.ToString("yyyy-MM-dd"));
-                qs.Add("status", orderStatus);
-                orders.request.wmRequest.appendQueryStrings(qs);
-                orders.getResponse();
-
-                Log.Debug("Received {count} orders in {orderStatus} status", orders.response.elements.Count(), orderStatus);
-
-                while (orders.nextCursor != null)
+                try
                 {
-                    orders = orders.nextCursor;
-                    orders.getResponse();
-                    Log.Debug("Received {count} orders in {orderStatus} status", orders.response.elements.Count(), orderStatus);
-                }
-            }catch(Exception ex)
-            {
-                ex.LogWithSerilog();
-            }
-        }
-        private void acknowladgeOrders()
-        {
-            try
-            {
+                    //create ordersrequestresponse object
+                    var orders = new OrdersRequestResponse(new Authentication(consumerId, privateKey, channelId));
 
-                var ack = new PostOrderAcknowladgements(new Authentication(consumerId, privateKey, channelId));
-                ack.AcknowladgeImportedOrders();
-            }
-            catch (Exception ex)
+                    //add required query strings
+                    var qs = new NameValueCollection();
+                    qs.Add("createdStartDate", DateTime.Now.AddDays(-daysToDownload).Date.ToString("yyyy-MM-dd"));
+                    qs.Add("status", orderStatus);
+                    orders.request.wmRequest.appendQueryStrings(qs);
+                    orders.getResponse();
+
+                    if (orders.response == null)
+                        return;
+
+                    Log.Debug("Received {count} orders in {orderStatus} status", orders.response.elements.Count(), orderStatus);
+
+                    while (orders.nextCursor != null)
+                    {
+                        orders = orders.nextCursor;
+                        orders.getResponse();
+                        Log.Debug("Received {count} orders in {orderStatus} status", orders.response.elements.Count(), orderStatus);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ex.LogWithSerilog();
+                }
+            });
+        }
+        private async Task acknowladgeOrders()
+        {
+            await Task.Run(() =>
             {
-                ex.LogWithSerilog();
-            }
+                try
+                {
+                    var ack = new PostOrderAcknowladgements(new Authentication(consumerId, privateKey, channelId));
+                    ack.AcknowladgeImportedOrders();
+                }
+                catch (Exception ex)
+                {
+                    ex.LogWithSerilog();
+                }
+            });
         }
 
     }

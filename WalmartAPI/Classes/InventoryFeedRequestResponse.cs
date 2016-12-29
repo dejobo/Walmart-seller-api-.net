@@ -1,6 +1,7 @@
 ﻿using Extensions;
 using MoreLinq;
 using Serilog;
+using Serilog.Context;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,7 +15,7 @@ using WalmartAPI.Classes.Walmart.Inventory;
 
 namespace WalmartAPI.Classes
 {
-    class InventoryFeedRequestResponse : IWMRequestResponse
+    public class InventoryFeedRequestResponse : IWMRequestResponse
     {
         public InventoryFeedRequest request { get; set; }
         public InventoryFeedResponse response { get; set; }
@@ -43,13 +44,13 @@ namespace WalmartAPI.Classes
             }
         }
         private Authentication _authentication { get; set; }
-        private static ILogger Log { get; set; }
+        //private static ILogger Log { get; set; }
 
         private InventoryFeedRequestResponse()
         {
-            Log = Serilog.Log
-                .ForContext<InventoryFeedRequestResponse>()
-                .ForContext("", "");
+            //Log = Serilog.Log
+            //    .ForContext<InventoryFeedRequestResponse>()
+            //    .ForContext("", "");
         }
         public InventoryFeedRequestResponse(Authentication authentication) :this()
         {
@@ -57,79 +58,83 @@ namespace WalmartAPI.Classes
             request = new InventoryFeedRequest(_authentication);
         }
 
-        public void UpdateAllInventoryInBatch()
-        {
-
-        }
 
         public void UpdateAllInventory()
         {
-            try
+            using (LogContext.PushProperty("MethodSignature", "UpdateAllInventory()"))
             {
-                Log.Debug("Building the inventory feed");
-                using (var db = General.GetContext())
+                try
                 {
-                    var feed = from f in db.systemInventorySet
-                               select new inventory
-                               {
-                                   sku = f.sku,
-                                   quantity = new Quantity { amount = (decimal)f.quantity, unit = UnitOfMeasurement.EACH },
-                                   fulfillmentLagTime = f.fulfillmentLagTime
-                               };
-
-                    //creating batches of 2k items per batch
-                    Log.Debug("Splitting up the ineventory to batches of 2k");
-                    var feedBatches = feed.Batch(2000);
-                    var taskList = new List<Task>();
-
-                    foreach (var item in feedBatches)
+                    Log.Debug("Building the inventory feed");
+                    using (var db = General.GetContext())
                     {
-                        var tsk = new Task(() =>
+                        var feed = from f in db.systemInventorySet
+                                   select new inventory
+                                   {
+                                       sku = f.sku,
+                                       quantity = new Quantity
+                                       { amount = (decimal)f.quantity, unit = UnitOfMeasurement.EACH },
+                                       fulfillmentLagTime = f.fulfillmentLagTime
+                                   };
+
+                        //creating batches of 2k items per batch
+                        var batchSize = 6000;
+                        Log.Debug("Splitting up the ineventory to batches of {BatchSize}", batchSize);
+                        var feedBatches = feed.Batch(batchSize);
+                        var taskList = new List<Task>();
+
+                        foreach (var item in feedBatches)
                         {
-                            try
+                            var tsk = Task.Run(() =>
                             {
+                                try
+                                {
                                 //create new InventoryFeedRequestResponseObject
                                 var inventoryFeed = new InventoryFeedRequestResponse(_authentication);
-                                inventoryFeed.request.inventoryFeed = new InventoryFeed
-                                {
-                                    InventoryHeader = new InventoryHeader
+                                    inventoryFeed.request.inventoryFeed = new InventoryFeed
                                     {
-                                        feedDate = DateTime.Now,
-                                        feedDateSpecified = true,
-                                        version = InventoryHeaderVersion.Item14,
-                                    },
-                                    Items = item.ToArray(),
-                                };
-                                inventoryFeed.request.SetRequestBody();
+                                        InventoryHeader = new InventoryHeader
+                                        {
+                                            feedDate = DateTime.Now,
+                                            feedDateSpecified = true,
+                                            version = InventoryHeaderVersion.Item14,
+                                        },
+                                        Items = item.ToArray(),
+                                    };
+                                    inventoryFeed.request.SetRequestBody();
 
-                                var resp = inventoryFeed.request.wmRequest.getWMresponse<FeedAcknowledgement>(HttpMethod.Post, inventoryFeed.request.requestBody, "multipart/form-data");
+                                    var resp = inventoryFeed.request.wmRequest.getWMresponse<FeedAcknowledgement>(HttpMethod.Post, inventoryFeed.request.requestBody, "multipart/form-data");
 
-                                inventoryFeed.response = new InventoryFeedResponse();
-                                inventoryFeed.response.InitFromWmType<FeedAcknowledgement>(resp);
+                                    inventoryFeed.response = new InventoryFeedResponse();
+                                    inventoryFeed.response.InitFromWmType<FeedAcknowledgement>(resp);
 
-                                Log.Information("Feed submitted with {ItemCount} items feed id is  {FeedId}", inventoryFeed.request.inventoryFeed.Items.Length, inventoryFeed.response.feedId);
+                                    Log.Information("Feed submitted with {ItemCount} items feed id is  {FeedId}", inventoryFeed.request.inventoryFeed.Items.Length, inventoryFeed.response.feedId);
 
-                            }
-                            catch (Exception ex)
-                            {
-                                ex.LogWithSerilog();
-                            }
-                        });
-                        tsk.RunSynchronously();
+                                }
+                                catch (Exception ex)
+                                {
+                                    ex.LogWithSerilog();
+                                }
+                            });
+                            //tsk.Start();
+                            taskList.Add(tsk);
+                        }
+
+                        Log.Information("Inventory uploads initiallized waiting for {Count} tasks to complete", taskList.Count());
+                        Task.WaitAll(taskList.ToArray());
+                        var tr = taskList.GroupBy(t => t.Status)
+                            .ToDictionary(x => x.Key.ToString(), x => x.Count());
+
+                        Log.ForContext("TaskStatus",tr)
+                            .Verbose("{Count} tasks completed",taskList.Count());
                     }
-
-                    Log.Information("Inventory uploads initiallized waiting for {Count} tasks to complete", taskList.Count());
-                    Task.WaitAll(taskList.ToArray());
-                    
                 }
-                Log.Debug("InventoryFeed object created with {Count} items", request.inventoryFeed.Items.Length);
-            }
-            catch(Exception ex)
-            {
-                ex.LogWithSerilog();
+                catch (Exception ex)
+                {
+                    ex.LogWithSerilog();
+                }
             }
         }
-
         public class InventoryFeedRequest : IWMRequest , IWMPostRequest
         {
             private InventoryFeedRequest()

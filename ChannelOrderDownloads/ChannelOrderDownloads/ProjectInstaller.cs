@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace ChannelOrderDownloads
 {
     [RunInstaller(true)]
-    public partial class ProjectInstaller : System.Configuration.Install.Installer
+    public partial class ProjectInstaller : Installer
     {
         public ProjectInstaller()
         {
@@ -27,6 +27,13 @@ namespace ChannelOrderDownloads
             using (var sc = new ServiceController(serviceInstaller1.ServiceName))
             {
                 Log.Verbose("Service installed");
+
+
+                if (sc.Status == ServiceControllerStatus.Running)
+                {
+                    sc.Stop();
+                    sc.WaitForStatus(ServiceControllerStatus.Stopped);
+                }
                 sc.Start();
                 Log.Verbose("Service started");
             }

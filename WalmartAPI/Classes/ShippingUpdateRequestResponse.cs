@@ -114,20 +114,23 @@ namespace WalmartAPI.Classes
                 carrierType ct;
                 try
                 {
-                    var ctTemp = Enum.Parse(typeof(carrierType), s.Carrier, true);
-                    if (ctTemp is carrierType)
+                    carrierType ctTemp;
+                    if(Enum.TryParse<carrierType>(s.Carrier, true, out ctTemp))
                     {
-                        ct = (carrierType)ctTemp;
-                        shipType[0].trackingInfo.carrierName.Item = ct;
+                        shipType[0].trackingInfo.carrierName.Item = ctTemp;
                     }
                     else
                     {
-                        shipType[0].trackingInfo.carrierName.Item = s.Carrier;
+                        var carrierTmp = s.Carrier;
+                        if (s.Carrier.Contains("Amazon"))
+                            carrierTmp = "Other";
+
+                        shipType[0].trackingInfo.carrierName.Item = carrierTmp;
                     }
 
                     switch (s.ShippedVia)
                     {
-                        case "First":
+                        //case "First":
                         case "PRIORITY":
                             shipType[0].trackingInfo.methodCode = shippingMethodCodeType.Express;
                             break;
@@ -319,7 +322,7 @@ namespace WalmartAPI.Classes
             }
         }
 
-        private async void SetToUpdated()
+        internal async void SetToUpdated()
         {
             using (LogContext.PushProperty("InternalMethod", "SetToUpdated"))
             {

@@ -13,6 +13,7 @@ namespace WalmartAPI.Classes
         public DbSet<WMSystemOrder> systemOrderSet { get; set; }
         public DbSet<WMSystemShipment> systemShipmentSet { get; set; }
         public DbSet<WMSystemInventory> systemInventorySet { get; set; }
+        public DbSet<WMSystemCancellation> systemCancellationSet { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<WMSystemShipment>()

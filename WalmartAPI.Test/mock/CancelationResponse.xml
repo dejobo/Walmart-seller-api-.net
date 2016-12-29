@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns3:order xmlns:ns2="http://walmart.com/mp/orders" xmlns:ns3="http://walmart.com/mp/v3/orders" xmlns:ns4="http://walmart.com/">
+	<ns3:purchaseOrderId>1577339083381</ns3:purchaseOrderId>
+	<ns3:customerOrderId>6171656286124</ns3:customerOrderId>
+	<ns3:customerEmailId>nlb8058@bellsouth.net</ns3:customerEmailId>
+	<ns3:orderDate>2016-12-11T20:27:27.000Z</ns3:orderDate>
+	<ns3:shippingInfo>
+		<ns3:phone>7704716902</ns3:phone>
+		<ns3:estimatedDeliveryDate>2016-12-23T07:00:00.000Z</ns3:estimatedDeliveryDate>
+		<ns3:estimatedShipDate>2016-12-14T07:00:00.000Z</ns3:estimatedShipDate>
+		<ns3:methodCode>Value</ns3:methodCode>
+		<ns3:postalAddress>
+			<ns3:name>Nancy  Breedlove</ns3:name>
+			<ns3:address1>8058 Woodlake Dr</ns3:address1>
+			<ns3:city>Riverdale</ns3:city>
+			<ns3:state>GA</ns3:state>
+			<ns3:postalCode>30274</ns3:postalCode>
+			<ns3:country>USA</ns3:country>
+			<ns3:addressType>RESIDENTIAL</ns3:addressType>
+		</ns3:postalAddress>
+	</ns3:shippingInfo>
+	<ns3:orderLines>
+		<ns3:orderLine>
+			<ns3:lineNumber>12</ns3:lineNumber>
+			<ns3:item>
+				<ns3:productName>ESTATE COLLECTION CRYSTAL RECTANGULAR SERVING TRAY</ns3:productName>
+				<ns3:sku>112733</ns3:sku>
+			</ns3:item>
+			<ns3:charges>
+				<ns3:charge>
+					<ns3:chargeType>PRODUCT</ns3:chargeType>
+					<ns3:chargeName>ItemPrice</ns3:chargeName>
+					<ns3:chargeAmount>
+						<ns3:currency>USD</ns3:currency>
+						<ns3:amount>0.00</ns3:amount>
+					</ns3:chargeAmount>
+				</ns3:charge>
+			</ns3:charges>
+			<ns3:orderLineQuantity>
+				<ns3:unitOfMeasurement>EACH</ns3:unitOfMeasurement>
+				<ns3:amount>1</ns3:amount>
+			</ns3:orderLineQuantity>
+			<ns3:statusDate>2016-12-19T21:04:06.000Z</ns3:statusDate>
+			<ns3:orderLineStatuses>
+				<ns3:orderLineStatus>
+					<ns3:status>Cancelled</ns3:status>
+					<ns3:statusQuantity>
+						<ns3:unitOfMeasurement>EACH</ns3:unitOfMeasurement>
+						<ns3:amount>1</ns3:amount>
+					</ns3:statusQuantity>
+				</ns3:orderLineStatus>
+			</ns3:orderLineStatuses>
+		</ns3:orderLine>
+	</ns3:orderLines>
+</ns3:order>

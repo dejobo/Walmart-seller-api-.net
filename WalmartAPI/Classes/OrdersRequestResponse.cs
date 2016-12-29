@@ -1,6 +1,7 @@
 ﻿using Extensions;
 using MoreLinq;
 using Serilog;
+using Serilog.Context;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -94,16 +95,19 @@ namespace WalmartAPI.Classes
 
         public orderLineStatusValueType GetStat(string order)
         {
-            Log.Debug("Checking status on {order}", order);
-            var orderReq = new OrdersRequestResponse(_authentication);
-            var queryStrings = new NameValueCollection();
-            queryStrings.Add("purchaseOrderId", order);
-            orderReq.request.wmRequest.appendQueryStrings(queryStrings);
-            orderReq.getResponse();
-            var stat = orderReq.response.elements.Single().orderLines.First().orderLineStatuses.First().status;
+            using (LogContext.PushProperty("MethodSignature", "orderLineStatusValueType GetStat(string)"))
+            {
+                Log.Debug("Checking status on {order}", order);
+                var orderReq = new OrdersRequestResponse(_authentication);
+                var queryStrings = new NameValueCollection();
+                queryStrings.Add("purchaseOrderId", order);
+                orderReq.request.wmRequest.appendQueryStrings(queryStrings);
+                orderReq.getResponse();
+                var stat = orderReq.response.elements.Single().orderLines.First().orderLineStatuses.First().status;
 
-            Log.Debug("{order} status is {status}", order, stat);
-            return stat;
+                Log.Debug("{order} status is {status}", order, stat);
+                return stat;
+            }
         }
         public void getResponse()
         {
@@ -111,6 +115,12 @@ namespace WalmartAPI.Classes
             {
                 //get response from walmart
                 var resp = request.wmRequest.getWMresponse<ordersListType>();
+                if (resp == null)
+                {
+                    Log.Debug("Request didn't return any results, see previous messages for more info");
+                    response = null;
+                    return;
+                }
                 response = new OrdersRequestResponse.GetOrdersResponse();
                 //map response to GetOrdersResponse type
                 response.InitFromWmType<ordersListType>(resp);

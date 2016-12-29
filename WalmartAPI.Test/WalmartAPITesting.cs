@@ -16,6 +16,7 @@ using WalmartAPI.Classes.Walmart.Orders;
 using System.Linq;
 using System.Net;
 using Serilog.Context;
+using static WalmartAPI.Classes.OrderCancelationRequestResponse;
 
 namespace WalmartAPI.Test
 {
@@ -64,7 +65,7 @@ namespace WalmartAPI.Test
                             .Enrich.WithProcessId()
                             .Enrich.WithThreadId()
                             .Enrich.WithProperty("ApplicationName", "WalmartAPITesting")
-                            .Enrich.WithProperty("IsProduction",false)
+                            .Enrich.WithProperty("IsProduction", false)
                             .CreateLogger();
         }
 
@@ -104,10 +105,10 @@ namespace WalmartAPI.Test
 
         [Theory]
         [Trait("Writes data", "false")]
-        [InlineData(@"https://marketplace.walmartapis.com/v2/items","GET")]
+        [InlineData(@"https://marketplace.walmartapis.com/v2/items", "GET")]
         [InlineData(@"https://marketplace.walmartapis.com/v2/feeds?feedType=inventory", "POST")]
         [InlineData(@"https://marketplace.walmartapis.com/v2/inventory?sku=114216", "PUT")]
-        public void shouldCreateSignature(string url,string requestMethod)
+        public void shouldCreateSignature(string url, string requestMethod)
         {
 
             var sut = auth;
@@ -116,8 +117,8 @@ namespace WalmartAPI.Test
             sut.signData();
             output.WriteLine("WM_SVC.NAME:Walmart Marketplace");
             output.WriteLine("WM_QOS.CORRELATION_ID:{0}", sut.correlationId);
-            output.WriteLine("WM_SEC.AUTH_SIGNATURE:{0}",sut.signature);
-            output.WriteLine("WM_SEC.TIMESTAMP:{0}",sut.timeStamp);
+            output.WriteLine("WM_SEC.AUTH_SIGNATURE:{0}", sut.signature);
+            output.WriteLine("WM_SEC.TIMESTAMP:{0}", sut.timeStamp);
             output.WriteLine("WM_CONSUMER.ID:{0}", sut.consumerId);
 
             Assert.True(true);
@@ -125,10 +126,11 @@ namespace WalmartAPI.Test
 
         [Trait("Writes data", "false")]
         [Theory]
-        [InlineData(@"mock\FeedRecordResponse.xml",typeof(feedRecordResponse))]
-        [InlineData(@"mock\XMLFile.xml",typeof(feedRecordResponse))]
-        [InlineData(@"mock\OrdersResponse.xml", typeof(WalmartAPI.Classes.Walmart.Orders.ordersListType))]
-        public void testDeserialization(string file,Type type)
+        [InlineData(@"mock\FeedRecordResponse.xml", typeof(feedRecordResponse))]
+        [InlineData(@"mock\XMLFile.xml", typeof(feedRecordResponse))]
+        [InlineData(@"mock\OrdersResponse.xml", typeof(ordersListType))]
+        [InlineData(@"mock\CancelationResponse.xml", typeof(OrderCancelationResponse))]
+        public void testDeserialization(string file, Type type)
         {
             using (var str = File.OpenRead(file))
             {
@@ -145,7 +147,7 @@ namespace WalmartAPI.Test
         public void orderRequestResponse()
         {
 
-            var sut = new OrdersRequestResponse(new Authentication(consumerId,privateKey,channelType));
+            var sut = new OrdersRequestResponse(new Authentication(consumerId, privateKey, channelType));
             var qs = new NameValueCollection();
             qs.Add("createdStartDate", DateTime.Now.AddDays(-3).Date.ToString("yyyy-MM-dd"));
             qs.Add("status", "Created");
@@ -160,7 +162,7 @@ namespace WalmartAPI.Test
             Assert.NotEmpty(sut.response.elements);
         }
 
-        [Fact(Skip ="")]
+        [Fact(Skip = "")]
         [Trait("Writes data", "true")]
         public void shouldGetAllOrdersInTable()
         {
@@ -200,7 +202,7 @@ namespace WalmartAPI.Test
             }
         }
 
-        [Trait("Writes data","false")]
+        [Trait("Writes data", "false")]
         [Trait("Action", "Logging")]
         [Fact]
         public void loggerShouldWork()
@@ -216,7 +218,7 @@ namespace WalmartAPI.Test
 
 
         [Fact]
-        [Trait("Action","Orders")]
+        [Trait("Action", "Orders")]
         public void shouldAcknowlageOrders()
         {
             var sut = new PostOrderAcknowladgements(auth);
@@ -290,19 +292,30 @@ namespace WalmartAPI.Test
             var xx = new orderShipment().GetType()
                 .CustomAttributes
                 .Where(a => a.NamedArguments.Any(n => n.MemberName == "Namespace"));
-                
-                
+
+
         }
 
         [Trait("Action", "Shipping")]
         [Fact]
-        public void shouldUpdateShipping()
+        public void shouldUpdateAllShipping()
         {
             var sut = new ShippingUpdateRequestResponse(auth);
             sut.uploadAllShipping(true);
         }
 
-        [Trait("Action","Inventory")]
+        [Trait("Action", "Shipping")]
+        [Theory]
+        [InlineData("2577153728407")]
+        public void shouldUpdateShipping(string order)
+        {
+            var sut = new ShippingUpdateRequestResponse(auth, order);
+            sut.GetReponse();
+            sut.SetToUpdated();
+        }
+
+
+        [Trait("Action", "Inventory")]
         [Trait("Writes data", "false")]
         [Fact]
         void shouldCreateInventoryFeed()
@@ -320,7 +333,7 @@ namespace WalmartAPI.Test
         [Fact]
         void shouldUpdateAllInventory()
         {
-            var sut = new InventoryRequestResponse(auth);
+            var sut = new InventoryFeedRequestResponse(auth);
             sut.UpdateAllInventory();
         }
 
@@ -329,7 +342,7 @@ namespace WalmartAPI.Test
         [Fact]
         public void shouldGetItems()
         {
-            Log.Verbose("Testing shouldGetItems() {Status}","started");
+            Log.Verbose("Testing shouldGetItems() {Status}", "started");
             var sut = new ItemsRequestResponse(auth) { request = new ItemsRequestResponse.ItemsRequest(auth, 20, 200000) };
             try
             {
@@ -367,5 +380,27 @@ namespace WalmartAPI.Test
             System.Threading.Thread.Sleep(5000);
             output.WriteLine("started {0} ended {1} span is {2}", start, DateTime.Now, DateTime.Now.Subtract(start).TotalSeconds);
         }
+
+        [Trait("Action", "Cancellation")]
+        [Trait("Writes data", "true")]
+        [Theory]
+        [InlineData("1577133989369")]
+        void shouldCancelOrder(string order)
+        {
+            var sut = new OrderCancelationRequestResponse(auth);
+            sut.CancelOrders(order);
+
+        }
+
+        [Trait("Action", "Cancellation")]
+        [Trait("Writes data", "true")]
+        [Fact]
+        void shouldCancelAllOrder()
+        {
+            var sut = new OrderCancelationRequestResponse(auth);
+            sut.CancelOrders();
+
+        }
+
     }
 }

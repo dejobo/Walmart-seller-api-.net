@@ -14,11 +14,11 @@ namespace WalmartAPI.Classes.Walmart.Orders
     public partial class cancelLineStatusesType
     {
 
-        private cancelLineStatusType[] orderLineStatusField;
+        private WalmartAPI.Classes.Walmart.Orders.cancelLineStatusType[] orderLineStatusField;
 
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("orderLineStatus")]
-        public cancelLineStatusType[] orderLineStatus
+        public WalmartAPI.Classes.Walmart.Orders.cancelLineStatusType[] orderLineStatus
         {
             get
             {
