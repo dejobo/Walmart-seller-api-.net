@@ -162,13 +162,13 @@
     <Reference Include="System.Web.Extensions" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\WalmartAPI\Extensions\Extensions.csproj">
+      <Project>{30a66dbc-e928-424a-af11-86baab40d44b}</Project>
+      <Name>Extensions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\WalmartAPI\WalmartAPI.csproj">
       <Project>{1cc1618f-8f85-427a-ac4b-a097acdb0dad}</Project>
       <Name>WalmartAPI</Name>
-    </ProjectReference>
-    <ProjectReference Include="D:\Users\eli\2015Projects\Extensions\Extensions.csproj">
-      <Project>{30a66dbc-e928-424a-af11-86baab40d44b}</Project>
-      <Name>Extensions</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

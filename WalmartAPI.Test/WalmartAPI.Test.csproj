@@ -124,10 +124,6 @@
       <Project>{1cc1618f-8f85-427a-ac4b-a097acdb0dad}</Project>
       <Name>WalmartAPI</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Users\eli\2015Projects\Extensions\Extensions.csproj">
-      <Project>{30a66dbc-e928-424a-af11-86baab40d44b}</Project>
-      <Name>Extensions</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="mock\1017331470ship.xml">

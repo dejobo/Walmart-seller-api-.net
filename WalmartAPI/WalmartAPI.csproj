@@ -347,7 +347,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="D:\Users\eli\2015Projects\Extensions\Extensions.csproj">
+    <ProjectReference Include="Extensions\Extensions.csproj">
       <Project>{30a66dbc-e928-424a-af11-86baab40d44b}</Project>
       <Name>Extensions</Name>
     </ProjectReference>
