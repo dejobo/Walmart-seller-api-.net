@@ -62,7 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WalmartAPI\Extensions\Extensions.csproj">
-      <Project>{30a66dbc-e928-424a-af11-86baab40d44b}</Project>
+      <Project>{70bbe90b-92c2-453f-b68b-81541a27842a}</Project>
       <Name>Extensions</Name>
     </ProjectReference>
   </ItemGroup>
